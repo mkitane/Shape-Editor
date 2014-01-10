@@ -1,11 +1,11 @@
 /*************************************************************************
-                           Point  -  description
+                           EltGeo  -  description
                              -------------------
-    début                : 20 déc. 2013
-    copyright            : (C) 2013 par mkitane
+    début                : 10 janv. 2014
+    copyright            : (C) 2014 par tescure
 *************************************************************************/
 
-//---------- Réalisation de la classe <Point> (fichier Point.cpp) -------
+//---------- Réalisation de la classe <EltGeo> (fichier EltGeo.cpp) -------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -14,14 +14,14 @@ using namespace std;
 #include <iostream>
 
 //------------------------------------------------------ Include personnel
-#include "Point.h"
+#include "EltGeo.h"
 
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Point::Méthode ( liste des paramètres )
+// type EltGeo::Méthode ( liste des paramètres )
 // Algorithme :
 //
 //{
@@ -29,43 +29,42 @@ using namespace std;
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-/*
-Point & Point::operator = ( const Point & unPoint )
+EltGeo & EltGeo::operator = ( const EltGeo & unEltGeo )
 // Algorithme :
 //
 {
 } //----- Fin de operator =
-*
+
 
 //-------------------------------------------- Constructeurs - destructeur
-Point::Point ( const Point & unPoint )
+EltGeo::EltGeo ( const EltGeo & unEltGeo )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <Point>" << endl;
+    cout << "Appel au constructeur de copie de <EltGeo>" << endl;
 #endif
-} //----- Fin de Point (constructeur de copie)
+} //----- Fin de EltGeo (constructeur de copie)
 
 
-Point::Point ( )
+EltGeo::EltGeo ( )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <Point>" << endl;
+    cout << "Appel au constructeur de <EltGeo>" << endl;
 #endif
-} //----- Fin de Point
+} //----- Fin de EltGeo
 
 
-Point::~Point ( )
+EltGeo::~EltGeo ( )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <Point>" << endl;
+    cout << "Appel au destructeur de <EltGeo>" << endl;
 #endif
-} //----- Fin de ~Point
+} //----- Fin de ~EltGeo
 
 
 //------------------------------------------------------------------ PRIVE
