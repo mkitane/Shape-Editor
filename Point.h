@@ -9,6 +9,10 @@
 #if ! defined ( POINT_H_ )
 #define POINT_H_
 
+
+#include <iostream>
+using namespace std;
+
 //--------------------------------------------------- Interfaces utilisées
 
 //------------------------------------------------------------- Constantes 

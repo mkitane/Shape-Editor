@@ -1,24 +1,24 @@
 /*************************************************************************
-                           Point  -  description
-                             -------------------
-    début                : 20 déc. 2013
-    copyright            : (C) 2013 par mkitane
-*************************************************************************/
+ Figure  -  description
+ -------------------
+ début                : 20 déc. 2013
+ copyright            : (C) 2013 par mkitane
+ *************************************************************************/
 
-//---------- Réalisation de la classe <Point> (fichier Point.cpp) -------
+//---------- Réalisation de la classe <Figure> (fichier Figure.cpp) -------
 
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
 //------------------------------------------------------ Include personnel
-#include "Point.h"
+#include "Figure.h"
 
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Point::Méthode ( liste des paramètres )
+// type Figure::Méthode ( liste des paramètres )
 // Algorithme :
 //
 //{
@@ -27,43 +27,43 @@
 
 //------------------------------------------------- Surcharge d'opérateurs
 /*
-Point & Point::operator = ( const Point & unPoint )
-// Algorithme :
-//
-{
-} 
+ Figure & Figure::operator = ( const Figure & unFigure )
+ // Algorithme :
+ //
+ {
+ }
  *///----- Fin de operator =
 
 
 //-------------------------------------------- Constructeurs - destructeur
-Point::Point ( const Point & unPoint )
+Figure::Figure ( const Figure & unFigure )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <Point>" << endl;
+    cout << "Appel au constructeur de copie de <Figure>" << endl;
 #endif
-} //----- Fin de Point (constructeur de copie)
+} //----- Fin de Figure (constructeur de copie)
 
 
-Point::Point ( )
+Figure::Figure ( )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <Point>" << endl;
+    cout << "Appel au constructeur de <Figure>" << endl;
 #endif
-} //----- Fin de Point
+} //----- Fin de Figure
 
 
-Point::~Point ( )
+Figure::~Figure ( )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <Point>" << endl;
+    cout << "Appel au destructeur de <Figure>" << endl;
 #endif
-} //----- Fin de ~Point
+} //----- Fin de ~Figure
 
 
 //------------------------------------------------------------------ PRIVE

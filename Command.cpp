@@ -1,24 +1,24 @@
 /*************************************************************************
-                           Point  -  description
-                             -------------------
-    début                : 20 déc. 2013
-    copyright            : (C) 2013 par mkitane
-*************************************************************************/
+ Command  -  description
+ -------------------
+ début                : 20 déc. 2013
+ copyright            : (C) 2013 par mkitane
+ *************************************************************************/
 
-//---------- Réalisation de la classe <Point> (fichier Point.cpp) -------
+//---------- Réalisation de la classe <Command> (fichier Command.cpp) -------
 
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
 //------------------------------------------------------ Include personnel
-#include "Point.h"
+#include "Command.h"
 
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Point::Méthode ( liste des paramètres )
+// type Command::Méthode ( liste des paramètres )
 // Algorithme :
 //
 //{
@@ -27,43 +27,43 @@
 
 //------------------------------------------------- Surcharge d'opérateurs
 /*
-Point & Point::operator = ( const Point & unPoint )
-// Algorithme :
-//
-{
-} 
+ Command & Command::operator = ( const Command & unCommand )
+ // Algorithme :
+ //
+ {
+ }
  *///----- Fin de operator =
 
 
 //-------------------------------------------- Constructeurs - destructeur
-Point::Point ( const Point & unPoint )
+Command::Command ( const Command & unCommand )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <Point>" << endl;
+    cout << "Appel au constructeur de copie de <Command>" << endl;
 #endif
-} //----- Fin de Point (constructeur de copie)
+} //----- Fin de Command (constructeur de copie)
 
 
-Point::Point ( )
+Command::Command ( )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <Point>" << endl;
+    cout << "Appel au constructeur de <Command>" << endl;
 #endif
-} //----- Fin de Point
+} //----- Fin de Command
 
 
-Point::~Point ( )
+Command::~Command ( )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <Point>" << endl;
+    cout << "Appel au destructeur de <Command>" << endl;
 #endif
-} //----- Fin de ~Point
+} //----- Fin de ~Command
 
 
 //------------------------------------------------------------------ PRIVE
