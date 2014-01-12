@@ -16,6 +16,7 @@
 #include "CmdSuppression.h"
 #include "CmdUndo.h"
 #include "CmdRedo.h"
+#include "CmdSave.h"
 
 namespace Analyseur {
     
@@ -207,6 +208,11 @@ namespace Analyseur {
             case reprendre:
             {
                 c = new CmdRedo(&(f->listeDesElements), parameters, &(f->historique), &(f->itActuel));
+            }
+                break;
+            case sauvegarder:
+            {
+                c = new CmdSave(&(f->listeDesElements), parameters);
             }
                 break;
         }

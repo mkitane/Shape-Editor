@@ -12,6 +12,7 @@
 //-------------------------------------------------------- Include système
 //------------------------------------------------------ Include personnel
 #include "CmdSave.h"
+#include <fstream>
 
 //------------------------------------------------------------- Constantes
 
@@ -26,6 +27,25 @@
 
 bool CmdSave::execute(){
    //Pour tous les elements, ecrire leur description
+    vector<string>::iterator it;
+    
+    it= listeParametres.begin();
+    string nomFichier = *it;
+
+    
+    ofstream o;
+    o.open (nomFichier, ofstream::out | ofstream::trunc);
+    
+    if(o.is_open()){
+        for(int i=0; i<listeDesElements->size();i++){
+            // A modifier plustard
+            o << "Objet " << i << " Ecrit" << endl;
+        }
+        o.close();
+    }else{
+        cout<<"Error opening file" << endl;
+    }
+
     return true;
 }
 
