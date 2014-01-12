@@ -71,6 +71,7 @@ public:
     //----------------------------------------------------- Méthodes protégées
     //vector<EltGeo>
     vector<Command *> historique;
+    vector<Command *>::iterator itActuel;
     map<string, string> listeDesElements;
     protected:
 

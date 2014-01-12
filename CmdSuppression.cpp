@@ -24,9 +24,29 @@
 //{
 //} //----- Fin de Méthode
 
+bool CmdSuppression::canDoAnUndo(){
+    return true;
+}
 bool CmdSuppression::execute(){
     
-    cout<<"on execute suppression" << endl; 
+    cout<<"on execute suppression" << endl;
+    
+    vector<string>::iterator it;
+    for(it=listeParametres.begin(); it< listeParametres.end();it++){
+        string nom = *it;
+        cout<<"element a effacer :" << nom << endl;
+        
+        //On garde une reference sur lelement en cas de UNDO
+        map<string, string>::iterator itLE;
+        itLE = listeDesElements->find(nom);
+        if(itLE != listeDesElements->end()){
+            elementsSupprimes.push_back(&itLE->second);
+            listeDesElements->erase(nom);
+        }else{
+            cout<<"Element :" << nom << "n'existe pas"<< endl;
+            return false;
+        }
+    }
     return true;
 }
 
@@ -39,7 +59,7 @@ bool CmdSuppression::undo(){
 
 
 //-------------------------------------------- Constructeurs - destructeur
-CmdSuppression::CmdSuppression(map<string,string> *lE, vector<string> lP) : UndoableCommand(lE,lP)
+CmdSuppression::CmdSuppression(map<string,string> *lE, vector<string> lP) : Command(lE,lP)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <CmdSuppression>" << endl;

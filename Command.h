@@ -39,6 +39,8 @@ public:
     // Contrat :
     //
     bool virtual execute() = 0 ;
+    bool virtual undo() = 0 ;
+    bool virtual canDoAnUndo()=0;
     
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur

@@ -11,7 +11,7 @@
 
 
 #include <iostream>
-#include "UndoableCommand.h"
+#include "Command.h"
 using namespace std;
 
 //--------------------------------------------------- Interfaces utilisées
@@ -26,7 +26,7 @@ using namespace std;
 //
 //------------------------------------------------------------------------
 
-class CmdSuppression : public UndoableCommand
+class CmdSuppression : public Command
 {
     //----------------------------------------------------------------- PUBLIC
     
@@ -39,7 +39,8 @@ public:
     //
     bool execute();
     bool undo(); 
-    
+    bool canDoAnUndo();
+
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur
     CmdSuppression(map<string,string> *lE, vector<string> lP);

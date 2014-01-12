@@ -1,13 +1,13 @@
 /*************************************************************************
- UndoableCommand  -  description
+ CmdUndo  -  description
  -------------------
  début                : 20 déc. 2013
  copyright            : (C) 2013 par mkitane
  *************************************************************************/
 
-//---------- Interface de la classe <UndoableCommand> (fichier UndoableCommand.h) ------
-#if ! defined ( UndoableCommand_H_ )
-#define UndoableCommand_H_
+//---------- Interface de la classe <CmdUndo> (fichier CmdUndo.h) ------
+#if ! defined ( CmdUndo_H_ )
+#define CmdUndo_H_
 
 
 #include <iostream>
@@ -21,12 +21,12 @@ using namespace std;
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <UndoableCommand>
+// Rôle de la classe <CmdUndo>
 //
 //
 //------------------------------------------------------------------------
 
-class UndoableCommand : public Command
+class CmdUndo : public Command
 {
     //----------------------------------------------------------------- PUBLIC
     
@@ -37,24 +37,23 @@ public:
     //
     // Contrat :
     //
-    bool virtual execute() = 0 ;
-    bool virtual undo() = 0 ;
+    bool execute();
+    bool undo();
+    bool canDoAnUndo();
     
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur
-    
-    UndoableCommand (map<string,string> *listeDesElements, vector<string> lP );
+    CmdUndo(map<string,string> *lE, vector<string> lP, vector<Command *> * historique,vector<Command *>::iterator *itAct);
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    virtual ~UndoableCommand ( );
+    ~CmdUndo();
     // Mode d'emploi :
     //
     // Contrat :
     //
-    
     
     //------------------------------------------------------------------ PRIVE
     
@@ -62,9 +61,11 @@ protected:
     //----------------------------------------------------- Méthodes protégées
     
     //----------------------------------------------------- Attributs protégés
-    
+    //Pour le redo
+    vector<Command *> *historique;
+    vector<Command *>::iterator *itActuel;
 };
 
-//--------------------------- Autres définitions dépendantes de <UndoableCommand>
+//--------------------------- Autres définitions dépendantes de <CmdUndo>
 
-#endif // UndoableCommand_H_
+#endif // CmdUndo_H_

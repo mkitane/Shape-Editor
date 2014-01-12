@@ -24,8 +24,22 @@
 //{
 //} //----- Fin de Méthode
 void Figure::stockerEtExecuter(Command *c){
-    historique.push_back(c);
-    c->execute();
+    if(c->canDoAnUndo()){
+        
+        if(itActuel != (historique.end() -1) ){
+            //TODO: NE PAS OUBLIER DE DELETE AVANT D4EFFACER
+            vector<Command *>::iterator i;
+            for(i=(itActuel+1); i< historique.end();i++){
+                delete *i;
+            }
+            historique.erase(itActuel+1, historique.end());
+        }
+        historique.push_back(c);
+        itActuel= historique.end() - 1;
+        c->execute();
+    }else{
+        c->execute();
+    }
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -53,6 +67,7 @@ Figure::Figure ( )
 // Algorithme :
 //
 {
+    itActuel = historique.end() - 1 ;
 #ifdef MAP
     cout << "Appel au constructeur de <Figure>" << endl;
 #endif

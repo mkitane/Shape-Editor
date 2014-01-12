@@ -11,8 +11,7 @@
 
 
 #include <iostream>
-#include "UndoableCommand.h"
-#include "Figure.h"
+#include "Command.h"
 using namespace std;
 
 //--------------------------------------------------- Interfaces utilisées
@@ -27,7 +26,7 @@ using namespace std;
 //
 //------------------------------------------------------------------------
 
-class CmdAjouterCercle : public UndoableCommand
+class CmdAjouterCercle : public Command
 {
     //----------------------------------------------------------------- PUBLIC
     
@@ -40,6 +39,7 @@ public:
     //
     bool execute();
     bool undo();
+    bool canDoAnUndo();
     
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur
@@ -61,6 +61,7 @@ protected:
     
     //----------------------------------------------------- Attributs protégés
     string *cercleAjoute;
+    int tab[1000000000];
 };
 
 //--------------------------- Autres définitions dépendantes de <CmdAjouterCercle>

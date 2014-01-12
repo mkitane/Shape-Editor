@@ -12,6 +12,7 @@
 //-------------------------------------------------------- Include système
 //------------------------------------------------------ Include personnel
 #include "CmdAjouterCercle.h"
+#include "Analyseur.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -24,6 +25,9 @@
 //{
 //} //----- Fin de Méthode
 
+bool CmdAjouterCercle::canDoAnUndo(){
+    return true; 
+}
 bool CmdAjouterCercle::execute(){
   
     
@@ -33,17 +37,33 @@ bool CmdAjouterCercle::execute(){
     string nom = *it;
     
     it++;
-    int x1 = (int) strtol((*it).c_str(),nullptr,10);
+    int x1;
+    if(!Analyseur::checkIfNumber((*it).c_str(), &x1)){
+        cout<<"Cmd AjouterCercle is not valid" << endl;
+        return false;
+    }
+    
     it++;
-    int y1 = (int) strtol((*it).c_str(),nullptr,10);
+    int y1;
+    
+    if(!Analyseur::checkIfNumber((*it).c_str(), &y1)){
+        cout<<"Cmd AjouterCercle is not valid" << endl;
+        return false;
+    }
+    
+    
     it++;
-    int r = (int)  strtol((*it).c_str(),nullptr,10);
+    int r;
+    if(!Analyseur::checkIfNumber((*it).c_str(), &r)){
+        cout<<"Cmd AjouterCercle is not valid" << endl;
+        return false;
+    }
     
     
     cout<< "On cree un cercle de rayon " << r << " et de coordonnées (" << x1 << "," << y1 << ") " << endl;
 
 
-    cercleAjoute = new string("");
+    cercleAjoute = new string("demerde");
     
     listeDesElements -> insert (pair<string,string>(nom,*cercleAjoute) );
     return true;
@@ -64,7 +84,7 @@ bool CmdAjouterCercle::undo(){
 
 
 //-------------------------------------------- Constructeurs - destructeur
-CmdAjouterCercle::CmdAjouterCercle(map<string,string> *lE, vector<string> lP) : UndoableCommand(lE,lP)
+CmdAjouterCercle::CmdAjouterCercle(map<string,string> *lE, vector<string> lP) : Command(lE,lP)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <CmdAjouterCercle>" << endl;
