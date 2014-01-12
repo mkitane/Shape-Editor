@@ -63,9 +63,9 @@ bool CmdAjouterCercle::execute(){
     cout<< "On cree un cercle de rayon " << r << " et de coordonnées (" << x1 << "," << y1 << ") " << endl;
 
 
-    cercleAjoute = new string("demerde");
+    cercleAjoute = nom;
     
-    listeDesElements -> insert (pair<string,string>(nom,*cercleAjoute) );
+    listeDesElements -> insert (pair<string,string>(nom,nom) );
     return true;
 }
 
@@ -76,7 +76,8 @@ bool CmdAjouterCercle::undo(){
     string nom = *it;
 
     
-    listeDesElements -> erase(nom); 
+    listeDesElements -> erase(nom);
+    cout<< "Suprresion Cercle"<<endl;
     return true;
 }
 

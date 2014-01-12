@@ -14,7 +14,8 @@
 #include "Analyseur.h"
 #include "CmdAjouterCercle.h"
 #include "CmdSuppression.h"
-#include "cmdUndo.h"
+#include "CmdUndo.h"
+#include "CmdRedo.h"
 
 namespace Analyseur {
     
@@ -197,9 +198,15 @@ namespace Analyseur {
             {
                 c = new CmdSuppression(&(f->listeDesElements), parameters);
             }
+                break;
             case annuler:
             {
                 c = new CmdUndo(&(f->listeDesElements), parameters, &(f->historique), &(f->itActuel));
+            }
+                break;
+            case reprendre:
+            {
+                c = new CmdRedo(&(f->listeDesElements), parameters, &(f->historique), &(f->itActuel));
             }
                 break;
         }

@@ -1,13 +1,13 @@
 /*************************************************************************
- CmdAjouterCercle  -  description
+ CmdRedo  -  description
  -------------------
  début                : 20 déc. 2013
  copyright            : (C) 2013 par mkitane
  *************************************************************************/
 
-//---------- Interface de la classe <CmdAjouterCercle> (fichier CmdAjouterCercle.h) ------
-#if ! defined ( CmdAjouterCercle_H_ )
-#define CmdAjouterCercle_H_
+//---------- Interface de la classe <CmdRedo> (fichier CmdRedo.h) ------
+#if ! defined ( CmdRedo_H_ )
+#define CmdRedo_H_
 
 
 #include <iostream>
@@ -21,12 +21,12 @@ using namespace std;
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <CmdAjouterCercle>
+// Rôle de la classe <CmdRedo>
 //
 //
 //------------------------------------------------------------------------
 
-class CmdAjouterCercle : public Command
+class CmdRedo : public Command
 {
     //----------------------------------------------------------------- PUBLIC
     
@@ -43,27 +43,29 @@ public:
     
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur
-    CmdAjouterCercle(map<string,string> *lE, vector<string> lP);
+    CmdRedo(map<string,string> *lE, vector<string> lP, vector<Command *> * historique,vector<Command *>::iterator *itAct);
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    ~CmdAjouterCercle();
+    ~CmdRedo();
     // Mode d'emploi :
     //
     // Contrat :
     //
+    
     //------------------------------------------------------------------ PRIVE
     
 protected:
     //----------------------------------------------------- Méthodes protégées
     
     //----------------------------------------------------- Attributs protégés
-    string cercleAjoute;
-    //int tab[1000000000];
+    //Pour le redo
+    vector<Command *> *historique;
+    vector<Command *>::iterator *itActuel;
 };
 
-//--------------------------- Autres définitions dépendantes de <CmdAjouterCercle>
+//--------------------------- Autres définitions dépendantes de <CmdRedo>
 
-#endif // CmdAjouterCercle_H_
+#endif // CmdRedo_H_

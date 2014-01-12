@@ -39,6 +39,7 @@ void Figure::stockerEtExecuter(Command *c){
         c->execute();
     }else{
         c->execute();
+        delete c;
     }
 }
 

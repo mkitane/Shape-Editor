@@ -1,45 +1,46 @@
 /*************************************************************************
- CmdUndo  -  description
+ CmdRedo  -  description
  -------------------
  début                : 20 déc. 2013
  copyright            : (C) 2013 par mkitane
  *************************************************************************/
 
-//---------- Réalisation de la classe <CmdUndo> (fichier CmdUndo.cpp) -------
+//---------- Réalisation de la classe <CmdRedo> (fichier CmdRedo.cpp) -------
 
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
 //------------------------------------------------------ Include personnel
-#include "CmdUndo.h"
+#include "CmdRedo.h"
 
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type CmdUndo::Méthode ( liste des paramètres )
+// type CmdRedo::Méthode ( liste des paramètres )
 // Algorithme :
 //
 //{
 //} //----- Fin de Méthode
 
-bool CmdUndo::execute(){
-    if(*itActuel == (historique->begin()-1)){
-        cout<<"Rien a undo" <<endl; 
+bool CmdRedo::execute(){
+    
+    if(*itActuel+1 == historique->end()){
+        cout<<"rien a redo" << endl; 
         return false;
     }
-    Command *c = **itActuel;
-    c->undo();
-    (*itActuel)--;
+    Command *c = *(*itActuel+1);
+    c->execute();
+    (*itActuel)++;
     return true;
 }
 
-bool CmdUndo::undo(){
+bool CmdRedo::undo(){
     return false;
 }
-bool CmdUndo::canDoAnUndo(){
-    return false; 
+bool CmdRedo::canDoAnUndo(){
+    return false;
 }
 
 
@@ -47,22 +48,22 @@ bool CmdUndo::canDoAnUndo(){
 
 
 //-------------------------------------------- Constructeurs - destructeur
-CmdUndo::CmdUndo(map<string,string> *lE, vector<string> lP, vector<Command *> *histo, vector<Command *>::iterator *itAct) : Command(lE,lP), historique(histo), itActuel(itAct)
+CmdRedo::CmdRedo(map<string,string> *lE, vector<string> lP, vector<Command *> *histo, vector<Command *>::iterator *itAct) : Command(lE,lP), historique(histo), itActuel(itAct)
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <CmdUndo>" << endl;
+    cout << "Appel au constructeur de <CmdRedo>" << endl;
 #endif
-} //----- Fin de CmdUndo
+} //----- Fin de CmdRedo
 
 
-CmdUndo::~CmdUndo ( )
+CmdRedo::~CmdRedo ( )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <CmdUndo>" << endl;
+    cout << "Appel au destructeur de <CmdRedo>" << endl;
 #endif
-} //----- Fin de ~CmdUndo
+} //----- Fin de ~CmdRedo
 
 
 //------------------------------------------------------------------ PRIVE
