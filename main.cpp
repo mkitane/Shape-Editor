@@ -11,9 +11,30 @@
 #include <iostream>
 #include <sstream>
 #include <stdlib.h>     /* strtol */
+#include "Figure.h"
+#include "CmdAjouterCercle.h"
+#include "CmdSuppression.h"
 
 
 using namespace std;
+
+typedef enum{
+    ajouterCercle,
+    ajouterRectangle,
+    ajouterLigne,
+    ajouterPolyligne,
+    ajouterObjetAgrege,
+    suppression,
+    deplacement,
+    enumeration,
+    annuler,
+    reprendre,
+    charger,
+    sauvegarder,
+    vider,
+    fermer
+}TypeCommand;
+
 
 
 bool checkIfNumber(string supposedNumber){
@@ -166,6 +187,27 @@ bool analyseTypeCommande(string command){
     
     return false;
 }
+void remplirParametres(vector<string> * parameters, TypeCommand *t, const string command){
+    std::istringstream iss(command);
+    
+    std::string line;
+    
+    
+    getline(iss, line,' '); // Permet de ne pas prendre en compte la premiere partie
+                            // Cad le nom de la commande
+    
+    while (getline(iss, line,' '))
+    {
+        // Do something with `line
+        cout<< "le parametre a push back est " << line << endl;
+        parameters->push_back(line);
+    }
+}
+//Command & createCommand(TypeCommand t, vector<string> parameters){
+  
+    
+//}
+
 int main(int argc, const char * argv[])
 {
 
@@ -174,20 +216,42 @@ int main(int argc, const char * argv[])
     cout << "Hello World" << endl ;
     
     
+    Figure f;
+    
     while(true){
         //on recupere la commande de l'utilisateur
-        char command[80];
-        cin.getline(command, sizeof(command));
-    
-        if(checkIfNumber(command)){
-            cout<<"Oui c'est un nb" << endl;
+        char commandEntry[80];
+        vector <string> parameters ;
+        TypeCommand t;
+        
+        
+        cin.getline(commandEntry, sizeof(commandEntry));
+       
+        
+        if(analyseTypeCommande(commandEntry)){
+            
+            remplirParametres(&parameters, &t, commandEntry);
+
+            
+            if(t == ajouterCercle){
+                if(t == ajouterCercle){
+                    CmdAjouterCercle *c = new CmdAjouterCercle(&f.listeDesElements,parameters);
+                    f.stockerEtExecuter(c); 
+                }else if(t == suppression){
+                    CmdSuppression *c = new CmdSuppression(&f.listeDesElements, parameters);
+                    f.stockerEtExecuter(c);
+                }
+                
+            }
+            
+        }else{
+            cout<<"Erreur Command"<<endl;
         }
-        /*
-        cout <<nbParams(command)<<endl;
-        if(!analyseTypeCommande(command)){
-            cout<<"Invalid Command, Please retype a valid one" << endl;
-        }
-        */
+       
+        
+        //On cree la commande en fonction des parametres entres
+        
+        
     
     }
     return 0;

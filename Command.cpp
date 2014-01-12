@@ -26,27 +26,9 @@
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-/*
- Command & Command::operator = ( const Command & unCommand )
- // Algorithme :
- //
- {
- }
- *///----- Fin de operator =
-
 
 //-------------------------------------------- Constructeurs - destructeur
-Command::Command ( const Command & unCommand )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Command>" << endl;
-#endif
-} //----- Fin de Command (constructeur de copie)
-
-
-Command::Command ( )
+Command::Command (map<string,string> *lE, vector<string> lP ) : listeParametres(lP) , listeDesElements(lE)
 // Algorithme :
 //
 {

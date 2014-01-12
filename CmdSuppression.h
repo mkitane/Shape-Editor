@@ -1,18 +1,17 @@
 /*************************************************************************
- Command  -  description
+ CmdSuppression  -  description
  -------------------
  début                : 20 déc. 2013
  copyright            : (C) 2013 par mkitane
  *************************************************************************/
 
-//---------- Interface de la classe <Command> (fichier Command.h) ------
-#if ! defined ( COMMAND_H_ )
-#define COMMAND_H_
+//---------- Interface de la classe <CmdSuppression> (fichier CmdSuppression.h) ------
+#if ! defined ( CmdSuppression_H_ )
+#define CmdSuppression_H_
 
 
 #include <iostream>
-#include <map>
-#include <vector>
+#include "UndoableCommand.h"
 using namespace std;
 
 //--------------------------------------------------- Interfaces utilisées
@@ -22,12 +21,12 @@ using namespace std;
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Command>
+// Rôle de la classe <CmdSuppression>
 //
 //
 //------------------------------------------------------------------------
 
-class Command
+class CmdSuppression : public UndoableCommand
 {
     //----------------------------------------------------------------- PUBLIC
     
@@ -38,35 +37,33 @@ public:
     //
     // Contrat :
     //
-    bool virtual execute() = 0 ;
+    bool execute();
+    bool undo(); 
     
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur
-
-     Command (map<string,string> *listeDesElements, vector<string> lP );
+    CmdSuppression(map<string,string> *lE, vector<string> lP);
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    virtual ~Command ( );
+    ~CmdSuppression();
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-
     //------------------------------------------------------------------ PRIVE
     
 protected:
     //----------------------------------------------------- Méthodes protégées
     
     //----------------------------------------------------- Attributs protégés
-    vector<string> listeParametres;
-    map<string,string> *listeDesElements;
-
+    vector<string *> elementsSupprimes ; //On garde une reference aux elements supprimés juste in case;
+                                    //Pour le redo
 };
 
-//--------------------------- Autres définitions dépendantes de <Command>
+//--------------------------- Autres définitions dépendantes de <CmdSuppression>
 
-#endif // COMMAND_H_
+#endif // CmdSuppression_H_

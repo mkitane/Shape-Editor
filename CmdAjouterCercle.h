@@ -1,18 +1,18 @@
 /*************************************************************************
- Command  -  description
+ CmdAjouterCercle  -  description
  -------------------
  début                : 20 déc. 2013
  copyright            : (C) 2013 par mkitane
  *************************************************************************/
 
-//---------- Interface de la classe <Command> (fichier Command.h) ------
-#if ! defined ( COMMAND_H_ )
-#define COMMAND_H_
+//---------- Interface de la classe <CmdAjouterCercle> (fichier CmdAjouterCercle.h) ------
+#if ! defined ( CmdAjouterCercle_H_ )
+#define CmdAjouterCercle_H_
 
 
 #include <iostream>
-#include <map>
-#include <vector>
+#include "UndoableCommand.h"
+#include "Figure.h"
 using namespace std;
 
 //--------------------------------------------------- Interfaces utilisées
@@ -22,12 +22,12 @@ using namespace std;
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Command>
+// Rôle de la classe <CmdAjouterCercle>
 //
 //
 //------------------------------------------------------------------------
 
-class Command
+class CmdAjouterCercle : public UndoableCommand
 {
     //----------------------------------------------------------------- PUBLIC
     
@@ -38,35 +38,31 @@ public:
     //
     // Contrat :
     //
-    bool virtual execute() = 0 ;
+    bool execute();
+    bool undo();
     
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur
-
-     Command (map<string,string> *listeDesElements, vector<string> lP );
+    CmdAjouterCercle(map<string,string> *lE, vector<string> lP);
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    virtual ~Command ( );
+    ~CmdAjouterCercle();
     // Mode d'emploi :
     //
     // Contrat :
     //
-    
-
     //------------------------------------------------------------------ PRIVE
     
 protected:
     //----------------------------------------------------- Méthodes protégées
     
     //----------------------------------------------------- Attributs protégés
-    vector<string> listeParametres;
-    map<string,string> *listeDesElements;
-
+    string *cercleAjoute;
 };
 
-//--------------------------- Autres définitions dépendantes de <Command>
+//--------------------------- Autres définitions dépendantes de <CmdAjouterCercle>
 
-#endif // COMMAND_H_
+#endif // CmdAjouterCercle_H_

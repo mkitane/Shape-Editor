@@ -14,6 +14,8 @@
 //--------------------------------------------------- Interfaces utilisées
 #include <iostream>
 #include <vector>
+#include <map>
+#include "Command.h"
 using namespace std;
 //------------------------------------------------------------- Constantes
 
@@ -36,9 +38,7 @@ public:
     //
     // Contrat :
     //
-    bool virtual execute() = 0 ;
-    bool virtual undo() = 0 ;
-    
+    void stockerEtExecuter(Command *c);
     //------------------------------------------------- Surcharge d'opérateurs
     Figure & operator = ( const Figure & unFigure );
     // Mode d'emploi :
@@ -68,9 +68,12 @@ public:
     
     //------------------------------------------------------------------ PRIVE
     
-protected:
     //----------------------------------------------------- Méthodes protégées
     //vector<EltGeo>
+    vector<Command *> historique;
+    map<string, string> listeDesElements;
+    protected:
+
     //----------------------------------------------------- Attributs protégés
     
 };

@@ -1,72 +1,51 @@
 /*************************************************************************
- Figure  -  description
+ UndoableCommand  -  description
  -------------------
  début                : 20 déc. 2013
  copyright            : (C) 2013 par mkitane
  *************************************************************************/
 
-//---------- Réalisation de la classe <Figure> (fichier Figure.cpp) -------
+//---------- Réalisation de la classe <UndoableCommand> (fichier UndoableCommand.cpp) -------
 
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
 //------------------------------------------------------ Include personnel
-#include "Figure.h"
+#include "UndoableCommand.h"
 
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Figure::Méthode ( liste des paramètres )
+// type UndoableCommand::Méthode ( liste des paramètres )
 // Algorithme :
 //
 //{
 //} //----- Fin de Méthode
-void Figure::stockerEtExecuter(Command *c){
-    historique.push_back(c);
-    c->execute();
-}
+
 
 //------------------------------------------------- Surcharge d'opérateurs
-/*
- Figure & Figure::operator = ( const Figure & unFigure )
- // Algorithme :
- //
- {
- }
- *///----- Fin de operator =
-
 
 //-------------------------------------------- Constructeurs - destructeur
-Figure::Figure ( const Figure & unFigure )
+UndoableCommand::UndoableCommand (map<string,string> *lE, vector<string> lP ) : Command(lE,lP)
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <Figure>" << endl;
+    cout << "Appel au constructeur de <UndoableCommand>" << endl;
 #endif
-} //----- Fin de Figure (constructeur de copie)
+} //----- Fin de UndoableCommand
 
 
-Figure::Figure ( )
+UndoableCommand::~UndoableCommand ( )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <Figure>" << endl;
+    cout << "Appel au destructeur de <UndoableCommand>" << endl;
 #endif
-} //----- Fin de Figure
-
-
-Figure::~Figure ( )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au destructeur de <Figure>" << endl;
-#endif
-} //----- Fin de ~Figure
+} //----- Fin de ~UndoableCommand
 
 
 //------------------------------------------------------------------ PRIVE

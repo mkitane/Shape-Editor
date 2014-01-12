@@ -1,18 +1,17 @@
 /*************************************************************************
- Command  -  description
+ UndoableCommand  -  description
  -------------------
  début                : 20 déc. 2013
  copyright            : (C) 2013 par mkitane
  *************************************************************************/
 
-//---------- Interface de la classe <Command> (fichier Command.h) ------
-#if ! defined ( COMMAND_H_ )
-#define COMMAND_H_
+//---------- Interface de la classe <UndoableCommand> (fichier UndoableCommand.h) ------
+#if ! defined ( UndoableCommand_H_ )
+#define UndoableCommand_H_
 
 
 #include <iostream>
-#include <map>
-#include <vector>
+#include "Command.h"
 using namespace std;
 
 //--------------------------------------------------- Interfaces utilisées
@@ -22,12 +21,12 @@ using namespace std;
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Command>
+// Rôle de la classe <UndoableCommand>
 //
 //
 //------------------------------------------------------------------------
 
-class Command
+class UndoableCommand : public Command
 {
     //----------------------------------------------------------------- PUBLIC
     
@@ -39,34 +38,33 @@ public:
     // Contrat :
     //
     bool virtual execute() = 0 ;
+    bool virtual undo() = 0 ;
     
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur
-
-     Command (map<string,string> *listeDesElements, vector<string> lP );
+    
+    UndoableCommand (map<string,string> *listeDesElements, vector<string> lP );
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    virtual ~Command ( );
+    virtual ~UndoableCommand ( );
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-
+    
     //------------------------------------------------------------------ PRIVE
     
 protected:
     //----------------------------------------------------- Méthodes protégées
     
     //----------------------------------------------------- Attributs protégés
-    vector<string> listeParametres;
-    map<string,string> *listeDesElements;
-
+    
 };
 
-//--------------------------- Autres définitions dépendantes de <Command>
+//--------------------------- Autres définitions dépendantes de <UndoableCommand>
 
-#endif // COMMAND_H_
+#endif // UndoableCommand_H_
