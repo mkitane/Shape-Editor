@@ -21,7 +21,7 @@
 //
 //------------------------------------------------------------------------
 
-class Polyligne
+class Polyligne : public Ligne
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -33,9 +33,14 @@ public:
     // Contrat :
     //
 
+void Deplacer(int x0, int y0);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
 //------------------------------------------------- Surcharge d'opérateurs
-    Polyligne & operator = ( const Polyligne & unPolyligne );
+    /*Polyligne & operator = ( const Polyligne & unPolyligne );
     // Mode d'emploi :
     //
     // Contrat :
@@ -48,7 +53,7 @@ public:
     //
     // Contrat :
     //
-
+*/
     Polyligne ( );
     // Mode d'emploi :
     //
