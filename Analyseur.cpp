@@ -219,7 +219,9 @@ namespace Analyseur {
         
         return c; 
     }
-    
+    string createObjectWithParameters(TypeCommand t, vector<string> parameters){
+        return "ok";
+    }
 }
 
 
