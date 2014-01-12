@@ -1,24 +1,27 @@
 /*************************************************************************
-                           Point  -  description
+                           Ligne  -  description
                              -------------------
     début                : 20 déc. 2013
     copyright            : (C) 2013 par mkitane
 *************************************************************************/
 
-//---------- Réalisation de la classe <Point> (fichier Point.cpp) -------
+//---------- Réalisation de la classe <Ligne> (fichier Ligne.cpp) -------
 
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
+using namespace std;
+#include <iostream>
+
 //------------------------------------------------------ Include personnel
-#include "Point.h"
+#include "Ligne.h"
 
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Point::Méthode ( liste des paramètres )
+// type Ligne::Méthode ( liste des paramètres )
 // Algorithme :
 //
 //{
@@ -26,43 +29,41 @@
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-/*
-Point & Point::operator = ( const Point & unPoint )
+Ligne & Ligne::operator = ( const Ligne & unLigne )
 // Algorithme :
 //
-{
-}
- *///----- Fin de operator =
+//{
+//} //----- Fin de operator =
 
 
 //-------------------------------------------- Constructeurs - destructeur
-/*Point::Point ( const Point & unPoint )
+/*Ligne::Ligne ( const Ligne & unLigne )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <Point>" << endl;
+    cout << "Appel au constructeur de copie de <Ligne>" << endl;
 #endif
-} //----- Fin de Point (constructeur de copie)
+} //----- Fin de Ligne (constructeur de copie)
 */
 
-Point::Point (int x, int y )
+Ligne::Ligne(x1,y1,x2,y2)
 // Algorithme :
 //
 {
-    X=x;
-    Y=y;
-} //----- Fin de Point
+point1=Point(x1,y1);
+point2=Point(x2,y2);
+} //----- Fin de Ligne
 
 
-Point::~Point ( )
+Ligne::~Ligne ( )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <Point>" << endl;
+    cout << "Appel au destructeur de <Ligne>" << endl;
 #endif
-} //----- Fin de ~Point
+} //----- Fin de ~Ligne
 
 
 //------------------------------------------------------------------ PRIVE

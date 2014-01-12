@@ -1,24 +1,27 @@
 /*************************************************************************
-                           Point  -  description
+                           Rectangle  -  description
                              -------------------
     début                : 20 déc. 2013
     copyright            : (C) 2013 par mkitane
 *************************************************************************/
 
-//---------- Réalisation de la classe <Point> (fichier Point.cpp) -------
+//---------- Réalisation de la classe <Rectangle> (fichier Rectangle.cpp) -------
 
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
+using namespace std;
+#include <iostream>
+
 //------------------------------------------------------ Include personnel
-#include "Point.h"
+#include "Rectangle.h"
 
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Point::Méthode ( liste des paramètres )
+// type Rectangle::Méthode ( liste des paramètres )
 // Algorithme :
 //
 //{
@@ -26,43 +29,42 @@
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-/*
-Point & Point::operator = ( const Point & unPoint )
+/*µRectangle & Rectangle::operator = ( const Rectangle & unRectangle )
 // Algorithme :
 //
 {
-}
- *///----- Fin de operator =
-
-
-//-------------------------------------------- Constructeurs - destructeur
-/*Point::Point ( const Point & unPoint )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Point>" << endl;
-#endif
-} //----- Fin de Point (constructeur de copie)
+} //----- Fin de operator =
 */
 
-Point::Point (int x, int y )
-// Algorithme :
-//
-{
-    X=x;
-    Y=y;
-} //----- Fin de Point
-
-
-Point::~Point ( )
+//-------------------------------------------- Constructeurs - destructeur
+Rectangle::Rectangle ( const Rectangle & unRectangle )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <Point>" << endl;
+    cout << "Appel au constructeur de copie de <Rectangle>" << endl;
 #endif
-} //----- Fin de ~Point
+} //----- Fin de Rectangle (constructeur de copie)
+
+
+Rectangle::Rectangle ( )
+// Algorithme :
+//
+{
+#ifdef MAP
+    cout << "Appel au constructeur de <Rectangle>" << endl;
+#endif
+} //----- Fin de Rectangle
+
+
+Rectangle::~Rectangle ( )
+// Algorithme :
+//
+{
+#ifdef MAP
+    cout << "Appel au destructeur de <Rectangle>" << endl;
+#endif
+} //----- Fin de ~Rectangle
 
 
 //------------------------------------------------------------------ PRIVE

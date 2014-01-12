@@ -1,24 +1,27 @@
 /*************************************************************************
-                           Point  -  description
+                           Polyligne  -  description
                              -------------------
     début                : 20 déc. 2013
     copyright            : (C) 2013 par mkitane
 *************************************************************************/
 
-//---------- Réalisation de la classe <Point> (fichier Point.cpp) -------
+//---------- Réalisation de la classe <Polyligne> (fichier Polyligne.cpp) -------
 
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
+using namespace std;
+#include <iostream>
+
 //------------------------------------------------------ Include personnel
-#include "Point.h"
+#include "Polyligne.h"
 
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Point::Méthode ( liste des paramètres )
+// type Polyligne::Méthode ( liste des paramètres )
 // Algorithme :
 //
 //{
@@ -26,43 +29,42 @@
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-/*
-Point & Point::operator = ( const Point & unPoint )
+Polyligne & Polyligne::operator = ( const Polyligne & unPolyligne )
 // Algorithme :
 //
 {
-}
- *///----- Fin de operator =
+} //----- Fin de operator =
 
 
 //-------------------------------------------- Constructeurs - destructeur
-/*Point::Point ( const Point & unPoint )
+Polyligne::Polyligne ( const Polyligne & unPolyligne )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <Point>" << endl;
+    cout << "Appel au constructeur de copie de <Polyligne>" << endl;
 #endif
-} //----- Fin de Point (constructeur de copie)
-*/
-
-Point::Point (int x, int y )
-// Algorithme :
-//
-{
-    X=x;
-    Y=y;
-} //----- Fin de Point
+} //----- Fin de Polyligne (constructeur de copie)
 
 
-Point::~Point ( )
+Polyligne::Polyligne ( )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <Point>" << endl;
+    cout << "Appel au constructeur de <Polyligne>" << endl;
 #endif
-} //----- Fin de ~Point
+} //----- Fin de Polyligne
+
+
+Polyligne::~Polyligne ( )
+// Algorithme :
+//
+{
+#ifdef MAP
+    cout << "Appel au destructeur de <Polyligne>" << endl;
+#endif
+} //----- Fin de ~Polyligne
 
 
 //------------------------------------------------------------------ PRIVE

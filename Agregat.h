@@ -1,45 +1,44 @@
 /*************************************************************************
-                           Point  -  description
+                           Agregat  -  description
                              -------------------
-    d√©but                : 20 d√©c. 2013
+    dÈbut                : 20 dÈc. 2013
     copyright            : (C) 2013 par mkitane
 *************************************************************************/
 
-//---------- Interface de la classe <Point> (fichier Point.h) ------
-#if ! defined ( POINT_H_ )
-#define POINT_H_
+//---------- Interface de la classe <Agregat> (fichier Agregat.h) ------
 
+#ifndef _H_INCLUDED
+#define _H_INCLUDED
 
 #include <iostream>
+#include <vector>
+#include "EltGeo.h"
 using namespace std;
 
-//--------------------------------------------------- Interfaces utilis√©es
+//--------------------------------------------------- Interfaces utilisÈes
 
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// R√¥le de la classe <Point>
+// RÙle de la classe <Agregat>
 //
 //
 //------------------------------------------------------------------------
 
-class Point
+class Agregat : public EltGeo
 {
 //----------------------------------------------------------------- PUBLIC
 
 public:
-//----------------------------------------------------- M√©thodes publiques
-    // type M√©thode ( liste des param√®tres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//----------------------------------------------------- MÈthodes publiques
+    void Deplacer(int w0, int y0);
 
 
-//------------------------------------------------- Surcharge d'op√©rateurs
-    Point & operator = ( const Point & unPoint );
+
+//------------------------------------------------- Surcharge d'opÈrateurs
+    Agregat & operator = ( const Agregat & unAgregat );
     // Mode d'emploi :
     //
     // Contrat :
@@ -47,16 +46,16 @@ public:
 
 
 //-------------------------------------------- Constructeurs - destructeur
-    /*Point ( const Point & unPoint );
+    /*Agregat ( const Agregat & unAgregat );
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :
     //
-    */
-    Point (int, int);
+*/
+    Agregat();
 
 
-    virtual ~Point ( );
+    virtual ~Agregat();
     // Mode d'emploi :
     //
     // Contrat :
@@ -65,13 +64,13 @@ public:
 //------------------------------------------------------------------ PRIVE
 
 protected:
-//----------------------------------------------------- M√©thodes prot√©g√©es
+//----------------------------------------------------- MÈthodes protÈgÈes
 
-//----------------------------------------------------- Attributs prot√©g√©s
-int X;
-int Y;
+//----------------------------------------------------- Attributs protÈgÈs
+vector <EltGeo> ListEltGeo;
+
 };
 
-//--------------------------- Autres d√©finitions d√©pendantes de <Point>
+//--------------------------- Autres dÈfinitions dÈpendantes de <Agregat>
 
-#endif // POINT_H_
+#endif // Agregat_H_
