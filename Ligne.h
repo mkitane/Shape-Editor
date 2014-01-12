@@ -1,17 +1,13 @@
 /*************************************************************************
-                           Point  -  description
+                           Ligne  -  description
                              -------------------
     début                : 20 déc. 2013
     copyright            : (C) 2013 par mkitane
 *************************************************************************/
 
-//---------- Interface de la classe <Point> (fichier Point.h) ------
-#if ! defined ( POINT_H_ )
-#define POINT_H_
-
-
-#include <iostream>
-using namespace std;
+//---------- Interface de la classe <Ligne> (fichier Ligne.h) ------
+#if ! defined ( Ligne_H_ )
+#define Ligne_H_
 
 //--------------------------------------------------- Interfaces utilisées
 
@@ -20,12 +16,12 @@ using namespace std;
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Point>
+// Rôle de la classe <Ligne>
 //
 //
 //------------------------------------------------------------------------
 
-class Point
+class Ligne : public Point
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -39,7 +35,7 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-    Point & operator = ( const Point & unPoint );
+    Ligne & operator = ( const Ligne & unLigne );
     // Mode d'emploi :
     //
     // Contrat :
@@ -47,16 +43,19 @@ public:
 
 
 //-------------------------------------------- Constructeurs - destructeur
-    /*Point ( const Point & unPoint );
+  /*  Ligne ( const Ligne & unLigne );
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :
     //
-    */
-    Point (int, int);
+*/
+    Ligne (int x1,int y1, int x2, int y2);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
-
-    virtual ~Point ( );
+    virtual ~Ligne ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -68,10 +67,10 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-int X;
-int Y;
+point point1;
+point point2;
 };
 
-//--------------------------- Autres définitions dépendantes de <Point>
+//--------------------------- Autres définitions dépendantes de <Ligne>
 
-#endif // POINT_H_
+#endif // Ligne_H_

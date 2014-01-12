@@ -1,17 +1,13 @@
 /*************************************************************************
-                           Point  -  description
+                           Polyligne  -  description
                              -------------------
     début                : 20 déc. 2013
     copyright            : (C) 2013 par mkitane
 *************************************************************************/
 
-//---------- Interface de la classe <Point> (fichier Point.h) ------
-#if ! defined ( POINT_H_ )
-#define POINT_H_
-
-
-#include <iostream>
-using namespace std;
+//---------- Interface de la classe <Polyligne> (fichier Polyligne.h) ------
+#if ! defined ( Polyligne_H_ )
+#define Polyligne_H_
 
 //--------------------------------------------------- Interfaces utilisées
 
@@ -20,12 +16,12 @@ using namespace std;
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Point>
+// Rôle de la classe <Polyligne>
 //
 //
 //------------------------------------------------------------------------
 
-class Point
+class Polyligne
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -39,7 +35,7 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-    Point & operator = ( const Point & unPoint );
+    Polyligne & operator = ( const Polyligne & unPolyligne );
     // Mode d'emploi :
     //
     // Contrat :
@@ -47,16 +43,19 @@ public:
 
 
 //-------------------------------------------- Constructeurs - destructeur
-    /*Point ( const Point & unPoint );
+    Polyligne ( const Polyligne & unPolyligne );
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :
     //
-    */
-    Point (int, int);
 
+    Polyligne ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
-    virtual ~Point ( );
+    virtual ~Polyligne ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -68,10 +67,9 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-int X;
-int Y;
+
 };
 
-//--------------------------- Autres définitions dépendantes de <Point>
+//--------------------------- Autres définitions dépendantes de <Polyligne>
 
-#endif // POINT_H_
+#endif // Polyligne_H_
