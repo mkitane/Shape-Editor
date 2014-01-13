@@ -17,6 +17,7 @@
 #include "CmdUndo.h"
 #include "CmdRedo.h"
 #include "CmdSave.h"
+#include "CmdExit.h"
 
 namespace Analyseur {
     
@@ -164,7 +165,6 @@ namespace Analyseur {
         if(firstWord.compare("EXIT") == 0 ){
             cout<<"Commande a effectuer : EXIT" << endl;
             //Il faut aucun autre param, ou alors on s'en fout et on l'ignore
-            exit(0);
             return fermer;
         }
         
@@ -215,6 +215,10 @@ namespace Analyseur {
                 c = new CmdSave(&(f->listeDesElements), parameters);
             }
                 break;
+            case fermer:
+            {
+                c = new CmdExit(&(f->listeDesElements), parameters); 
+            }
         }
         
         return c; 

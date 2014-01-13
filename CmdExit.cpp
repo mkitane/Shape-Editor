@@ -1,78 +1,59 @@
 /*************************************************************************
- CmdSave  -  description
+ CmdExit  -  description
  -------------------
  début                : 20 déc. 2013
  copyright            : (C) 2013 par mkitane
  *************************************************************************/
 
-//---------- Réalisation de la classe <CmdSave> (fichier CmdSave.cpp) -------
+//---------- Réalisation de la classe <CmdExit> (fichier CmdExit.cpp) -------
 
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
 //------------------------------------------------------ Include personnel
-#include "CmdSave.h"
-#include <fstream>
+#include "CmdExit.h"
 
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type CmdSave::Méthode ( liste des paramètres )
+// type CmdExit::Méthode ( liste des paramètres )
 // Algorithme :
 //
 //{
 //} //----- Fin de Méthode
 
-bool CmdSave::execute(){
-   //Pour tous les elements, ecrire leur description
-    vector<string>::iterator it;
-    
-    it= listeParametres.begin();
-    string nomFichier = *it;
-
-    
-    ofstream o;
-    o.open (nomFichier, ofstream::out | ofstream::trunc);
-    
-    if(o.is_open()){
-        for(int i=0; i<listeDesElements->size();i++){
-            // A modifier plustard
-            o << "Objet " << i << " Ecrit" << endl;
-        }
-        o.close();
-    }else{
-        cout<<"Error opening file" << endl;
-    }
-
-    return true;
+bool CmdExit::execute(){
+        exit(2);
+       return true;
 }
 
-bool CmdSave::undo(){
+bool CmdExit::undo(){
     return false;
 }
+
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 
 //-------------------------------------------- Constructeurs - destructeur
-CmdSave::CmdSave(map<string,string> *lE, vector<string> lP) : Command(lE,lP)
+CmdExit::CmdExit(map<string,string> *lE, vector<string> lP) : Command(lE,lP)
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <CmdSave>" << endl;
+    cout << "Appel au constructeur de <CmdExit>" << endl;
 #endif
-} //----- Fin de CmdSave
+} //----- Fin de CmdExit
 
 
-CmdSave::~CmdSave ( )
+CmdExit::~CmdExit ( )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <CmdSave>" << endl;
+    cout << "Appel au destructeur de <CmdExit>" << endl;
 #endif
-} //----- Fin de ~CmdSave
+} //----- Fin de ~CmdExit
 
 
 //------------------------------------------------------------------ PRIVE

@@ -24,9 +24,6 @@
 //{
 //} //----- Fin de Méthode
 
-bool CmdSuppression::canDoAnUndo(){
-    return true;
-}
 bool CmdSuppression::execute(){
     
     cout<<"on execute suppression" << endl;

@@ -72,9 +72,6 @@ bool CmdLoad::execute(){
 bool CmdLoad::undo(){
     return false;
 }
-bool CmdLoad::canDoAnUndo(){
-    return false;
-}
 
 
 //------------------------------------------------- Surcharge d'opérateurs
