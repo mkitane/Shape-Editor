@@ -47,13 +47,13 @@ bool CmdLoad::execute(){
             Analyseur::remplirParametres(&parameters, temp);
             
             
-            vector<string>::iterator it;
+            vector<string>::iterator it2;
             
-            it= listeParametres.begin();
-            string nom = *it;
+            it2= parameters.begin();
+            string nom = *it2;
             
-            listeDesElements -> insert (pair<string,string>(nom,Analyseur::createObjectWithParameters(t, parameters)));
-            
+            //listeDesElements -> insert (pair<string,string>(nom,Analyseur::createObjectWithParameters(t, parameters)));
+            loadedElements.push_back(nom);
             
             //On clear l'historique
             //on erase tous les elements du tableau element et de l'historique
@@ -70,6 +70,13 @@ bool CmdLoad::execute(){
 }
 
 bool CmdLoad::undo(){
+    
+    vector<string>::iterator itLoaded;
+    for(itLoaded=loadedElements.begin() ; itLoaded != loadedElements.end(); itLoaded++){
+        string loaded = *itLoaded;
+        listeDesElements->erase(loaded);
+        cout<< "unload" << loaded << endl;
+    }
     return false;
 }
 

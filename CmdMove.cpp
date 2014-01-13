@@ -30,6 +30,8 @@ bool CmdMove::execute(){
     cout<<"on execute move" << endl;
     
     vector<string>::iterator it;
+    it=listeParametres.begin();
+
         string nom = *it;
         cout<<"element a deplacer :" << nom << endl;
         
@@ -70,6 +72,8 @@ bool CmdMove::execute(){
 bool CmdMove::undo(){
     
     vector<string>::iterator it;
+    it=listeParametres.begin();
+
     string nom = *it;
     cout<<"element a deplacer :" << nom << endl;
     

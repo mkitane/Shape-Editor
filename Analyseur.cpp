@@ -18,6 +18,9 @@
 #include "CmdRedo.h"
 #include "CmdSave.h"
 #include "CmdExit.h"
+#include "CmdLoad.h"
+#include "CmdList.h"
+#include "CmdMove.h"
 
 namespace Analyseur {
     
@@ -218,6 +221,21 @@ namespace Analyseur {
             case fermer:
             {
                 c = new CmdExit(&(f->listeDesElements), parameters); 
+            }
+                break;
+            case charger:
+            {
+                c = new CmdLoad(&(f->listeDesElements),parameters);
+            }
+                break;
+            case enumeration:
+            {
+                c = new CmdList(&(f->listeDesElements),parameters);
+            }
+                break;
+            case deplacement:
+            {
+                c = new CmdMove(&(f->listeDesElements), parameters); 
             }
         }
         
