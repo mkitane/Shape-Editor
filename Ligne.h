@@ -8,7 +8,7 @@
 //---------- Interface de la classe <Ligne> (fichier Ligne.h) ------
 #if ! defined ( Ligne_H_ )
 #define Ligne_H_
-#include "Point.h"
+#include "EltGeo.h"
 #include <vector>
 #include <string>
 
@@ -24,7 +24,7 @@
 //
 //------------------------------------------------------------------------
 
-class Ligne : public Point
+class Ligne : public EltGeo
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -53,13 +53,17 @@ public:
     // Contrat :
     //
 */
+<<<<<<< HEAD
     Ligne (string n,int x1,int y1, int x2, int y2);
+=======
+    Ligne (string nom, int x1,int y1, int x2, int y2);
+>>>>>>> ef970b023593ccf18f790aed93b40127fc77ea52
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~Ligne ( );
+    ~Ligne ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -71,10 +75,8 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-Point point1;
-Point point2;
-vector <Point> ListLigne;
-
+    Point p1;
+    Point p2;
 };
 
 //--------------------------- Autres définitions dépendantes de <Ligne>

@@ -46,7 +46,7 @@ EltGeo::EltGeo ( const EltGeo & unEltGeo )
 } //----- Fin de EltGeo (constructeur de copie)
 
 
-EltGeo::EltGeo ( )
+EltGeo::EltGeo (string n) : Nom(n)
 // Algorithme :
 //
 {

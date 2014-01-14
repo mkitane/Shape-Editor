@@ -12,7 +12,6 @@
 #define ELTGEO_H_INCLUDED
 
 #include <iostream>
-#include <vector>
 #include "Point.h"
 using namespace std;
 
@@ -40,7 +39,7 @@ public:
     // Contrat :
     //
 
-virtual void Deplacer(int x0, int y0) =0;
+    virtual void Deplacer(int x0, int y0) =0;
     // Mode d'emploi : deplace l'element geometrique selon la translation de vecteur(x0,y0)
     //
     // Contrat :
@@ -60,7 +59,7 @@ virtual void Deplacer(int x0, int y0) =0;
     // Contrat :
     //
 
-    EltGeo ( );
+    EltGeo (string n);
     // Mode d'emploi :
     //
     // Contrat :
@@ -79,8 +78,6 @@ protected:
 
 //----------------------------------------------------- Attributs protégés
 string Nom;
-vector <Point> ListePoints;
-
 };
 
 //--------------------------- Autres définitions dépendantes de <EltGeo>

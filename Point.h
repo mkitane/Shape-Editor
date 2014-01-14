@@ -56,7 +56,7 @@ public:
     Point (int x, int y);
 
 
-    virtual ~Point ( );
+    ~Point ();
     // Mode d'emploi :
     //
     // Contrat :
