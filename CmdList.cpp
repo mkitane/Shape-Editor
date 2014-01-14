@@ -29,9 +29,12 @@ bool CmdList::execute(){
     //Pour tous les elements, ecrire leur description
     
     
-    for(int i=0; i<listeDesElements->size();i++){
+    map<string, EltGeo *>::iterator it;
+    
+    for(it = listeDesElements->begin() ; it!= listeDesElements->end() ; it++){
         // A modifier plustard
-        cout << "Objet " << i << " Affiche" << endl;
+        EltGeo *a = it->second;
+        cout << a->description() << endl; 
     }
 
 

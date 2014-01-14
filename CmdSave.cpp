@@ -37,9 +37,13 @@ bool CmdSave::execute(){
     o.open (nomFichier, ofstream::out | ofstream::trunc);
     
     if(o.is_open()){
-        for(int i=0; i<listeDesElements->size();i++){
+        
+        map<string, EltGeo *>::iterator it;
+        
+        for(it = listeDesElements->begin() ; it!= listeDesElements->end() ; it++){
             // A modifier plustard
-            o << "Objet " << i << " Ecrit" << endl;
+            EltGeo *a = it->second;
+            o << a->description() << endl;
         }
         o.close();
     }else{
