@@ -10,6 +10,7 @@
 #define Ligne_H_
 #include "Point.h"
 #include <vector>
+#include <string>
 
 //--------------------------------------------------- Interfaces utilisées
 
@@ -52,7 +53,7 @@ public:
     // Contrat :
     //
 */
-    Ligne (int x1,int y1, int x2, int y2);
+    Ligne (string n,int x1,int y1, int x2, int y2);
     // Mode d'emploi :
     //
     // Contrat :

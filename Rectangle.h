@@ -11,6 +11,7 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Point.h"
+#include <string>
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -21,7 +22,7 @@
 //
 //------------------------------------------------------------------------
 
-class Rectangle : public Point
+class Rectangle : public EltGeo
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -49,7 +50,7 @@ public:
     // Contrat :
     */
 
-    Rectangle ( int x1, int y1, int x2, int y2 );
+    Rectangle ( string n,int x1, int y1, int x2, int y2 );
     // Mode d'emploi :
     //
     // Contrat :

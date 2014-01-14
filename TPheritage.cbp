@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="TPheritage" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/TPheritage" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/TPheritage" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="Agregat.cpp" />
+		<Unit filename="Agregat.h" />
+		<Unit filename="Analyseur.cpp" />
+		<Unit filename="Analyseur.h" />
+		<Unit filename="CmdAjouterCercle.cpp" />
+		<Unit filename="CmdAjouterCercle.h" />
+		<Unit filename="CmdRedo.cpp" />
+		<Unit filename="CmdRedo.h" />
+		<Unit filename="CmdSuppression.cpp" />
+		<Unit filename="CmdSuppression.h" />
+		<Unit filename="CmdUndo.cpp" />
+		<Unit filename="CmdUndo.h" />
+		<Unit filename="Command.cpp" />
+		<Unit filename="Command.h" />
+		<Unit filename="EltGeo.cpp" />
+		<Unit filename="EltGeo.h" />
+		<Unit filename="Figure.cpp" />
+		<Unit filename="Figure.h" />
+		<Unit filename="Ligne.cpp" />
+		<Unit filename="Ligne.h" />
+		<Unit filename="Point.cpp" />
+		<Unit filename="Point.h" />
+		<Unit filename="Polyligne.cpp" />
+		<Unit filename="Polyligne.h" />
+		<Unit filename="Rectangle.cpp" />
+		<Unit filename="Rectangle.h" />
+		<Unit filename="Rond.cpp" />
+		<Unit filename="Rond.h" />
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

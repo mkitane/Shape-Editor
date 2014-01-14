@@ -37,7 +37,7 @@ using namespace std;
 */
 
 //-------------------------------------------- Constructeurs - destructeur
-Rectangle::Rectangle ( const Rectangle & unRectangle )
+/*Rectangle::Rectangle ( const Rectangle & unRectangle )
 // Algorithme :
 //
 {
@@ -45,15 +45,14 @@ Rectangle::Rectangle ( const Rectangle & unRectangle )
     cout << "Appel au constructeur de copie de <Rectangle>" << endl;
 #endif
 } //----- Fin de Rectangle (constructeur de copie)
+*/
 
-
-Rectangle::Rectangle ( )
+Rectangle::Rectangle (string n,int x1, int y1, int x2, int y2 ):EltGeo(n)
 // Algorithme :
 //
 {
-#ifdef MAP
-    cout << "Appel au constructeur de <Rectangle>" << endl;
-#endif
+    point1=Point(x1,y1);
+    point2=Point(x2,y2);
 } //----- Fin de Rectangle
 
 

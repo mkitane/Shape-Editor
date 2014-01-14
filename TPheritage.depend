@@ -1,0 +1,144 @@
+# depslib dependency file v1.0
+1389531681 source:c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\command.cpp
+	"Command.h"
+
+1389547411 c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\command.h
+	<iostream>
+	<map>
+	<vector>
+
+1389547411 source:c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\figure.cpp
+	"Figure.h"
+
+1389547411 c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\figure.h
+	<iostream>
+	<vector>
+	<map>
+	"Command.h"
+
+1389531681 source:c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\main.cpp
+	<iostream>
+	<sstream>
+	<stdlib.h>
+	"Figure.h"
+	"CmdAjouterCercle.h"
+	"CmdSuppression.h"
+
+1389543135 source:c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\point.cpp
+	"Point.h"
+
+1389650085 c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\point.h
+	<iostream>
+
+1389366537 source:c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\eltgeo.cpp
+	"EltGeo.h"
+
+1389479625 c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\eltgeo.h
+	<iostream>
+	<vector>
+	"Point.h"
+
+1389560106 source:c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\agregat.cpp
+	"Agregat.h"
+
+1389479680 c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\agregat.h
+	<iostream>
+	<vector>
+	"EltGeo.h"
+
+1389481279 source:c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\ligne.cpp
+	<iostream>
+	"Ligne.h"
+
+1389548073 c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\ligne.h
+
+1389480632 source:c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\polyligne.cpp
+	<iostream>
+	"Polyligne.h"
+
+1389560482 c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\polyligne.h
+
+1389481581 source:c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\rectangle.cpp
+	<iostream>
+	"Rectangle.h"
+
+1389650735 c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\rectangle.h
+	"Point.h"
+
+1389730599 c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\cmdajoutercercle.h
+	<iostream>
+	"Command.h"
+
+1389531681 c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\undoablecommand.h
+	<iostream>
+	"Command.h"
+
+1389730599 c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\cmdsuppression.h
+	<iostream>
+	"Command.h"
+
+1389730599 source:c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\analyseur.cpp
+	"Analyseur.h"
+	"CmdAjouterCercle.h"
+	"CmdSuppression.h"
+	"CmdUndo.h"
+	"CmdRedo.h"
+	"CmdSave.h"
+	"CmdExit.h"
+	"CmdLoad.h"
+	"CmdList.h"
+	"CmdMove.h"
+
+1389557322 c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\analyseur.h
+	<iostream>
+	<iostream>
+	<sstream>
+	<stdlib.h>
+	<vector>
+	"Command.h"
+	"Figure.h"
+
+1389730599 c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\cmdundo.h
+	<iostream>
+	"Command.h"
+
+1389730599 c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\cmdredo.h
+	<iostream>
+	"Command.h"
+
+1389730599 c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\cmdsave.h
+	<iostream>
+	"Command.h"
+
+1389730599 source:c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\cmdajoutercercle.cpp
+	"CmdAjouterCercle.h"
+	"Analyseur.h"
+
+1389730599 source:c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\cmdredo.cpp
+	"CmdRedo.h"
+
+1389730599 source:c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\cmdsuppression.cpp
+	"CmdSuppression.h"
+
+1389730599 source:c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\cmdundo.cpp
+	"CmdUndo.h"
+
+1389730599 c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\cmdexit.h
+	<iostream>
+	"Command.h"
+
+1389730599 c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\cmdload.h
+	<iostream>
+	"Command.h"
+	"Analyseur.h"
+	<vector>
+
+1389730599 c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\cmdlist.h
+	<iostream>
+	"Command.h"
+	"Analyseur.h"
+
+1389730599 c:\users\thomas\documents\travail\insa if 2013-2014\programmes\insa\tpheritage\cmdmove.h
+	<iostream>
+	"Command.h"
+

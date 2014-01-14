@@ -54,11 +54,12 @@ Rond::Deplacer(x0,y0)
 } //----- Fin de Rond (constructeur de copie)
 */
 
-Rond::Rond (int r, int x0, int y0 ) : Point(int,int)
+Rond::Rond (string n,int r, int x0, int y0 ) : EltGeo(n)
 // Algorithme :
 //
 {
-
+    R=r;
+    centre=Point(x0,y0);
 } //----- Fin de Rond
 
  Rond::~Rond ( )

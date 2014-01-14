@@ -11,6 +11,7 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Point.h"
+#include <string>
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -21,7 +22,7 @@
 //
 //------------------------------------------------------------------------
 
-class Rond : public Point
+class Rond : public EltGeo
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -54,7 +55,7 @@ void Deplacer(int x0, int y0);
     // Contrat :
     //
 */
-    Rond ( int R, int x0, int y0);
+    Rond ( string n,int R, int x0, int y0);
     // Mode d'emploi : cree le rond de centre (x0,y0) et de rayon R
     //
     // Contrat :
@@ -73,7 +74,7 @@ protected:
 
 //----------------------------------------------------- Attributs protégés
 int R; //rayon du rond
-Point centre; //centre du rond
+Point centre;
 };
 
 //--------------------------- Autres définitions dépendantes de <Rond>

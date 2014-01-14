@@ -52,7 +52,7 @@ Ligne::Ligne ( const Ligne & unLigne )
 } //----- Fin de Ligne (constructeur de copie)
 */
 
-Ligne::Ligne(int x1,int y1,int x2,int y2):
+Ligne::Ligne(string n,int x1,int y1,int x2,int y2):EltGeo(n)
 // Algorithme :
 {
     point1=Point(x1,y1);
