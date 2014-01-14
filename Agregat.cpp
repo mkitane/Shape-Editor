@@ -24,9 +24,15 @@
 //{
 //} //----- Fin de Méthode
 
-void Deplacer(int x0, int y0)
+void Agregat::deplacer(int dx, int dy)
 {
-
+    map<string, EltGeo *>::iterator it;
+    for(it = listEltGeo.begin(); it != listEltGeo.end() ;it++){
+        EltGeo *actuel = it->second;
+        actuel->deplacer(dx, dy);
+    }
+    
+ 
 }
 //------------------------------------------------- Surcharge d'opérateurs
 /*
@@ -50,7 +56,7 @@ Agregat & Agregat::operator = ( const Agregat & unAgregat )
 */
 
 
-Agregat::Agregat()
+Agregat::Agregat(string n,map<string, EltGeo*> lEG):EltGeo(n),listEltGeo(lEG)
 // Algorithme :
 //
 {

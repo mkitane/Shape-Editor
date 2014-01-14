@@ -11,7 +11,7 @@
 #define _H_INCLUDED
 
 #include <iostream>
-#include <vector>
+#include <map>
 #include "EltGeo.h"
 using namespace std;
 
@@ -33,12 +33,11 @@ class Agregat : public EltGeo
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    void Deplacer(int w0, int y0);
+    void deplacer(int dx, int dy);
 
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-    Agregat & operator = ( const Agregat & unAgregat );
     // Mode d'emploi :
     //
     // Contrat :
@@ -52,7 +51,7 @@ public:
     // Contrat :
     //
 */
-    Agregat();
+    Agregat(string n, map<string, EltGeo*> lEG);
 
 
     virtual ~Agregat();
@@ -67,7 +66,7 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-vector <EltGeo> ListEltGeo;
+    map <string, EltGeo *> listEltGeo;
 
 };
 
