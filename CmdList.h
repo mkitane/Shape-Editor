@@ -1,17 +1,18 @@
 /*************************************************************************
- CmdSave  -  description
+ CmdList  -  description
  -------------------
  début                : 20 déc. 2013
  copyright            : (C) 2013 par mkitane
  *************************************************************************/
 
-//---------- Interface de la classe <CmdSave> (fichier CmdSave.h) ------
-#if ! defined ( CmdSave_H_ )
-#define CmdSave_H_
+//---------- Interface de la classe <CmdList> (fichier CmdList.h) ------
+#if ! defined ( CmdList_H_ )
+#define CmdList_H_
 
 
 #include <iostream>
 #include "Command.h"
+#include "Analyseur.h"
 using namespace std;
 
 //--------------------------------------------------- Interfaces utilisées
@@ -21,12 +22,12 @@ using namespace std;
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <CmdSave>
+// Rôle de la classe <CmdList>
 //
 //
 //------------------------------------------------------------------------
 
-class CmdSave : public Command
+class CmdList : public Command
 {
     //----------------------------------------------------------------- PUBLIC
     
@@ -43,13 +44,13 @@ public:
     
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur
-    CmdSave(map<string,string> *lE, vector<string> lP);
+    CmdList(map<string,string> *lE, vector<string> lP);
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    ~CmdSave();
+    ~CmdList();
     // Mode d'emploi :
     //
     // Contrat :
@@ -63,6 +64,6 @@ protected:
     //----------------------------------------------------- Attributs protégés
 };
 
-//--------------------------- Autres définitions dépendantes de <CmdSave>
+//--------------------------- Autres définitions dépendantes de <CmdList>
 
-#endif // CmdSave_H_
+#endif // CmdList_H_

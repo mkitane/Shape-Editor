@@ -25,9 +25,6 @@
 //{
 //} //----- Fin de Méthode
 
-bool CmdAjouterCercle::canDoAnUndo(){
-    return true; 
-}
 bool CmdAjouterCercle::execute(){
   
     

@@ -17,6 +17,10 @@
 #include "CmdUndo.h"
 #include "CmdRedo.h"
 #include "CmdSave.h"
+#include "CmdExit.h"
+#include "CmdLoad.h"
+#include "CmdList.h"
+#include "CmdMove.h"
 
 namespace Analyseur {
     
@@ -164,7 +168,6 @@ namespace Analyseur {
         if(firstWord.compare("EXIT") == 0 ){
             cout<<"Commande a effectuer : EXIT" << endl;
             //Il faut aucun autre param, ou alors on s'en fout et on l'ignore
-            exit(0);
             return fermer;
         }
         
@@ -215,6 +218,25 @@ namespace Analyseur {
                 c = new CmdSave(&(f->listeDesElements), parameters);
             }
                 break;
+            case fermer:
+            {
+                c = new CmdExit(&(f->listeDesElements), parameters); 
+            }
+                break;
+            case charger:
+            {
+                c = new CmdLoad(&(f->listeDesElements),parameters);
+            }
+                break;
+            case enumeration:
+            {
+                c = new CmdList(&(f->listeDesElements),parameters);
+            }
+                break;
+            case deplacement:
+            {
+                c = new CmdMove(&(f->listeDesElements), parameters); 
+            }
         }
         
         return c; 

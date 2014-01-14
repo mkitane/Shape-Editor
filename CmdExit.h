@@ -1,13 +1,13 @@
 /*************************************************************************
- CmdSave  -  description
+ CmdExit  -  description
  -------------------
  début                : 20 déc. 2013
  copyright            : (C) 2013 par mkitane
  *************************************************************************/
 
-//---------- Interface de la classe <CmdSave> (fichier CmdSave.h) ------
-#if ! defined ( CmdSave_H_ )
-#define CmdSave_H_
+//---------- Interface de la classe <CmdExit> (fichier CmdExit.h) ------
+#if ! defined ( CmdExit_H_ )
+#define CmdExit_H_
 
 
 #include <iostream>
@@ -21,12 +21,12 @@ using namespace std;
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <CmdSave>
+// Rôle de la classe <CmdExit>
 //
 //
 //------------------------------------------------------------------------
 
-class CmdSave : public Command
+class CmdExit : public Command
 {
     //----------------------------------------------------------------- PUBLIC
     
@@ -43,13 +43,13 @@ public:
     
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur
-    CmdSave(map<string,string> *lE, vector<string> lP);
+    CmdExit(map<string,string> *lE, vector<string> lP);
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    ~CmdSave();
+    ~CmdExit();
     // Mode d'emploi :
     //
     // Contrat :
@@ -60,9 +60,8 @@ public:
 protected:
     //----------------------------------------------------- Méthodes protégées
     
-    //----------------------------------------------------- Attributs protégés
+    //----------------------------------------------------- Attributs protégés};
+
+//--------------------------- Autres définitions dépendantes de <CmdExit>
 };
-
-//--------------------------- Autres définitions dépendantes de <CmdSave>
-
-#endif // CmdSave_H_
+#endif // CmdExit_H_

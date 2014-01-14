@@ -39,7 +39,7 @@ public:
     //
     bool execute();
     bool undo();
-    bool canDoAnUndo();
+    bool canDoAnUndo(){return false;}
     
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur

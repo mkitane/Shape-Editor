@@ -1,17 +1,17 @@
 /*************************************************************************
- CmdSave  -  description
+ CmdList  -  description
  -------------------
  début                : 20 déc. 2013
  copyright            : (C) 2013 par mkitane
  *************************************************************************/
 
-//---------- Réalisation de la classe <CmdSave> (fichier CmdSave.cpp) -------
+//---------- Réalisation de la classe <CmdList> (fichier CmdList.cpp) -------
 
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
 //------------------------------------------------------ Include personnel
-#include "CmdSave.h"
+#include "CmdList.h"
 #include <fstream>
 
 //------------------------------------------------------------- Constantes
@@ -19,60 +19,50 @@
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type CmdSave::Méthode ( liste des paramètres )
+// type CmdList::Méthode ( liste des paramètres )
 // Algorithme :
 //
 //{
 //} //----- Fin de Méthode
 
-bool CmdSave::execute(){
-   //Pour tous les elements, ecrire leur description
-    vector<string>::iterator it;
+bool CmdList::execute(){
+    //Pour tous les elements, ecrire leur description
     
-    it= listeParametres.begin();
-    string nomFichier = *it;
-
     
-    ofstream o;
-    o.open (nomFichier, ofstream::out | ofstream::trunc);
-    
-    if(o.is_open()){
-        for(int i=0; i<listeDesElements->size();i++){
-            // A modifier plustard
-            o << "Objet " << i << " Ecrit" << endl;
-        }
-        o.close();
-    }else{
-        cout<<"Error opening file" << endl;
+    for(int i=0; i<listeDesElements->size();i++){
+        // A modifier plustard
+        cout << "Objet " << i << " Affiche" << endl;
     }
+
 
     return true;
 }
 
-bool CmdSave::undo(){
+bool CmdList::undo(){
     return false;
 }
+
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 
 //-------------------------------------------- Constructeurs - destructeur
-CmdSave::CmdSave(map<string,string> *lE, vector<string> lP) : Command(lE,lP)
+CmdList::CmdList(map<string,string> *lE, vector<string> lP) : Command(lE,lP)
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <CmdSave>" << endl;
+    cout << "Appel au constructeur de <CmdList>" << endl;
 #endif
-} //----- Fin de CmdSave
+} //----- Fin de CmdList
 
 
-CmdSave::~CmdSave ( )
+CmdList::~CmdList ( )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <CmdSave>" << endl;
+    cout << "Appel au destructeur de <CmdList>" << endl;
 #endif
-} //----- Fin de ~CmdSave
+} //----- Fin de ~CmdList
 
 
 //------------------------------------------------------------------ PRIVE

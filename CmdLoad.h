@@ -13,6 +13,7 @@
 #include <iostream>
 #include "Command.h"
 #include "Analyseur.h"
+#include <vector>
 using namespace std;
 
 //--------------------------------------------------- Interfaces utilisées
@@ -40,7 +41,7 @@ public:
     //
     bool execute();
     bool undo();
-    bool canDoAnUndo();
+    bool canDoAnUndo(){return true;}
     
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur
@@ -60,7 +61,7 @@ public:
     
 protected:
     //----------------------------------------------------- Méthodes protégées
-    
+    vector<string> loadedElements;
     //----------------------------------------------------- Attributs protégés
 };
 

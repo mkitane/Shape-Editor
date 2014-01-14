@@ -39,9 +39,7 @@ bool CmdRedo::execute(){
 bool CmdRedo::undo(){
     return false;
 }
-bool CmdRedo::canDoAnUndo(){
-    return false;
-}
+
 
 
 //------------------------------------------------- Surcharge d'opérateurs

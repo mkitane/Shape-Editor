@@ -1,13 +1,13 @@
 /*************************************************************************
- CmdSave  -  description
+ CmdMove  -  description
  -------------------
  début                : 20 déc. 2013
  copyright            : (C) 2013 par mkitane
  *************************************************************************/
 
-//---------- Interface de la classe <CmdSave> (fichier CmdSave.h) ------
-#if ! defined ( CmdSave_H_ )
-#define CmdSave_H_
+//---------- Interface de la classe <CmdMove> (fichier CmdMove.h) ------
+#if ! defined ( CmdMove_H_ )
+#define CmdMove_H_
 
 
 #include <iostream>
@@ -21,12 +21,12 @@ using namespace std;
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <CmdSave>
+// Rôle de la classe <CmdMove>
 //
 //
 //------------------------------------------------------------------------
 
-class CmdSave : public Command
+class CmdMove : public Command
 {
     //----------------------------------------------------------------- PUBLIC
     
@@ -39,17 +39,17 @@ public:
     //
     bool execute();
     bool undo();
-    bool canDoAnUndo(){return false;}
+    bool canDoAnUndo(){return true;}
     
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur
-    CmdSave(map<string,string> *lE, vector<string> lP);
+    CmdMove(map<string,string> *lE, vector<string> lP);
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    ~CmdSave();
+    ~CmdMove();
     // Mode d'emploi :
     //
     // Contrat :
@@ -63,6 +63,6 @@ protected:
     //----------------------------------------------------- Attributs protégés
 };
 
-//--------------------------- Autres définitions dépendantes de <CmdSave>
+//--------------------------- Autres définitions dépendantes de <CmdMove>
 
-#endif // CmdSave_H_
+#endif // CmdMove_H_
