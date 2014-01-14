@@ -1,29 +1,27 @@
 /*************************************************************************
-                           Ligne  -  description
+                           Rectangle  -  description
                              -------------------
     début                : 20 déc. 2013
     copyright            : (C) 2013 par mkitane
 *************************************************************************/
 
-//---------- Interface de la classe <Ligne> (fichier Ligne.h) ------
-#if ! defined ( Ligne_H_ )
-#define Ligne_H_
-#include "Point.h"
-#include <vector>
+//---------- Interface de la classe <Rectangle> (fichier Rectangle.h) ------
+#if ! defined ( Rectangle_H_ )
+#define Rectangle_H_
 
 //--------------------------------------------------- Interfaces utilisées
-
+#include "Point.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Ligne>
+// Rôle de la classe <Rectangle>
 //
 //
 //------------------------------------------------------------------------
 
-class Ligne : public Point
+class Rectangle : public Point
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -35,30 +33,29 @@ public:
     // Contrat :
     //
 
-    void Deplacer(int x0, int y0);
 
 //------------------------------------------------- Surcharge d'opérateurs
-   /* Ligne & operator = ( const Ligne & unLigne );
+   /* Rectangle & operator = ( const Rectangle & unRectangle );
     // Mode d'emploi :
     //
     // Contrat :
     //
-*/
+
 
 //-------------------------------------------- Constructeurs - destructeur
-  /*  Ligne ( const Ligne & unLigne );
+    Rectangle ( const Rectangle & unRectangle );
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :
-    //
-*/
-    Ligne (int x1,int y1, int x2, int y2);
+    */
+
+    Rectangle ( int x1, int y1, int x2, int y2 );
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~Ligne ( );
+    virtual ~Rectangle ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -72,10 +69,8 @@ protected:
 //----------------------------------------------------- Attributs protégés
 Point point1;
 Point point2;
-vector <Point> ListLigne;
-
 };
 
-//--------------------------- Autres définitions dépendantes de <Ligne>
+//--------------------------- Autres définitions dépendantes de <Rectangle>
 
-#endif // Ligne_H_
+#endif // Rectangle_H_

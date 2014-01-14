@@ -39,11 +39,11 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-    Point & operator = ( const Point & unPoint );
+    /*Point & operator = ( const Point & unPoint );
     // Mode d'emploi :
     //
     // Contrat :
-    //
+    */
 
 
 //-------------------------------------------- Constructeurs - destructeur
@@ -53,7 +53,7 @@ public:
     // Contrat :
     //
     */
-    Point (int, int);
+    Point (int x, int y);
 
 
     virtual ~Point ( );

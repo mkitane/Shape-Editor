@@ -50,7 +50,7 @@ Agregat & Agregat::operator = ( const Agregat & unAgregat )
 */
 
 
-Agregat::Agregat(EltGeo.Nom)
+Agregat::Agregat()
 // Algorithme :
 //
 {
@@ -62,9 +62,7 @@ Agregat::Agregat(EltGeo.Nom)
 // Algorithme :
 //
 {
-#ifdef MAP
-    cout << "Appel au destructeur de <Agregat>" << endl;
-#endif
+
 } //----- Fin de ~Agregat
 
 

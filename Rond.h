@@ -1,29 +1,27 @@
 /*************************************************************************
-                           Ligne  -  description
+                           Rond  -  description
                              -------------------
     début                : 20 déc. 2013
     copyright            : (C) 2013 par mkitane
 *************************************************************************/
 
-//---------- Interface de la classe <Ligne> (fichier Ligne.h) ------
-#if ! defined ( Ligne_H_ )
-#define Ligne_H_
-#include "Point.h"
-#include <vector>
+//---------- Interface de la classe <Rond> (fichier Rond.h) ------
+#if ! defined ( Rond_H_ )
+#define Rond_H_
 
 //--------------------------------------------------- Interfaces utilisées
-
+#include "Point.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Ligne>
+// Rôle de la classe <Rond>
 //
 //
 //------------------------------------------------------------------------
 
-class Ligne : public Point
+class Rond : public Point
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -35,10 +33,14 @@ public:
     // Contrat :
     //
 
-    void Deplacer(int x0, int y0);
+void Deplacer(int x0, int y0);
+    // Mode d'emploi : translate le centre du rond selon le vecteur (x0,y0)
+    //
+    // Contrat :
+    //
 
 //------------------------------------------------- Surcharge d'opérateurs
-   /* Ligne & operator = ( const Ligne & unLigne );
+  /*  Rond & operator = ( const Rond & unRond );
     // Mode d'emploi :
     //
     // Contrat :
@@ -46,19 +48,19 @@ public:
 */
 
 //-------------------------------------------- Constructeurs - destructeur
-  /*  Ligne ( const Ligne & unLigne );
+    /*Rond ( const Rond & unRond );
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :
     //
 */
-    Ligne (int x1,int y1, int x2, int y2);
-    // Mode d'emploi :
+    Rond ( int R, int x0, int y0);
+    // Mode d'emploi : cree le rond de centre (x0,y0) et de rayon R
     //
     // Contrat :
     //
 
-    virtual ~Ligne ( );
+    virtual ~Rond ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -70,12 +72,10 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-Point point1;
-Point point2;
-vector <Point> ListLigne;
-
+int R; //rayon du rond
+Point centre; //centre du rond
 };
 
-//--------------------------- Autres définitions dépendantes de <Ligne>
+//--------------------------- Autres définitions dépendantes de <Rond>
 
-#endif // Ligne_H_
+#endif // Rond_H_
