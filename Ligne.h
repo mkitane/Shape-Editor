@@ -53,11 +53,8 @@ public:
     // Contrat :
     //
 */
-<<<<<<< HEAD
     Ligne (string n,int x1,int y1, int x2, int y2);
-=======
-    Ligne (string nom, int x1,int y1, int x2, int y2);
->>>>>>> ef970b023593ccf18f790aed93b40127fc77ea52
+
     // Mode d'emploi :
     //
     // Contrat :

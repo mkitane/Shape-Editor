@@ -10,8 +10,7 @@
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
-using namespace std;
-#include <iostream>
+
 
 //------------------------------------------------------ Include personnel
 #include "Rond.h"
@@ -28,11 +27,11 @@ using namespace std;
 //{
 //} //----- Fin de Méthode
 
-Rond::Deplacer(x0,y0)
+void Rond::Deplacer(int x0,int y0)
 // Algorithme :
 //
 {
-        centre=centre.Deplacer(x0,y0);
+        //centre=centre.Deplacer(x0,y0);
 } //----- Fin de Méthode
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -54,12 +53,10 @@ Rond::Deplacer(x0,y0)
 } //----- Fin de Rond (constructeur de copie)
 */
 
-Rond::Rond (string n,int r, int x0, int y0 ) : EltGeo(n)
+Rond::Rond (string n,int r, int x0, int y0 ) : EltGeo(n), centre(Point(x0, y0)), R(r)
 // Algorithme :
 //
 {
-    R=r;
-    centre=Point(x0,y0);
 } //----- Fin de Rond
 
  Rond::~Rond ( )

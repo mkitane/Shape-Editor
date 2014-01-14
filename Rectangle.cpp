@@ -10,8 +10,6 @@
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
-using namespace std;
-#include <iostream>
 
 //------------------------------------------------------ Include personnel
 #include "Rectangle.h"
@@ -47,12 +45,10 @@ using namespace std;
 } //----- Fin de Rectangle (constructeur de copie)
 */
 
-Rectangle::Rectangle (string n,int x1, int y1, int x2, int y2 ):EltGeo(n)
+Rectangle::Rectangle (string n,int x1, int y1, int x2, int y2 ):EltGeo(n), point1(Point(x1,y1)), point2(Point(x2, y2))
 // Algorithme :
 //
 {
-    point1=Point(x1,y1);
-    point2=Point(x2,y2);
 } //----- Fin de Rectangle
 
 

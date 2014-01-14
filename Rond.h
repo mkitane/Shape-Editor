@@ -10,6 +10,7 @@
 #define Rond_H_
 
 //--------------------------------------------------- Interfaces utilisées
+#include "EltGeo.h"
 #include "Point.h"
 #include <string>
 //------------------------------------------------------------- Constantes
