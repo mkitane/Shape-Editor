@@ -68,8 +68,10 @@ Ligne::~Ligne ( )
 #endif
 } //----- Fin de ~Ligne
 
-void Ligne::Deplacer(int x0, int y0){
-    
+void Ligne::deplacer(int dx, int dy){
+    cout<<"Utilisation Ligne" << endl; 
+    p1.deplacer(dx, dy);
+    p2.deplacer(dx, dy);
 }
 
 //------------------------------------------------------------------ PRIVE

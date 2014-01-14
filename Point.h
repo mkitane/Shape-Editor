@@ -37,7 +37,7 @@ public:
     // Contrat :
     //
 
-
+    void deplacer(int dx, int dy);
 //------------------------------------------------- Surcharge d'opérateurs
     /*Point & operator = ( const Point & unPoint );
     // Mode d'emploi :

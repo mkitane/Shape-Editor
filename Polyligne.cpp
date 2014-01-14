@@ -63,8 +63,13 @@ Polyligne::~Polyligne ( )
 #endif
 } //----- Fin de ~Polyligne
 
-void Polyligne::Deplacer(int x0, int y0){
-    
+void Polyligne::deplacer(int dx, int dy){
+    cout<<"Utilisation Deplacer Poly" <<endl; 
+    vector<Ligne>::iterator it;
+    for(it=listeLignes.begin(); it<listeLignes.end() ;it++){
+        Ligne a =(*it);
+        a.deplacer(dx, dy);
+    }
 }
 
 //------------------------------------------------------------------ PRIVE

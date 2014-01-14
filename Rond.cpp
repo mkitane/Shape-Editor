@@ -27,11 +27,11 @@
 //{
 //} //----- Fin de Méthode
 
-void Rond::Deplacer(int x0,int y0)
+void Rond::deplacer(int dx,int dy)
 // Algorithme :
 //
 {
-        //centre=centre.Deplacer(x0,y0);
+        centre.deplacer(dx,dy);
 } //----- Fin de Méthode
 
 //------------------------------------------------- Surcharge d'opérateurs

@@ -24,7 +24,11 @@
 //
 //{
 //} //----- Fin de Méthode
-
+void Rectangle::deplacer(int dx, int dy)
+{
+    point1.deplacer(dx, dy);
+    point2.deplacer(dx, dx);
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 /*µRectangle & Rectangle::operator = ( const Rectangle & unRectangle )

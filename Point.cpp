@@ -45,7 +45,10 @@ Point & Point::operator = ( const Point & unPoint )
 #endif
 } //----- Fin de Point (constructeur de copie)
 */
-
+void Point::deplacer(int dx, int dy){
+    X+=dx;
+    Y+=dy; 
+}
 Point::Point (int x,int y ): X(x), Y(y)
 // Algorithme :
 //

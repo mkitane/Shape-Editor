@@ -35,7 +35,7 @@ public:
     // Contrat :
     //
 
-    void Deplacer(int x0, int y0);
+    void deplacer(int dx, int dy);
     // Mode d'emploi :
     //
     // Contrat :

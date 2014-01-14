@@ -50,6 +50,8 @@ public:
     //
     // Contrat :
     */
+    
+    void deplacer(int dx, int dy);
 
     Rectangle ( string n,int x1, int y1, int x2, int y2 );
     // Mode d'emploi :

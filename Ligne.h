@@ -36,7 +36,7 @@ public:
     // Contrat :
     //
 
-    void Deplacer(int x0, int y0);
+    void deplacer(int dx, int dy);
 
 //------------------------------------------------- Surcharge d'opérateurs
    /* Ligne & operator = ( const Ligne & unLigne );

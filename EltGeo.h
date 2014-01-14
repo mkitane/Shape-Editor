@@ -39,7 +39,7 @@ public:
     // Contrat :
     //
 
-    virtual void Deplacer(int x0, int y0) =0;
+    virtual void deplacer(int dx, int dy) =0;
     // Mode d'emploi : deplace l'element geometrique selon la translation de vecteur(x0,y0)
     //
     // Contrat :
