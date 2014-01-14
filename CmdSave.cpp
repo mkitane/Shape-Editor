@@ -57,7 +57,7 @@ bool CmdSave::undo(){
 
 
 //-------------------------------------------- Constructeurs - destructeur
-CmdSave::CmdSave(map<string,string> *lE, vector<string> lP) : Command(lE,lP)
+CmdSave::CmdSave(map<string,EltGeo *> *lE, vector<string> lP) : Command(lE,lP)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <CmdSave>" << endl;

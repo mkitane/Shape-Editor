@@ -34,10 +34,10 @@ bool CmdSuppression::execute(){
         cout<<"element a effacer :" << nom << endl;
         
         //On garde une reference sur lelement en cas de UNDO
-        map<string, string>::iterator itLE;
+        map<string, EltGeo *>::iterator itLE;
         itLE = listeDesElements->find(nom);
         if(itLE != listeDesElements->end()){
-            elementsSupprimes.push_back(&itLE->second);
+            elementsSupprimes.push_back(itLE->second);
             listeDesElements->erase(nom);
         }else{
             cout<<"Element :" << nom << "n'existe pas"<< endl;
@@ -56,7 +56,7 @@ bool CmdSuppression::undo(){
 
 
 //-------------------------------------------- Constructeurs - destructeur
-CmdSuppression::CmdSuppression(map<string,string> *lE, vector<string> lP) : Command(lE,lP)
+CmdSuppression::CmdSuppression(map<string,EltGeo *> *lE, vector<string> lP) : Command(lE,lP)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <CmdSuppression>" << endl;

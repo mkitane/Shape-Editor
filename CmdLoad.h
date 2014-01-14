@@ -45,7 +45,7 @@ public:
     
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur
-    CmdLoad(map<string,string> *lE, vector<string> lP);
+    CmdLoad(map<string,EltGeo *> *lE, vector<string> lP);
     // Mode d'emploi :
     //
     // Contrat :

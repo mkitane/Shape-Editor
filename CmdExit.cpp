@@ -38,7 +38,7 @@ bool CmdExit::undo(){
 
 
 //-------------------------------------------- Constructeurs - destructeur
-CmdExit::CmdExit(map<string,string> *lE, vector<string> lP) : Command(lE,lP)
+CmdExit::CmdExit(map<string,EltGeo *> *lE, vector<string> lP) : Command(lE,lP)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <CmdExit>" << endl;

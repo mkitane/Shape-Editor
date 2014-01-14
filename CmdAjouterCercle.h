@@ -43,7 +43,7 @@ public:
     
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur
-    CmdAjouterCercle(map<string,string> *lE, vector<string> lP);
+    CmdAjouterCercle(map<string,EltGeo *> *lE, vector<string> lP);
     // Mode d'emploi :
     //
     // Contrat :
@@ -60,7 +60,7 @@ protected:
     //----------------------------------------------------- Méthodes protégées
     
     //----------------------------------------------------- Attributs protégés
-    string cercleAjoute;
+    EltGeo *cercleAjoute;
     //int tab[1000000000];
 };
 

@@ -43,7 +43,7 @@ public:
 
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur
-    CmdSuppression(map<string,string> *lE, vector<string> lP);
+    CmdSuppression(map<string,EltGeo *> *lE, vector<string> lP);
     // Mode d'emploi :
     //
     // Contrat :
@@ -61,7 +61,7 @@ protected:
     //----------------------------------------------------- Méthodes protégées
     
     //----------------------------------------------------- Attributs protégés
-    vector<string *> elementsSupprimes ; //On garde une reference aux elements supprimés juste in case;
+    vector<EltGeo *> elementsSupprimes ; //On garde une reference aux elements supprimés juste in case;
                                     //Pour le redo
 };
 

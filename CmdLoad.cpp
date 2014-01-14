@@ -85,7 +85,7 @@ bool CmdLoad::undo(){
 
 
 //-------------------------------------------- Constructeurs - destructeur
-CmdLoad::CmdLoad(map<string,string> *lE, vector<string> lP) : Command(lE,lP)
+CmdLoad::CmdLoad(map<string,EltGeo *> *lE, vector<string> lP) : Command(lE,lP)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <CmdLoad>" << endl;

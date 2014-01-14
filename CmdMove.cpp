@@ -35,7 +35,7 @@ bool CmdMove::execute(){
         string nom = *it;
         cout<<"element a deplacer :" << nom << endl;
         
-        map<string, string>::iterator itLE;
+        map<string, EltGeo *>::iterator itLE;
         itLE = listeDesElements->find(nom);
     
         if(itLE != listeDesElements->end()){
@@ -57,7 +57,7 @@ bool CmdMove::execute(){
             
 
 #pragma -mark a faire quand on a les classes ELT Geo
-            //(*(itLE->second))->deplacer();
+            (itLE->second)->deplacer(x1,y1);
             
             
         
@@ -77,7 +77,7 @@ bool CmdMove::undo(){
     string nom = *it;
     cout<<"element a deplacer :" << nom << endl;
     
-    map<string, string>::iterator itLE;
+    map<string, EltGeo *>::iterator itLE;
     itLE = listeDesElements->find(nom);
     
     if(itLE != listeDesElements->end()){
@@ -100,7 +100,7 @@ bool CmdMove::undo(){
         x1= -1 * x1 ;
         y1 = -1 *y1 ;
 #pragma -mark a faire quand on a les classes ELT Geo
-        //(*(itLE->second))->deplacer();
+        (itLE->second)->deplacer(x1,y1);
         
         
         
@@ -117,7 +117,7 @@ bool CmdMove::undo(){
 
 
 //-------------------------------------------- Constructeurs - destructeur
-CmdMove::CmdMove(map<string,string> *lE, vector<string> lP) : Command(lE,lP)
+CmdMove::CmdMove(map<string,EltGeo *> *lE, vector<string> lP) : Command(lE,lP)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <CmdMove>" << endl;

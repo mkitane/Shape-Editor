@@ -16,6 +16,7 @@
 #include <vector>
 #include <map>
 #include "Command.h"
+#include "EltGeo.h"
 using namespace std;
 //------------------------------------------------------------- Constantes
 
@@ -72,7 +73,7 @@ public:
     //vector<EltGeo>
     vector<Command *> historique;
     vector<Command *>::iterator itActuel;
-    map<string, string> listeDesElements;
+    map<string, EltGeo *> listeDesElements;
     protected:
 
     //----------------------------------------------------- Attributs protégés

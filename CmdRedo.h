@@ -43,7 +43,7 @@ public:
     
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur
-    CmdRedo(map<string,string> *lE, vector<string> lP, vector<Command *> * historique,vector<Command *>::iterator *itAct);
+    CmdRedo(map<string,EltGeo *> *lE, vector<string> lP, vector<Command *> * historique,vector<Command *>::iterator *itAct);
     // Mode d'emploi :
     //
     // Contrat :

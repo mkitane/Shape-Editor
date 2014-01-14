@@ -13,6 +13,7 @@
 #include <iostream>
 #include <map>
 #include <vector>
+#include "EltGeo.h"
 using namespace std;
 
 //--------------------------------------------------- Interfaces utilisées
@@ -45,7 +46,7 @@ public:
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur
 
-     Command (map<string,string> *listeDesElements, vector<string> lP );
+     Command (map<string,EltGeo *> *listeDesElements, vector<string> lP );
     // Mode d'emploi :
     //
     // Contrat :
@@ -65,7 +66,7 @@ protected:
     
     //----------------------------------------------------- Attributs protégés
     vector<string> listeParametres;
-    map<string,string> *listeDesElements;
+    map<string,EltGeo *> *listeDesElements;
 
 };
 

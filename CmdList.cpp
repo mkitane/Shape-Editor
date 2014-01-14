@@ -47,7 +47,7 @@ bool CmdList::undo(){
 
 
 //-------------------------------------------- Constructeurs - destructeur
-CmdList::CmdList(map<string,string> *lE, vector<string> lP) : Command(lE,lP)
+CmdList::CmdList(map<string,EltGeo *> *lE, vector<string> lP) : Command(lE,lP)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <CmdList>" << endl;

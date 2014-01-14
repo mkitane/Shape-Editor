@@ -28,7 +28,7 @@
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Command::Command (map<string,string> *lE, vector<string> lP ) : listeParametres(lP) , listeDesElements(lE)
+Command::Command (map<string,EltGeo *> *lE, vector<string> lP ) : listeParametres(lP) , listeDesElements(lE)
 // Algorithme :
 //
 {

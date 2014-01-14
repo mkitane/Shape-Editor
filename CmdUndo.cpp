@@ -44,7 +44,7 @@ bool CmdUndo::undo(){
 
 
 //-------------------------------------------- Constructeurs - destructeur
-CmdUndo::CmdUndo(map<string,string> *lE, vector<string> lP, vector<Command *> *histo, vector<Command *>::iterator *itAct) : Command(lE,lP), historique(histo), itActuel(itAct)
+CmdUndo::CmdUndo(map<string,EltGeo *> *lE, vector<string> lP, vector<Command *> *histo, vector<Command *>::iterator *itAct) : Command(lE,lP), historique(histo), itActuel(itAct)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <CmdUndo>" << endl;
