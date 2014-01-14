@@ -10,7 +10,9 @@
 #define Polyligne_H_
 
 //--------------------------------------------------- Interfaces utilisées
-
+#include <vector>
+#include "EltGeo.h"
+#include "Ligne.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -21,7 +23,7 @@
 //
 //------------------------------------------------------------------------
 
-class Polyligne : public Ligne
+class Polyligne : public EltGeo
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -33,7 +35,7 @@ public:
     // Contrat :
     //
 
-void Deplacer(int x0, int y0);
+    void Deplacer(int x0, int y0);
     // Mode d'emploi :
     //
     // Contrat :
@@ -54,7 +56,7 @@ void Deplacer(int x0, int y0);
     // Contrat :
     //
 */
-    Polyligne ( );
+    Polyligne (string n, vector<int> lignes);
     // Mode d'emploi :
     //
     // Contrat :
@@ -70,7 +72,7 @@ void Deplacer(int x0, int y0);
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-
+    vector<Ligne> listeLignes;
 //----------------------------------------------------- Attributs protégés
 
 };

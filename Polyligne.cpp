@@ -10,12 +10,9 @@
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
-using namespace std;
-#include <iostream>
 
 //------------------------------------------------------ Include personnel
 #include "Polyligne.h"
-
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
@@ -29,28 +26,28 @@ using namespace std;
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-Polyligne & Polyligne::operator = ( const Polyligne & unPolyligne )
-// Algorithme :
-//
-{
-} //----- Fin de operator =
-
 
 //-------------------------------------------- Constructeurs - destructeur
-Polyligne::Polyligne ( const Polyligne & unPolyligne )
+
+Polyligne::Polyligne (string n, vector<int> lignes ) : EltGeo(n)
 // Algorithme :
 //
 {
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Polyligne>" << endl;
-#endif
-} //----- Fin de Polyligne (constructeur de copie)
+    
+    vector<int>::iterator it;
+    //On suppose que la ligne de point est toujours paire et modulo 4 = 0
+    for(it=lignes.begin(); it< lignes.end() ; it++){
+        int x1 = *it;
+        int y1 = *it++;
 
+        int x2 = *it++;
+        int y2 = *it;
+        
+        
+        Ligne l("",x1,y1,x2,y2);
+        listeLignes.push_back(l);
+    }
 
-Polyligne::Polyligne ( )
-// Algorithme :
-//
-{
 #ifdef MAP
     cout << "Appel au constructeur de <Polyligne>" << endl;
 #endif
@@ -66,6 +63,9 @@ Polyligne::~Polyligne ( )
 #endif
 } //----- Fin de ~Polyligne
 
+void Polyligne::Deplacer(int x0, int y0){
+    
+}
 
 //------------------------------------------------------------------ PRIVE
 

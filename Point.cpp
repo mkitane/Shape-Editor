@@ -46,13 +46,10 @@ Point & Point::operator = ( const Point & unPoint )
 } //----- Fin de Point (constructeur de copie)
 */
 
-Point::Point (int x,int y )
+Point::Point (int x,int y ): X(x), Y(y)
 // Algorithme :
 //
 {
-    X=x;
-    Y=y;
-
 } //----- Fin de Point
 
 

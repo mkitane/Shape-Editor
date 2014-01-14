@@ -10,8 +10,8 @@
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
-using namespace std;
 #include <iostream>
+using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Ligne.h"
@@ -52,13 +52,9 @@ Ligne::Ligne ( const Ligne & unLigne )
 } //----- Fin de Ligne (constructeur de copie)
 */
 
-Ligne::Ligne(int x1,int y1,int x2,int y2):
+Ligne::Ligne(string n, int x1,int y1,int x2,int y2) : EltGeo(n), p1(x1,y2), p2(x2,y2)
 // Algorithme :
 {
-    point1=Point(x1,y1);
-    point2=Point(x2,y2);
-    ListLigne.push_back(point1);
-    ListLigne.push_back(point2);
 } //----- Fin de Ligne
 
 
@@ -71,6 +67,9 @@ Ligne::~Ligne ( )
 #endif
 } //----- Fin de ~Ligne
 
+void Ligne::Deplacer(int x0, int y0){
+    
+}
 
 //------------------------------------------------------------------ PRIVE
 
