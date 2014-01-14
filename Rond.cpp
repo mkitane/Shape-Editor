@@ -68,7 +68,11 @@ Rond::Rond (string n,int r, int x0, int y0 ) : EltGeo(n), centre(Point(x0, y0)),
 #endif
 } //----- Fin de ~Rond
 
-
+string Rond::description(){
+    string desc = "C ";
+    desc = desc + Nom + " " + to_string(centre.X) + " " +to_string(centre.Y) + " " + to_string(R);
+    return desc;
+}
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées

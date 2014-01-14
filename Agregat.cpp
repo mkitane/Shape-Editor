@@ -34,6 +34,18 @@ void Agregat::deplacer(int dx, int dy)
     
  
 }
+
+string Agregat::description(){
+    string desc = "OA ";
+    desc = desc + Nom + " ";
+
+    map<string, EltGeo *>::iterator it;
+    for(it = listEltGeo.begin(); it != listEltGeo.end() ;it++){
+        EltGeo *actuel = it->second;
+        desc = desc + actuel->Nom + " ";
+    }
+    return desc;
+}
 //------------------------------------------------- Surcharge d'opérateurs
 /*
 Agregat & Agregat::operator = ( const Agregat & unAgregat )

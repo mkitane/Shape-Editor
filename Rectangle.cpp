@@ -65,6 +65,11 @@ Rectangle::~Rectangle ( )
 #endif
 } //----- Fin de ~Rectangle
 
+string Rectangle::description(){
+    string desc = "R ";
+    desc = desc + Nom + " " + to_string(point1.X) + " " +to_string( point1.Y) + " " + to_string(point2.X) + " " +to_string(point2.Y);
+    return desc;
+}
 
 //------------------------------------------------------------------ PRIVE
 

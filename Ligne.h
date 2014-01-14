@@ -37,6 +37,7 @@ public:
     //
 
     void deplacer(int dx, int dy);
+    string description();
 
 //------------------------------------------------- Surcharge d'opérateurs
    /* Ligne & operator = ( const Ligne & unLigne );
@@ -67,13 +68,13 @@ public:
     //
 
 //------------------------------------------------------------------ PRIVE
-
+    Point p1;
+    Point p2;
 protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-    Point p1;
-    Point p2;
+
 };
 
 //--------------------------- Autres définitions dépendantes de <Ligne>

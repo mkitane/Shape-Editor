@@ -52,6 +52,7 @@ public:
     */
     
     void deplacer(int dx, int dy);
+    string description();
 
     Rectangle ( string n,int x1, int y1, int x2, int y2 );
     // Mode d'emploi :

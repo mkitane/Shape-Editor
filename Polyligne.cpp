@@ -71,6 +71,17 @@ void Polyligne::deplacer(int dx, int dy){
         a.deplacer(dx, dy);
     }
 }
+string Polyligne::description(){
+    string desc = "PL ";
+    
+    vector<Ligne>::iterator it;
+    for(it=listeLignes.begin(); it<listeLignes.end() ;it++){
+        Ligne a =(*it);
+        desc = desc + a.Nom + " " + to_string(a.p1.X) + " " +to_string(a.p1.Y) + " " + to_string(a.p2.X) + " " +to_string(a.p2.Y);
+
+    }
+    return desc;
+}
 
 //------------------------------------------------------------------ PRIVE
 

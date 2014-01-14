@@ -40,6 +40,7 @@ public:
     //
     // Contrat :
     //
+    string description();
 
 //------------------------------------------------- Surcharge d'opérateurs
     /*Polyligne & operator = ( const Polyligne & unPolyligne );

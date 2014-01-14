@@ -41,6 +41,8 @@ public:
     // Contrat :
     //
 
+    string description();
+
 //------------------------------------------------- Surcharge d'opérateurs
   /*  Rond & operator = ( const Rond & unRond );
     // Mode d'emploi :

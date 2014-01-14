@@ -34,6 +34,7 @@ class Agregat : public EltGeo
 public:
 //----------------------------------------------------- Méthodes publiques
     void deplacer(int dx, int dy);
+    string description();
 
 
 

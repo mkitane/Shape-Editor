@@ -74,6 +74,12 @@ void Ligne::deplacer(int dx, int dy){
     p2.deplacer(dx, dy);
 }
 
+string Ligne::description(){
+    string desc = "L ";
+    desc = desc + Nom + " " + to_string(p1.X) + " " +to_string( p1.Y) + " " + to_string(p2.X) + " " +to_string(p2.Y);
+    return desc;
+}
+
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées

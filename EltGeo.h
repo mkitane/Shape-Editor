@@ -40,16 +40,12 @@ public:
     //
 
     virtual void deplacer(int dx, int dy) =0;
+    virtual string description() = 0 ;
     // Mode d'emploi : deplace l'element geometrique selon la translation de vecteur(x0,y0)
     //
     // Contrat :
     //
 //------------------------------------------------- Surcharge d'opérateurs
-    EltGeo & operator = ( const EltGeo & unEltGeo );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
 
 //-------------------------------------------- Constructeurs - destructeur
@@ -72,12 +68,12 @@ public:
     //
 
 //------------------------------------------------------------------ PRIVE
+    string Nom;
 
 protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-string Nom;
 };
 
 //--------------------------- Autres définitions dépendantes de <EltGeo>
