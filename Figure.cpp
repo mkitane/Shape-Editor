@@ -34,9 +34,11 @@ void Figure::stockerEtExecuter(Command *c){
             }
             historique.erase(itActuel+1, historique.end());
         }
-        historique.push_back(c);
-        itActuel= historique.end() - 1;
-        c->execute();
+        
+        if(c->execute()){
+            historique.push_back(c);
+            itActuel= historique.end() - 1;
+        }
     }else{
         c->execute();
         delete c;

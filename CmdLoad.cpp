@@ -55,7 +55,7 @@ bool CmdLoad::execute(){
                     it2= parameters.begin();
                     string nom = *it2;
                     
-                    EltGeo *a =Analyseur::createObjectWithParameters(t, parameters);
+                    EltGeo *a =Analyseur::createObjectWithParameters(t, parameters,listeDesElements);
                     listeDesElements -> insert (pair<string,EltGeo*>(nom,a));
                     loadedElements.push_back(a);
                 }else{
@@ -76,8 +76,8 @@ bool CmdLoad::execute(){
                 vector <string> parameters ;
                 
                 
-                t = Analyseur::analyseCommand(temp);
-                Analyseur::remplirParametres(&parameters, temp);
+                t = Analyseur::analyseCommand(*poolObjects);
+                Analyseur::remplirParametres(&parameters, *poolObjects);
                 
                 
                 vector<string>::iterator it2;
@@ -85,7 +85,7 @@ bool CmdLoad::execute(){
                 it2= parameters.begin();
                 string nom = *it2;
                 
-                EltGeo *a =Analyseur::createObjectWithParameters(t, parameters);
+                EltGeo *a =Analyseur::createObjectWithParameters(t, parameters,listeDesElements);
                 listeDesElements -> insert (pair<string,EltGeo*>(nom,a));
                 loadedElements.push_back(a);                
             }

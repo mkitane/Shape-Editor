@@ -249,7 +249,7 @@ namespace Analyseur {
         
         return c; 
     }
-    EltGeo* createObjectWithParameters(TypeCommand t, vector<string> parameters){
+    EltGeo* createObjectWithParameters(TypeCommand t, vector<string> parameters,map<string,EltGeo *> *listeDesElements){
         vector<string>::iterator it;
         
         it= parameters.begin();
@@ -298,7 +298,27 @@ namespace Analyseur {
                 break;
             case ajouterObjetAgrege:
             {
+                map<string, EltGeo*> objetsOA;
                 
+                it++;
+                while(it<parameters.end()){
+                    string nomEltGeo = *it;
+                    
+                    map<string, EltGeo *>::iterator itLE;
+                    itLE = listeDesElements->find(nomEltGeo);
+                    if(itLE != listeDesElements->end()){
+                        EltGeo *e = itLE->second;
+                        objetsOA.insert(pair<string,EltGeo *>(e->Nom,e));
+                    }else{
+                        cout<<"Mauvais ObjetAgrege" <<endl;
+                        return nullptr;
+                    }
+                    it++;
+                    
+                }
+                
+                
+                a = new Agregat(nom,objetsOA);
             }
                 break;
             case ajouterPolyligne:

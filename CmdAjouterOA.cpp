@@ -33,27 +33,10 @@ bool CmdAjouterOA::execute(){
     string nom = *it;
     
     if(OAAjoute == NULL){
-        map<string, EltGeo*> objetsOA;
-
-        it++;
-        while(it<listeParametres.end()){
-            string nomEltGeo = *it;
-            
-            map<string, EltGeo *>::iterator itLE;
-            itLE = listeDesElements->find(nomEltGeo);
-            if(itLE != listeDesElements->end()){
-                EltGeo *e = itLE->second;
-                objetsOA.insert(pair<string,EltGeo *>(e->Nom,e));
-            }else{
-                cout<<"Mauvais ObjetAgrege" <<endl;
-                return false;
-            }
-            it++;
-
+        OAAjoute = Analyseur::createObjectWithParameters(Analyseur::ajouterObjetAgrege, listeParametres,listeDesElements);
+        if(OAAjoute == nullptr){
+            return false; 
         }
-      
-        
-        OAAjoute = new Agregat(nom,objetsOA);
     }else{
         cout<<"OA Remis dans la liste" << endl;
     }

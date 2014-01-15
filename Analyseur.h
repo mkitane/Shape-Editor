@@ -48,7 +48,7 @@ namespace Analyseur {
     TypeCommand analyseCommand(string command);
     void remplirParametres(vector<string> * parameters, const string command);
     Command* createCommand(TypeCommand t, vector<string> parameters, Figure *f);
-    EltGeo* createObjectWithParameters(TypeCommand t, vector<string> parameters);
+    EltGeo* createObjectWithParameters(TypeCommand t, vector<string> parameters, map<string,EltGeo *> *listeElements);
 }
 
 

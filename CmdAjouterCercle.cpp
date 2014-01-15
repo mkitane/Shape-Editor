@@ -33,35 +33,10 @@ bool CmdAjouterCercle::execute(){
     string nom = *it;
     
     if(cercleAjoute == NULL){
-        
-        it++;
-        int x1;
-        if(!Analyseur::checkIfNumber((*it).c_str(), &x1)){
-            cout<<"Cmd AjouterCercle is not valid" << endl;
-            return false;
+        cercleAjoute = Analyseur::createObjectWithParameters(Analyseur::ajouterCercle, listeParametres,listeDesElements);
+        if(cercleAjoute == nullptr){
+            return false; 
         }
-        
-        it++;
-        int y1;
-        
-        if(!Analyseur::checkIfNumber((*it).c_str(), &y1)){
-            cout<<"Cmd AjouterCercle is not valid" << endl;
-            return false;
-        }
-        
-        
-        it++;
-        int r;
-        if(!Analyseur::checkIfNumber((*it).c_str(), &r)){
-            cout<<"Cmd AjouterCercle is not valid" << endl;
-            return false;
-        }
-        
-        
-        cout<< "On cree un cercle de rayon " << r << " et de coordonnées (" << x1 << "," << y1 << ") " << endl;
-        
-        
-        cercleAjoute = new Rond(nom,r,x1,y1);
     }else{
         
         cout<<"Cercle Remis dans la liste" << endl; 

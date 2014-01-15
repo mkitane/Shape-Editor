@@ -60,7 +60,7 @@ protected:
     //----------------------------------------------------- Méthodes protégées
     
     //----------------------------------------------------- Attributs protégés
-    Agregat *OAAjoute;
+    EltGeo *OAAjoute;
     //int tab[1000000000];
 };
 
