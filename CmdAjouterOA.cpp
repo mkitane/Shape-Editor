@@ -58,7 +58,7 @@ bool CmdAjouterOA::execute(){
         cout<<"OA Remis dans la liste" << endl;
     }
     
-    listeAgreges->insert(pair<string,Agregat *> (nom,OAAjoute));
+    listeDesElements->insert(pair<string,EltGeo *> (nom,OAAjoute));
     
     return true;
 }
@@ -70,7 +70,7 @@ bool CmdAjouterOA::undo(){
     string nom = *it;
     
     
-    listeAgreges -> erase(nom);
+    listeDesElements -> erase(nom);
     cout<< "Suprresion OA"<<endl;
     return true;
 }
@@ -79,7 +79,7 @@ bool CmdAjouterOA::undo(){
 
 
 //-------------------------------------------- Constructeurs - destructeur
-CmdAjouterOA::CmdAjouterOA(map<string,EltGeo *> *lE, vector<string> lP,map<string,Agregat *> *lA) : Command(lE,lP), listeAgreges(lA)
+CmdAjouterOA::CmdAjouterOA(map<string,EltGeo *> *lE, vector<string> lP) : Command(lE,lP)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <CmdAjouterOA>" << endl;

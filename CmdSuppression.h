@@ -43,7 +43,7 @@ public:
 
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur
-    CmdSuppression(map<string,EltGeo *> *lE, vector<string> lP, map<string,Agregat *> *lA);
+    CmdSuppression(map<string,EltGeo *> *lE, vector<string> lP);
     // Mode d'emploi :
     //
     // Contrat :
@@ -64,7 +64,6 @@ protected:
     vector<EltGeo *> elementsSupprimes ; //On garde une reference aux elements supprimés juste in case;
     vector<Agregat *> fromWhereDeleted; 
                                     //Pour le redo
-    map<string,Agregat *> *listeAgreges;
     
     void deleteElementFromOAs(EltGeo *e);
     void addElementstoOAs(EltGeo *e);

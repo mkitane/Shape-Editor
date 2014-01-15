@@ -203,7 +203,7 @@ namespace Analyseur {
                 
             case suppression:
             {
-                c = new CmdSuppression(&(f->listeDesElements), parameters, &(f->listeDesAgregats));
+                c = new CmdSuppression(&(f->listeDesElements), parameters);
             }
                 break;
             case annuler:
@@ -242,7 +242,7 @@ namespace Analyseur {
             }
                 break; 
             case ajouterObjetAgrege:{
-                c = new CmdAjouterOA(&(f->listeDesElements),parameters, &(f->listeDesAgregats));
+                c = new CmdAjouterOA(&(f->listeDesElements),parameters);
             }
                 break;
         }

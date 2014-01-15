@@ -32,12 +32,12 @@ int main(int argc, const char * argv[])
     
     while(true){
         //on recupere la commande de l'utilisateur
-        char commandEntry[80];
+        string commandEntry;
         vector <string> parameters ;
         TypeCommand t;
         
         
-        cin.getline(commandEntry, sizeof(commandEntry));
+        getline(cin, commandEntry);
        
         t = analyseCommand(commandEntry);
         

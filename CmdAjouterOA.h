@@ -43,7 +43,7 @@ public:
     
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur
-    CmdAjouterOA(map<string,EltGeo *> *lE, vector<string> lP,map<string,Agregat *> *lA);
+    CmdAjouterOA(map<string,EltGeo *> *lE, vector<string> lP);
     // Mode d'emploi :
     //
     // Contrat :
@@ -61,8 +61,6 @@ protected:
     
     //----------------------------------------------------- Attributs protégés
     Agregat *OAAjoute;
-    map<string,Agregat *> *listeAgreges;
-
     //int tab[1000000000];
 };
 

@@ -46,6 +46,37 @@ bool CmdLoad::execute(){
                 
                 
                 t = Analyseur::analyseCommand(temp);
+                if(t!=Analyseur::ajouterObjetAgrege){
+                    Analyseur::remplirParametres(&parameters, temp);
+                    
+                    
+                    vector<string>::iterator it2;
+                    
+                    it2= parameters.begin();
+                    string nom = *it2;
+                    
+                    EltGeo *a =Analyseur::createObjectWithParameters(t, parameters);
+                    listeDesElements -> insert (pair<string,EltGeo*>(nom,a));
+                    loadedElements.push_back(a);
+                }else{
+                    pool.push_back(temp);
+                }
+                //On clear l'historique
+                //on erase tous les elements du tableau element et de l'historique
+                //on delete tout (grace a delete)
+                //on remet le itActuel a historique.end()-1;
+                //
+#pragma Load incomplet !
+            }
+            
+            //On Load a present les objets agreges
+            vector<string>::iterator poolObjects;
+            for(poolObjects=pool.begin(); poolObjects<pool.end();poolObjects++){
+                Analyseur::TypeCommand t;
+                vector <string> parameters ;
+                
+                
+                t = Analyseur::analyseCommand(temp);
                 Analyseur::remplirParametres(&parameters, temp);
                 
                 
@@ -56,15 +87,9 @@ bool CmdLoad::execute(){
                 
                 EltGeo *a =Analyseur::createObjectWithParameters(t, parameters);
                 listeDesElements -> insert (pair<string,EltGeo*>(nom,a));
-                loadedElements.push_back(a);
-                
-                //On clear l'historique
-                //on erase tous les elements du tableau element et de l'historique
-                //on delete tout (grace a delete)
-                //on remet le itActuel a historique.end()-1;
-                //
-#pragma Load incomplet !
+                loadedElements.push_back(a);                
             }
+            
         }else{
             cout<<"Error opening file" << endl;
         }

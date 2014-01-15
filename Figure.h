@@ -75,7 +75,6 @@ public:
     vector<Command *> historique;
     vector<Command *>::iterator itActuel;
     map<string, EltGeo *> listeDesElements;
-    map<string, Agregat *> listeDesAgregats;
     protected:
 
     //----------------------------------------------------- Attributs protégés

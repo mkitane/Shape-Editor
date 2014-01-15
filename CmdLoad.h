@@ -62,6 +62,7 @@ public:
 protected:
     //----------------------------------------------------- Méthodes protégées
     vector<EltGeo *> loadedElements;
+    vector<string> pool; //on cree les aggregats en dernier pour eviter tt pb
     //----------------------------------------------------- Attributs protégés
 };
 

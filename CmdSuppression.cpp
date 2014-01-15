@@ -24,11 +24,14 @@
 //{
 //} //----- Fin de Méthode
 void CmdSuppression::deleteElementFromOAs(EltGeo *e){
-    map<string, Agregat*>::iterator it;
-    for(it=listeAgreges->begin(); it!=listeAgreges->end();it++){
-        if((it->second)->contains(e)){
-            (it->second)->deleteElt(e->Nom);
-            fromWhereDeleted.push_back(it->second);
+    map<string, EltGeo*>::iterator it;
+    for(it=listeDesElements->begin(); it!=listeDesElements->end();it++){
+        if (dynamic_cast<Agregat*>(it->second)) {
+            Agregat *agg = dynamic_cast<Agregat*>(it->second);
+            if((agg)->contains(e)){
+                (agg)->deleteElt(e->Nom);
+                fromWhereDeleted.push_back(agg);
+            }
         }
     }
     
@@ -84,7 +87,7 @@ bool CmdSuppression::undo(){
 
 
 //-------------------------------------------- Constructeurs - destructeur
-CmdSuppression::CmdSuppression(map<string,EltGeo *> *lE, vector<string> lP,  map<string,Agregat *> *lA) : Command(lE,lP), listeAgreges(lA)
+CmdSuppression::CmdSuppression(map<string,EltGeo *> *lE, vector<string> lP) : Command(lE,lP)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <CmdSuppression>" << endl;
