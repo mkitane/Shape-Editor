@@ -61,7 +61,7 @@ public:
     
 protected:
     //----------------------------------------------------- Méthodes protégées
-    vector<string> loadedElements;
+    vector<EltGeo *> loadedElements;
     //----------------------------------------------------- Attributs protégés
 };
 

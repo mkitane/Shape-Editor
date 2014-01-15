@@ -21,6 +21,7 @@
 #include "CmdLoad.h"
 #include "CmdList.h"
 #include "CmdMove.h"
+#include "Rond.h"
 
 namespace Analyseur {
     
@@ -184,7 +185,7 @@ namespace Analyseur {
         
         while (getline(iss, line,' '))
         {
-            cout<< "le parametre a push back est " << line << endl;
+            //cout<< "le parametre a push back est " << line << endl;
             parameters->push_back(line);
         }
     }
@@ -241,8 +242,72 @@ namespace Analyseur {
         
         return c; 
     }
-    string createObjectWithParameters(TypeCommand t, vector<string> parameters){
-        return "ok";
+    EltGeo* createObjectWithParameters(TypeCommand t, vector<string> parameters){
+        vector<string>::iterator it;
+        
+        it= parameters.begin();
+        string nom = *it;
+        
+        
+        EltGeo *a = nullptr;
+        switch (t) {
+            case ajouterCercle:
+            {
+                    it++;
+                    int x1;
+                    if(!Analyseur::checkIfNumber((*it).c_str(), &x1)){
+                        cout<<"Cmd AjouterCercle is not valid" << endl;
+                        return nullptr;
+                    }
+                    
+                    it++;
+                    int y1;
+                    
+                    if(!Analyseur::checkIfNumber((*it).c_str(), &y1)){
+                        cout<<"Cmd AjouterCercle is not valid" << endl;
+                        return nullptr;
+                    }
+                
+                    
+                    it++;
+                    int r;
+                    if(!Analyseur::checkIfNumber((*it).c_str(), &r)){
+                        cout<<"Cmd AjouterCercle is not valid" << endl;
+                        return nullptr;
+                    }
+                
+                    
+                    cout<< "On cree un cercle de rayon " << r << " et de coordonnées (" << x1 << "," << y1 << ") " << endl;
+                
+                    a = new Rond(nom,r,x1,y1);
+                
+                
+            }
+                break;
+            case ajouterLigne:
+            {
+                
+            }
+                break;
+            case ajouterObjetAgrege:
+            {
+                
+            }
+                break;
+            case ajouterPolyligne:
+            {
+                
+            }
+                break;
+            case ajouterRectangle:
+            {
+                
+            }
+                break;
+            default:
+                break;
+        }
+        return a;
     }
 }
 

@@ -37,6 +37,8 @@ bool CmdSuppression::execute(){
         map<string, EltGeo *>::iterator itLE;
         itLE = listeDesElements->find(nom);
         if(itLE != listeDesElements->end()){
+#pragma -mark Verifier si cest OA, si cest OA cest bon
+#pragma -mark Sinon On doit aussi enlever OA des OA Correspondants
             elementsSupprimes.push_back(itLE->second);
             listeDesElements->erase(nom);
         }else{
@@ -49,7 +51,14 @@ bool CmdSuppression::execute(){
 
 bool CmdSuppression::undo(){
     
-    return true; 
+    vector<EltGeo *>::iterator itL;
+    for(itL=elementsSupprimes.begin(); itL<elementsSupprimes.end();itL++){
+        EltGeo *a = *itL;
+        listeDesElements -> insert (pair<string,EltGeo*>(a->Nom,a));
+    }
+
+    
+    return true;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -68,6 +77,8 @@ CmdSuppression::~CmdSuppression ( )
 // Algorithme :
 //
 {
+    
+#pragma -mark Delete elements supprimés??
 #ifdef MAP
     cout << "Appel au destructeur de <CmdSuppression>" << endl;
 #endif
