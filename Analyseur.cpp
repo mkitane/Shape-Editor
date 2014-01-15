@@ -21,7 +21,9 @@
 #include "CmdLoad.h"
 #include "CmdList.h"
 #include "CmdMove.h"
+#include "CmdAjouterOA.h"
 #include "Rond.h"
+#include "Agregat.h"
 
 namespace Analyseur {
     
@@ -98,7 +100,7 @@ namespace Analyseur {
         if(firstWord.compare("OA") == 0 ){
             cout<<"Commande a effectuer : Objet Agrege" << endl;
             //Il faut absolument un nombre de param supérieur OU EGAL a 2
-            if(nbParams(command) >= 2){
+            if(nbParams(command) <= 2){
                 cout<<"Invalid number of Params" << endl;
                 return errorCommand;
             }
@@ -201,7 +203,7 @@ namespace Analyseur {
                 
             case suppression:
             {
-                c = new CmdSuppression(&(f->listeDesElements), parameters);
+                c = new CmdSuppression(&(f->listeDesElements), parameters, &(f->listeDesAgregats));
             }
                 break;
             case annuler:
@@ -238,6 +240,11 @@ namespace Analyseur {
             {
                 c = new CmdMove(&(f->listeDesElements), parameters); 
             }
+                break; 
+            case ajouterObjetAgrege:{
+                c = new CmdAjouterOA(&(f->listeDesElements),parameters, &(f->listeDesAgregats));
+            }
+                break;
         }
         
         return c; 

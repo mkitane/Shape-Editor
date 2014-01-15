@@ -24,6 +24,28 @@
 //{
 //} //----- Fin de Méthode
 
+void Agregat::deleteElt(string n){
+    map<string, EltGeo *>::iterator itLE;
+    itLE = listEltGeo.find(n);
+    if(itLE != listEltGeo.end()){
+        listEltGeo.erase(n);
+    }
+}
+
+void Agregat::addElt(EltGeo *e){
+    listEltGeo.insert(pair<string, EltGeo*>(e->Nom, e));
+}
+
+bool Agregat::contains(EltGeo *e){
+    map<string, EltGeo *>::iterator itLE;
+    itLE = listEltGeo.find(e->Nom);
+    if(itLE != listEltGeo.end()){
+        return true;
+    }else{
+        return false;
+    }
+}
+
 void Agregat::deplacer(int dx, int dy)
 {
     map<string, EltGeo *>::iterator it;

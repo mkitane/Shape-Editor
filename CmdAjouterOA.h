@@ -1,13 +1,13 @@
 /*************************************************************************
- CmdSuppression  -  description
+ CmdAjouterOA  -  description
  -------------------
  début                : 20 déc. 2013
  copyright            : (C) 2013 par mkitane
  *************************************************************************/
 
-//---------- Interface de la classe <CmdSuppression> (fichier CmdSuppression.h) ------
-#if ! defined ( CmdSuppression_H_ )
-#define CmdSuppression_H_
+//---------- Interface de la classe <CmdAjouterOA> (fichier CmdAjouterOA.h) ------
+#if ! defined ( CmdAjouterOA_H_ )
+#define CmdAjouterOA_H_
 
 
 #include <iostream>
@@ -21,12 +21,12 @@ using namespace std;
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <CmdSuppression>
+// Rôle de la classe <CmdAjouterOA>
 //
 //
 //------------------------------------------------------------------------
 
-class CmdSuppression : public Command
+class CmdAjouterOA : public Command
 {
     //----------------------------------------------------------------- PUBLIC
     
@@ -38,38 +38,34 @@ public:
     // Contrat :
     //
     bool execute();
-    bool undo(); 
+    bool undo();
     bool canDoAnUndo(){return true;}
-
+    
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur
-    CmdSuppression(map<string,EltGeo *> *lE, vector<string> lP, map<string,Agregat *> *lA);
+    CmdAjouterOA(map<string,EltGeo *> *lE, vector<string> lP,map<string,Agregat *> *lA);
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    ~CmdSuppression();
+    ~CmdAjouterOA();
     // Mode d'emploi :
     //
     // Contrat :
     //
-    
     //------------------------------------------------------------------ PRIVE
     
 protected:
     //----------------------------------------------------- Méthodes protégées
     
     //----------------------------------------------------- Attributs protégés
-    vector<EltGeo *> elementsSupprimes ; //On garde une reference aux elements supprimés juste in case;
-    vector<Agregat *> fromWhereDeleted; 
-                                    //Pour le redo
+    Agregat *OAAjoute;
     map<string,Agregat *> *listeAgreges;
-    
-    void deleteElementFromOAs(EltGeo *e);
-    void addElementstoOAs(EltGeo *e);
+
+    //int tab[1000000000];
 };
 
-//--------------------------- Autres définitions dépendantes de <CmdSuppression>
+//--------------------------- Autres définitions dépendantes de <CmdAjouterOA>
 
-#endif // CmdSuppression_H_
+#endif // CmdAjouterOA_H_

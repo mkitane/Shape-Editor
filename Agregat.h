@@ -35,8 +35,9 @@ public:
 //----------------------------------------------------- Méthodes publiques
     void deplacer(int dx, int dy);
     string description();
-
-
+    void deleteElt(string n);
+    void addElt(EltGeo *e);
+    bool contains(EltGeo *e);
 
 //------------------------------------------------- Surcharge d'opérateurs
     // Mode d'emploi :

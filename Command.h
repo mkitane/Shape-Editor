@@ -14,6 +14,7 @@
 #include <map>
 #include <vector>
 #include "EltGeo.h"
+#include "Agregat.h"
 using namespace std;
 
 //--------------------------------------------------- Interfaces utilisées
@@ -39,9 +40,9 @@ public:
     //
     // Contrat :
     //
-    bool virtual execute() = 0 ;
-    bool virtual undo() = 0 ;
-    bool virtual canDoAnUndo()=0;
+    virtual bool execute() = 0 ;
+    virtual bool undo() = 0 ;
+    virtual bool canDoAnUndo()=0;
     
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur
