@@ -22,6 +22,7 @@
 #include "CmdList.h"
 #include "CmdMove.h"
 #include "CmdAjouterOA.h"
+#include "CmdClear.h"
 #include "Rond.h"
 #include "Agregat.h"
 
@@ -241,10 +242,15 @@ namespace Analyseur {
                 c = new CmdMove(&(f->listeDesElements), parameters); 
             }
                 break; 
-            case ajouterObjetAgrege:{
+            case ajouterObjetAgrege:
+            {
                 c = new CmdAjouterOA(&(f->listeDesElements),parameters);
             }
                 break;
+            case vider:
+            {
+                c = new CmdClear(&(f->listeDesElements),parameters);
+            }
         }
         
         return c; 
