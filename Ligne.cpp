@@ -53,7 +53,7 @@ Ligne::Ligne ( const Ligne & unLigne )
 */
 
 
-Ligne::Ligne(string n, int x1,int y1,int x2,int y2) : EltGeo(n), p1(x1,y2), p2(x2,y2)
+Ligne::Ligne(string n, int x1,int y1,int x2,int y2) : EltGeo(n), p1(x1,y1), p2(x2,y2)
 // Algorithme :
 {
 } //----- Fin de Ligne

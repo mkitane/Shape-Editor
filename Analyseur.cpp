@@ -22,8 +22,14 @@
 #include "CmdList.h"
 #include "CmdMove.h"
 #include "CmdAjouterOA.h"
+#include "CmdAjouterLigne.h"
+#include "CmdAjouterPolyLigne.h"
+#include "CmdAjouterRectangle.h"
 #include "CmdClear.h"
 #include "Rond.h"
+#include "Rectangle.h"
+#include "Polyligne.h"
+#include "Ligne.h"
 #include "Agregat.h"
 
 namespace Analyseur {
@@ -247,9 +253,29 @@ namespace Analyseur {
                 c = new CmdAjouterOA(&(f->listeDesElements),parameters);
             }
                 break;
+            case ajouterRectangle:
+            {
+                c = new CmdAjouterRectangle(&(f->listeDesElements),parameters);
+            }
+                break;
+            case ajouterLigne:
+            {
+                c = new CmdAjouterLigne(&(f->listeDesElements),parameters);
+            }
+                break;
+            case ajouterPolyligne:
+            {
+                c = new CmdAjouterPolyLigne(&(f->listeDesElements),parameters);
+            }
+                break;
             case vider:
             {
                 c = new CmdClear(&(f->listeDesElements),parameters);
+            }
+                break;
+            case errorCommand:
+            {
+                c = NULL;
             }
         }
         
@@ -299,7 +325,43 @@ namespace Analyseur {
                 break;
             case ajouterLigne:
             {
+                it++;
+                int x1;
+                if(!Analyseur::checkIfNumber((*it).c_str(), &x1)){
+                    cout<<"Cmd AjouterCercle is not valid" << endl;
+                    return NULL;
+                }
                 
+                it++;
+                int y1;
+                
+                if(!Analyseur::checkIfNumber((*it).c_str(), &y1)){
+                    cout<<"Cmd AjouterCercle is not valid" << endl;
+                    return NULL;
+                }
+                
+                
+                it++;
+                int x2;
+                if(!Analyseur::checkIfNumber((*it).c_str(), &x2)){
+                    cout<<"Cmd AjouterCercle is not valid" << endl;
+                    return NULL;
+                }
+                
+                it++;
+                int y2;
+                
+                if(!Analyseur::checkIfNumber((*it).c_str(), &y2)){
+                    cout<<"Cmd AjouterCercle is not valid" << endl;
+                    return NULL;
+                }
+                
+                
+                
+                cout<< "On cree une ligne " << " et de coordonnées (" << x1 << "," << y1 << ") " << "( " << x2 << "," << y2<< ")" << endl;
+                
+                a = new Ligne(nom,x1,y1,x2,y2);
+
             }
                 break;
             case ajouterObjetAgrege:
@@ -329,12 +391,63 @@ namespace Analyseur {
                 break;
             case ajouterPolyligne:
             {
+                vector<int> xy;
                 
+                it++;
+                while(it<parameters.end()){
+                    int x1;
+                    if(!Analyseur::checkIfNumber((*it).c_str(), &x1)){
+                        cout<<"Cmd AjouterPolyLigne is not valid" << endl;
+                        return NULL;
+                    }
+                    
+                    xy.push_back(x1);
+                    it++;
+                }
+                
+                
+                a = new Polyligne(nom,xy);
             }
                 break;
             case ajouterRectangle:
             {
+                it++;
+                int x1;
+                if(!Analyseur::checkIfNumber((*it).c_str(), &x1)){
+                    cout<<"Cmd AjouterCercle is not valid" << endl;
+                    return NULL;
+                }
                 
+                it++;
+                int y1;
+                
+                if(!Analyseur::checkIfNumber((*it).c_str(), &y1)){
+                    cout<<"Cmd AjouterCercle is not valid" << endl;
+                    return NULL;
+                }
+                
+                
+                it++;
+                int x2;
+                if(!Analyseur::checkIfNumber((*it).c_str(), &x2)){
+                    cout<<"Cmd AjouterCercle is not valid" << endl;
+                    return NULL;
+                }
+                
+                it++;
+                int y2;
+                
+                if(!Analyseur::checkIfNumber((*it).c_str(), &y2)){
+                    cout<<"Cmd AjouterCercle is not valid" << endl;
+                    return NULL;
+                }
+                
+                
+                
+                cout<< "On cree un rectangle" << " et de coordonnées (" << x1 << "," << y1 << ") " << "( " << x2 << "," << y2<< ")" << endl;
+                
+                a = new Rectangle(nom,x1,y1,x2,y2);
+
             }
                 break;
             default:

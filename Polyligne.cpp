@@ -38,14 +38,10 @@ Polyligne::Polyligne (string n, vector<int> lignes ) : EltGeo(n)
     //On suppose que la ligne de point est toujours paire et modulo 4 = 0
     for(it=lignes.begin(); it< lignes.end() ; it++){
         int x1 = *it;
-        int y1 = *it++;
+        int y1 = *(++it);
 
-        int x2 = *it++;
-        int y2 = *it;
-        
-        
-        Ligne l("",x1,y1,x2,y2);
-        listeLignes.push_back(l);
+        Point p(x1,y1);
+        listeLignes.push_back(p);
     }
 
 #ifdef MAP
@@ -65,20 +61,18 @@ Polyligne::~Polyligne ( )
 
 void Polyligne::deplacer(int dx, int dy){
     cout<<"Utilisation Deplacer Poly" <<endl; 
-    vector<Ligne>::iterator it;
+    vector<Point>::iterator it;
     for(it=listeLignes.begin(); it<listeLignes.end() ;it++){
-        Ligne a =(*it);
-        a.deplacer(dx, dy);
+        it->deplacer(dx, dy);
     }
 }
 string Polyligne::description(){
     string desc = "PL ";
     
-    vector<Ligne>::iterator it;
+    desc = desc + Nom;
+    vector<Point>::iterator it;
     for(it=listeLignes.begin(); it<listeLignes.end() ;it++){
-        Ligne a =(*it);
-        desc = desc + a.Nom + " " + to_string(a.p1.X) + " " +to_string(a.p1.Y) + " " + to_string(a.p2.X) + " " +to_string(a.p2.Y);
-
+        desc = desc + " " + to_string(it->X) + " " +to_string(it->Y) ;
     }
     return desc;
 }

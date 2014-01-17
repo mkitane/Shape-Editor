@@ -73,7 +73,7 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-    vector<Ligne> listeLignes;
+    vector<Point> listeLignes;
 //----------------------------------------------------- Attributs protégés
 
 };
