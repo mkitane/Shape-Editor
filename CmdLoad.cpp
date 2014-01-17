@@ -63,6 +63,7 @@ bool CmdLoad::execute(){
                         loadedElements.push_back(a);
                     } else {
                         cout<< nom << "Already Loaded " << endl;
+                        return false;
                     }
                     
                 }else{
@@ -98,6 +99,7 @@ bool CmdLoad::execute(){
                     loadedElements.push_back(a);
                 }else{
                     cout<< "Already Loaded" << nom << endl;
+                    return false; 
                 }
             }
             
@@ -152,6 +154,7 @@ CmdLoad::~CmdLoad ( )
     for(itL=loadedElements.begin(); itL<loadedElements.end();itL++){
         delete *itL;
     }
+    loadedElements.clear();
 #ifdef MAP
     cout << "Appel au destructeur de <CmdLoad>" << endl;
 #endif

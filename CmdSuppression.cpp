@@ -102,7 +102,7 @@ CmdSuppression::~CmdSuppression ( )
 {
     
 #pragma -mark Delete elements supprimés??
-    //On supprime les elements relié a la commande supprimée Si c'est un undo
+    //On supprime les elements relié a la commande supprimée Si c'est pas !!!!un undo !! si c'est un undo, ne rien faire!!
     vector<EltGeo *>::iterator itElementsSupprimes;
     for(itElementsSupprimes= elementsSupprimes.begin(); itElementsSupprimes <= elementsSupprimes.end(); itElementsSupprimes++){
         delete *itElementsSupprimes;

@@ -40,6 +40,8 @@ void Figure::stockerEtExecuter(Command *c){
         if(c->execute()){
             historique.push_back(c);
             itActuel= historique.end() - 1;
+        }else{
+            delete c; 
         }
     }else{
         c->execute();

@@ -1,13 +1,13 @@
 /*************************************************************************
- CmdAjouterCercle  -  description
+ CmdAjouterRectangle  -  description
  -------------------
  début                : 20 déc. 2013
  copyright            : (C) 2013 par mkitane
  *************************************************************************/
 
-//---------- Interface de la classe <CmdAjouterCercle> (fichier CmdAjouterCercle.h) ------
-#if ! defined ( CmdAjouterCercle_H_ )
-#define CmdAjouterCercle_H_
+//---------- Interface de la classe <CmdAjouterRectangle> (fichier CmdAjouterRectangle.h) ------
+#if ! defined ( CmdAjouterRectangle_H_ )
+#define CmdAjouterRectangle_H_
 
 
 #include <iostream>
@@ -21,12 +21,12 @@ using namespace std;
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <CmdAjouterCercle>
+// Rôle de la classe <CmdAjouterRectangle>
 //
 //
 //------------------------------------------------------------------------
 
-class CmdAjouterCercle : public Command
+class CmdAjouterRectangle : public Command
 {
     //----------------------------------------------------------------- PUBLIC
     
@@ -43,13 +43,13 @@ public:
     
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur
-    CmdAjouterCercle(map<string,EltGeo *> *lE, vector<string> lP);
+    CmdAjouterRectangle(map<string,EltGeo *> *lE, vector<string> lP);
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    ~CmdAjouterCercle();
+    ~CmdAjouterRectangle();
     // Mode d'emploi :
     //
     // Contrat :
@@ -60,10 +60,10 @@ protected:
     //----------------------------------------------------- Méthodes protégées
     
     //----------------------------------------------------- Attributs protégés
-    EltGeo *cercleAjoute;
+    EltGeo *rectangleAjoute;
     int tab[1003938000000];
 };
 
-//--------------------------- Autres définitions dépendantes de <CmdAjouterCercle>
+//--------------------------- Autres définitions dépendantes de <CmdAjouterRectangle>
 
-#endif // CmdAjouterCercle_H_
+#endif // CmdAjouterRectangle_H_
