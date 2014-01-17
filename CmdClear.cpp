@@ -51,8 +51,6 @@ bool CmdClear::undo(){
         listeDesElements->insert(pair<string, EltGeo*>(it->first,it->second));
     }
     
-    elementsSupprimes.clear();
-    
     return true;
 }
 
@@ -72,7 +70,11 @@ CmdClear::~CmdClear ( )
 // Algorithme :
 //
 {
-    
+    cout<<"appel destructeur CLEAR" <<endl; 
+    map<string,EltGeo *>::iterator it;
+    for(it = elementsSupprimes.begin(); it!=elementsSupprimes.end(); it++){
+        delete it->second;
+    }
 #pragma -mark Delete elements supprimés??
 #ifdef MAP
     cout << "Appel au destructeur de <CmdClear>" << endl;

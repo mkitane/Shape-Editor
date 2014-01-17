@@ -33,9 +33,14 @@ bool CmdAjouterOA::execute(){
     string nom = *it;
     
     if(OAAjoute == NULL){
-        OAAjoute = Analyseur::createObjectWithParameters(Analyseur::ajouterObjetAgrege, listeParametres,listeDesElements);
-        if(OAAjoute == nullptr){
-            return false; 
+        if ( listeDesElements->find(nom) == listeDesElements->end() ) {
+            OAAjoute = Analyseur::createObjectWithParameters(Analyseur::ajouterObjetAgrege, listeParametres,listeDesElements);
+            if(OAAjoute == NULL){
+                return false;
+            }
+        }else{
+            cout << "already Loaded" << endl;
+            return false;
         }
     }else{
         cout<<"OA Remis dans la liste" << endl;
@@ -74,6 +79,7 @@ CmdAjouterOA::~CmdAjouterOA ( )
 // Algorithme :
 //
 {
+    //Si commande supprimée apres un undo
     delete OAAjoute;
 #ifdef MAP
     cout << "Appel au destructeur de <CmdAjouterOA>" << endl;

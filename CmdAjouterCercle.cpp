@@ -33,13 +33,19 @@ bool CmdAjouterCercle::execute(){
     string nom = *it;
     
     if(cercleAjoute == NULL){
-        cercleAjoute = Analyseur::createObjectWithParameters(Analyseur::ajouterCercle, listeParametres,listeDesElements);
-        if(cercleAjoute == nullptr){
-            return false; 
+        if ( listeDesElements->find(nom) == listeDesElements->end() ) {
+            
+            cercleAjoute = Analyseur::createObjectWithParameters(Analyseur::ajouterCercle, listeParametres,listeDesElements);
+            if(cercleAjoute == NULL){
+                return false;
+            }
+        }else{
+            cout << "Cercle Already in db" << endl;
+            return false;
         }
     }else{
         
-        cout<<"Cercle Remis dans la liste" << endl; 
+        cout<<"Cercle Remis dans la liste" << endl;
     }
     
     listeDesElements -> insert (pair<string,EltGeo *>(nom,cercleAjoute) );
@@ -74,6 +80,8 @@ CmdAjouterCercle::~CmdAjouterCercle ( )
 // Algorithme :
 //
 {
+    
+    //Si commande supprimee apres un undo
     delete cercleAjoute;
 #ifdef MAP
     cout << "Appel au destructeur de <CmdAjouterCercle>" << endl;

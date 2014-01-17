@@ -30,6 +30,8 @@ void Figure::stockerEtExecuter(Command *c){
             //TODO: NE PAS OUBLIER DE DELETE AVANT D4EFFACER
             vector<Command *>::iterator i;
             for(i=(itActuel+1); i< historique.end();i++){
+                cout << "On dleete la commande " << *i << endl ;
+                //Ne pas oublier de revoir l'historique a pas plus de 20 entrees
                 delete *i;
             }
             historique.erase(itActuel+1, historique.end());
@@ -81,6 +83,15 @@ Figure::~Figure ( )
 // Algorithme :
 //
 {
+    vector<Command *>::iterator itHisto;
+    for(itHisto = historique.begin() ; itHisto < historique.end(); itHisto++){
+        delete *itHisto;
+    }
+    map<string, EltGeo *>::iterator itList;
+    for(itList = listeDesElements.begin() ; itList != listeDesElements.end(); itList++){
+        delete itList->second;
+    }
+    
 #ifdef MAP
     cout << "Appel au destructeur de <Figure>" << endl;
 #endif

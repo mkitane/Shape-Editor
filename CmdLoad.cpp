@@ -55,9 +55,16 @@ bool CmdLoad::execute(){
                     it2= parameters.begin();
                     string nom = *it2;
                     
-                    EltGeo *a =Analyseur::createObjectWithParameters(t, parameters,listeDesElements);
-                    listeDesElements -> insert (pair<string,EltGeo*>(nom,a));
-                    loadedElements.push_back(a);
+                    
+                    if ( listeDesElements->find(nom) == listeDesElements->end() ) {
+                        // not found
+                        EltGeo *a =Analyseur::createObjectWithParameters(t, parameters,listeDesElements);
+                        listeDesElements -> insert (pair<string,EltGeo*>(nom,a));
+                        loadedElements.push_back(a);
+                    } else {
+                        cout<< nom << "Already Loaded " << endl;
+                    }
+                    
                 }else{
                     pool.push_back(temp);
                 }
@@ -85,9 +92,13 @@ bool CmdLoad::execute(){
                 it2= parameters.begin();
                 string nom = *it2;
                 
-                EltGeo *a =Analyseur::createObjectWithParameters(t, parameters,listeDesElements);
-                listeDesElements -> insert (pair<string,EltGeo*>(nom,a));
-                loadedElements.push_back(a);                
+                if ( listeDesElements->find(nom) == listeDesElements->end() ) {
+                    EltGeo *a =Analyseur::createObjectWithParameters(t, parameters,listeDesElements);
+                    listeDesElements -> insert (pair<string,EltGeo*>(nom,a));
+                    loadedElements.push_back(a);
+                }else{
+                    cout<< "Already Loaded" << nom << endl;
+                }
             }
             
         }else{
@@ -113,7 +124,8 @@ bool CmdLoad::undo(){
         listeDesElements->erase(loaded->Nom);
         cout<< "unload" << loaded->Nom << endl;
     }
-    return false;
+    
+    return true;
 }
 
 
@@ -133,6 +145,13 @@ CmdLoad::~CmdLoad ( )
 // Algorithme :
 //
 {
+    
+    //Si cmd doit etre suppriméee apres un UNDO
+    //On supprime les pointeurs crees
+    vector<EltGeo *>::iterator itL;
+    for(itL=loadedElements.begin(); itL<loadedElements.end();itL++){
+        delete *itL;
+    }
 #ifdef MAP
     cout << "Appel au destructeur de <CmdLoad>" << endl;
 #endif

@@ -77,9 +77,10 @@ bool CmdSuppression::undo(){
         EltGeo *a = *itL;
         listeDesElements -> insert (pair<string,EltGeo*>(a->Nom,a));
         addElementstoOAs(a);
+        
     }
 
-    
+    elementsSupprimes.clear();
     return true;
 }
 
@@ -101,6 +102,12 @@ CmdSuppression::~CmdSuppression ( )
 {
     
 #pragma -mark Delete elements supprimés??
+    //On supprime les elements relié a la commande supprimée Si c'est un undo
+    vector<EltGeo *>::iterator itElementsSupprimes;
+    for(itElementsSupprimes= elementsSupprimes.begin(); itElementsSupprimes <= elementsSupprimes.end(); itElementsSupprimes++){
+        delete *itElementsSupprimes;
+    }
+    
 #ifdef MAP
     cout << "Appel au destructeur de <CmdSuppression>" << endl;
 #endif

@@ -262,7 +262,7 @@ namespace Analyseur {
         string nom = *it;
         
         
-        EltGeo *a = nullptr;
+        EltGeo *a = NULL;
         switch (t) {
             case ajouterCercle:
             {
@@ -270,7 +270,7 @@ namespace Analyseur {
                     int x1;
                     if(!Analyseur::checkIfNumber((*it).c_str(), &x1)){
                         cout<<"Cmd AjouterCercle is not valid" << endl;
-                        return nullptr;
+                        return NULL;
                     }
                     
                     it++;
@@ -278,7 +278,7 @@ namespace Analyseur {
                     
                     if(!Analyseur::checkIfNumber((*it).c_str(), &y1)){
                         cout<<"Cmd AjouterCercle is not valid" << endl;
-                        return nullptr;
+                        return NULL;
                     }
                 
                     
@@ -286,7 +286,7 @@ namespace Analyseur {
                     int r;
                     if(!Analyseur::checkIfNumber((*it).c_str(), &r)){
                         cout<<"Cmd AjouterCercle is not valid" << endl;
-                        return nullptr;
+                        return NULL;
                     }
                 
                     
@@ -317,7 +317,7 @@ namespace Analyseur {
                         objetsOA.insert(pair<string,EltGeo *>(e->Nom,e));
                     }else{
                         cout<<"Mauvais ObjetAgrege" <<endl;
-                        return nullptr;
+                        return NULL;
                     }
                     it++;
                     
@@ -342,6 +342,7 @@ namespace Analyseur {
         }
         return a;
     }
+    
 }
 
 
