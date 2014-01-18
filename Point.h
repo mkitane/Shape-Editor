@@ -12,7 +12,6 @@
 
 #include <iostream>
 using namespace std;
-
 //--------------------------------------------------- Interfaces utilisées
 
 //------------------------------------------------------------- Constantes
@@ -36,9 +35,9 @@ public:
     //
     // Contrat :
     //
-
-    void deplacer(int dx, int dy);
     
+    void deplacer(int dx, int dy);
+    string description();
 //------------------------------------------------- Surcharge d'opérateurs
     /*Point & operator = ( const Point & unPoint );
     // Mode d'emploi :
@@ -64,13 +63,13 @@ public:
     //
 
 //------------------------------------------------------------------ PRIVE
-    int X;
-    int Y;
+   
 protected:
 //----------------------------------------------------- Méthodes protégées
-
+ 
 //----------------------------------------------------- Attributs protégés
-
+    int X;
+    int Y;
 };
 
 //--------------------------- Autres définitions dépendantes de <Point>

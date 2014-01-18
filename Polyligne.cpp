@@ -60,7 +60,6 @@ Polyligne::~Polyligne ( )
 } //----- Fin de ~Polyligne
 
 void Polyligne::deplacer(int dx, int dy){
-    cout<<"Utilisation Deplacer Poly" <<endl; 
     vector<Point>::iterator it;
     for(it=listeLignes.begin(); it<listeLignes.end() ;it++){
         it->deplacer(dx, dy);
@@ -69,10 +68,10 @@ void Polyligne::deplacer(int dx, int dy){
 string Polyligne::description(){
     string desc = "PL ";
     
-    desc = desc + Nom;
+    desc = desc + nom;
     vector<Point>::iterator it;
     for(it=listeLignes.begin(); it<listeLignes.end() ;it++){
-        desc = desc + " " + to_string(it->X) + " " +to_string(it->Y) ;
+        desc = desc + " " + it->description() ;
     }
     return desc;
 }

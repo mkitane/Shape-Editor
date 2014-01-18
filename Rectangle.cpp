@@ -67,7 +67,7 @@ Rectangle::~Rectangle ( )
 
 string Rectangle::description(){
     string desc = "R ";
-    desc = desc + Nom + " " + to_string(point1.X) + " " +to_string( point1.Y) + " " + to_string(point2.X) + " " +to_string(point2.Y);
+    desc = desc + nom + " " + point1.description() + " " + point2.description();
     return desc;
 }
 

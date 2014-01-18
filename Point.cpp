@@ -49,6 +49,9 @@ void Point::deplacer(int dx, int dy){
     X+=dx;
     Y+=dy; 
 }
+string Point::description(){
+    return to_string(X) + " " + to_string(Y);
+}
 Point::Point (int x,int y ): X(x), Y(y)
 // Algorithme :
 //

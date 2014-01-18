@@ -23,7 +23,6 @@ using namespace std;
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
-
 namespace Analyseur {
     typedef enum{
         ajouterCercle,

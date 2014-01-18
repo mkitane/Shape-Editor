@@ -111,7 +111,7 @@ bool CmdLoad::execute(){
         vector<EltGeo *>::iterator itL;
         for(itL=loadedElements.begin(); itL<loadedElements.end();itL++){
             EltGeo *a = *itL;
-            listeDesElements -> insert (pair<string,EltGeo*>(a->Nom,a));
+            listeDesElements -> insert (pair<string,EltGeo*>(a->getNom(),a));
         }
         
     }
@@ -123,7 +123,7 @@ bool CmdLoad::undo(){
     vector<EltGeo *>::iterator itLoaded;
     for(itLoaded=loadedElements.begin() ; itLoaded != loadedElements.end(); itLoaded++){
         EltGeo *loaded = *itLoaded;
-        listeDesElements->erase(loaded->Nom);
+        listeDesElements->erase(loaded->getNom());
         //cout<< "unload" << loaded->Nom << endl;
     }
     

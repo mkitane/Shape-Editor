@@ -73,8 +73,8 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-    Point p1;
-    Point p2;
+    Point point1;
+    Point point2;
 };
 
 //--------------------------- Autres définitions dépendantes de <Ligne>

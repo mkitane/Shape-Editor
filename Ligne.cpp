@@ -53,7 +53,7 @@ Ligne::Ligne ( const Ligne & unLigne )
 */
 
 
-Ligne::Ligne(string n, int x1,int y1,int x2,int y2) : EltGeo(n), p1(x1,y1), p2(x2,y2)
+Ligne::Ligne(string n, int x1,int y1,int x2,int y2) : EltGeo(n), point1(x1,y1), point2(x2,y2)
 // Algorithme :
 {
 } //----- Fin de Ligne
@@ -69,14 +69,13 @@ Ligne::~Ligne ( )
 } //----- Fin de ~Ligne
 
 void Ligne::deplacer(int dx, int dy){
-    cout<<"Utilisation Ligne" << endl; 
-    p1.deplacer(dx, dy);
-    p2.deplacer(dx, dy);
+    point1.deplacer(dx, dy);
+    point2.deplacer(dx, dy);
 }
 
 string Ligne::description(){
     string desc = "L ";
-    desc = desc + Nom + " " + to_string(p1.X) + " " +to_string( p1.Y) + " " + to_string(p2.X) + " " +to_string(p2.Y);
+    desc = desc + nom + " " + point1.description() + " " + point2.description();
     return desc;
 }
 

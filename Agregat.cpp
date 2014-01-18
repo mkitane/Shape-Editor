@@ -33,12 +33,12 @@ void Agregat::deleteElt(string n){
 }
 
 void Agregat::addElt(EltGeo *e){
-    listEltGeo.insert(pair<string, EltGeo*>(e->Nom, e));
+    listEltGeo.insert(pair<string, EltGeo*>(e->getNom(), e));
 }
 
 bool Agregat::contains(EltGeo *e){
     map<string, EltGeo *>::iterator itLE;
-    itLE = listEltGeo.find(e->Nom);
+    itLE = listEltGeo.find(e->getNom());
     if(itLE != listEltGeo.end()){
         return true;
     }else{
@@ -59,12 +59,12 @@ void Agregat::deplacer(int dx, int dy)
 
 string Agregat::description(){
     string desc = "OA ";
-    desc = desc + Nom + " ";
+    desc = desc + nom + " ";
 
     map<string, EltGeo *>::iterator it;
     for(it = listEltGeo.begin(); it != listEltGeo.end() ;it++){
         EltGeo *actuel = it->second;
-        desc = desc + actuel->Nom + " ";
+        desc = desc + actuel->getNom() + " ";
     }
     return desc;
 }

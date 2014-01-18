@@ -58,7 +58,7 @@ public:
     // Contrat :
     //
 */
-    Rond ( string n,int R, int x0, int y0);
+    Rond ( string n,int r, int x0, int y0);
     // Mode d'emploi : cree le rond de centre (x0,y0) et de rayon R
     //
     // Contrat :
@@ -76,7 +76,7 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-int R; //rayon du rond
+int rayon;
 Point centre;
 };
 

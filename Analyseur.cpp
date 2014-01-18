@@ -380,7 +380,7 @@ namespace Analyseur {
                     itLE = listeDesElements->find(nomEltGeo);
                     if(itLE != listeDesElements->end()){
                         EltGeo *e = itLE->second;
-                        objetsOA.insert(pair<string,EltGeo *>(e->Nom,e));
+                        objetsOA.insert(pair<string,EltGeo *>(e->getNom(),e));
                     }else{
                         cout << "ERR" << endl;
                         return NULL;

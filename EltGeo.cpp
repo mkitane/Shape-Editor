@@ -23,7 +23,9 @@
 //
 //{
 //} //----- Fin de Méthode
-
+const string EltGeo::getNom(){
+    return nom; 
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 /*
@@ -46,7 +48,7 @@ EltGeo::EltGeo ( const EltGeo & unEltGeo )
 } //----- Fin de EltGeo (constructeur de copie)
 
 
-EltGeo::EltGeo (string n) : Nom(n)
+EltGeo::EltGeo (string n) : nom(n)
 // Algorithme :
 //
 {

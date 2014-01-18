@@ -29,7 +29,7 @@ void CmdSuppression::deleteElementFromOAs(EltGeo *e){
         if (dynamic_cast<Agregat*>(it->second)) {
             Agregat *agg = dynamic_cast<Agregat*>(it->second);
             if((agg)->contains(e)){
-                (agg)->deleteElt(e->Nom);
+                (agg)->deleteElt(e->getNom());
                 fromWhereDeleted.push_back(agg);
             }
         }
@@ -75,7 +75,7 @@ bool CmdSuppression::undo(){
     vector<EltGeo *>::iterator itL;
     for(itL=elementsSupprimes.begin(); itL<elementsSupprimes.end();itL++){
         EltGeo *a = *itL;
-        listeDesElements -> insert (pair<string,EltGeo*>(a->Nom,a));
+        listeDesElements -> insert (pair<string,EltGeo*>(a->getNom(),a));
         addElementstoOAs(a);
         
     }

@@ -39,6 +39,7 @@ public:
     // Contrat :
     //
 
+    const string getNom();
     virtual void deplacer(int dx, int dy) =0;
     virtual string description() = 0 ;
     // Mode d'emploi : deplace l'element geometrique selon la translation de vecteur(x0,y0)
@@ -68,11 +69,10 @@ public:
     //
 
 //------------------------------------------------------------------ PRIVE
-    string Nom;
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-
+    string nom;
 //----------------------------------------------------- Attributs protégés
 };
 
