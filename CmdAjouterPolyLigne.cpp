@@ -72,6 +72,7 @@ bool CmdAjouterPolyLigne::undo(){
 //-------------------------------------------- Constructeurs - destructeur
 CmdAjouterPolyLigne::CmdAjouterPolyLigne(map<string,EltGeo *> *lE, vector<string> lP) : Command(lE,lP)
 {
+    polyLigneAjoutee = NULL;
 #ifdef MAP
     cout << "Appel au constructeur de <CmdAjouterPolyLigne>" << endl;
 #endif

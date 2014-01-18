@@ -72,6 +72,7 @@ bool CmdAjouterCercle::undo(){
 //-------------------------------------------- Constructeurs - destructeur
 CmdAjouterCercle::CmdAjouterCercle(map<string,EltGeo *> *lE, vector<string> lP) : Command(lE,lP)
 {
+    cercleAjoute = NULL;
 #ifdef MAP
     cout << "Appel au constructeur de <CmdAjouterCercle>" << endl;
 #endif

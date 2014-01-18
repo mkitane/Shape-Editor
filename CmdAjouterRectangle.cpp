@@ -72,6 +72,7 @@ bool CmdAjouterRectangle::undo(){
 //-------------------------------------------- Constructeurs - destructeur
 CmdAjouterRectangle::CmdAjouterRectangle(map<string,EltGeo *> *lE, vector<string> lP) : Command(lE,lP)
 {
+    rectangleAjoute = NULL;
 #ifdef MAP
     cout << "Appel au constructeur de <CmdAjouterRectangle>" << endl;
 #endif

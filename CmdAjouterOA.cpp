@@ -72,6 +72,7 @@ bool CmdAjouterOA::undo(){
 //-------------------------------------------- Constructeurs - destructeur
 CmdAjouterOA::CmdAjouterOA(map<string,EltGeo *> *lE, vector<string> lP) : Command(lE,lP)
 {
+    OAAjoute = NULL;
 #ifdef MAP
     cout << "Appel au constructeur de <CmdAjouterOA>" << endl;
 #endif

@@ -72,6 +72,7 @@ bool CmdAjouterLigne::undo(){
 //-------------------------------------------- Constructeurs - destructeur
 CmdAjouterLigne::CmdAjouterLigne(map<string,EltGeo *> *lE, vector<string> lP) : Command(lE,lP)
 {
+    ligneAjoutee = NULL;
 #ifdef MAP
     cout << "Appel au constructeur de <CmdAjouterLigne>" << endl;
 #endif

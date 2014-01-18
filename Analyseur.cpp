@@ -176,7 +176,7 @@ namespace Analyseur {
         }
         
         //On verifie si c'est un commentaire
-        if(firstWord.at(0) == '#'){
+        if(firstWord.size() != 0 && firstWord.at(0) == '#'){
             return commentaire;
         }
         return errorCommand;
@@ -284,7 +284,7 @@ namespace Analyseur {
         
         return c; 
     }
-    EltGeo* createObjectWithParameters(TypeCommand t, vector<string> parameters,map<string,EltGeo *> *listeDesElements){
+    EltGeo * createObjectWithParameters(TypeCommand t, vector<string> parameters,map<string,EltGeo *> *listeDesElements){
         vector<string>::iterator it;
         
         it= parameters.begin();

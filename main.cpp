@@ -37,7 +37,7 @@ int main(int argc, const char * argv[])
        
         t = analyseCommand(commandEntry);
         
-        if( t!= errorCommand ){
+        if( t!= errorCommand && t!=commentaire){
             
             remplirParametres(&parameters, commandEntry);
 
