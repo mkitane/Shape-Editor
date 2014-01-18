@@ -65,18 +65,13 @@ bool CmdLoad::execute(){
                         loadedElements.push_back(a);
                     } else {
                         cout << "ERR" << endl;
-                        cout<< "#Already " << nom <<  "loaded" << endl;
-                        return false;
+                        cout<< "#Already loaded :" << nom << endl;
+                        //return false;
                     }
                     
                 }else{
                     pool.push_back(temp);
                 }
-                //On clear l'historique
-                //on erase tous les elements du tableau element et de l'historique
-                //on delete tout (grace a delete)
-                //on remet le itActuel a historique.end()-1;
-                //
 #pragma Load incomplet !
             }
             
@@ -102,7 +97,8 @@ bool CmdLoad::execute(){
                     loadedElements.push_back(a);
                 }else{
                     cout << "ERR" << endl;
-                    return false;
+                    cout<< "#Already loaded :" << nom << endl;
+                    //return false;
                 }
             }
             
