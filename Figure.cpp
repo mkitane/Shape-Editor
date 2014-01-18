@@ -30,7 +30,7 @@ void Figure::stockerEtExecuter(Command *c){
             //TODO: NE PAS OUBLIER DE DELETE AVANT D4EFFACER
             vector<Command *>::iterator i;
             for(i=(itActuel+1); i< historique.end();i++){
-                cout << "On dleete la commande " << *i << endl ;
+                //cout << "On dleete la commande " << *i << endl ;
                 //Ne pas oublier de revoir l'historique a pas plus de 20 entrees
                 delete *i;
             }

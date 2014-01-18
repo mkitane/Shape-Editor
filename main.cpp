@@ -24,10 +24,6 @@ int main(int argc, const char * argv[])
 {
 
     // insert code here...
-
-    cout << "Hello World" << endl ;
-    
-    
     Figure f;
     
     while(true){
@@ -50,7 +46,7 @@ int main(int argc, const char * argv[])
 
             
         }else{
-            cout<<"Erreur Command"<<endl;
+            cout<<"#Command error"<<endl;
         }
        
         

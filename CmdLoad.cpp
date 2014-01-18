@@ -65,7 +65,7 @@ bool CmdLoad::execute(){
                         loadedElements.push_back(a);
                     } else {
                         cout << "ERR" << endl;
-                        cout<< nom << "#Already loaded" << endl;
+                        cout<< "#Already " << nom <<  "loaded" << endl;
                         return false;
                     }
                     
