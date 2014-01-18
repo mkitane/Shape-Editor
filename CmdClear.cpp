@@ -25,7 +25,6 @@
 //} //----- Fin de Méthode
 bool CmdClear::execute(){
     
-    cout<<"on execute Clear" << endl;
    
     
     map<string,EltGeo *>::iterator it;
@@ -73,7 +72,6 @@ CmdClear::~CmdClear ( )
 //
 {
     //ON SUPPRIME SEULEMENT SI C'EST PAS UN UNDO
-    cout<<"appel destructeur CLEAR" <<endl; 
     map<string,EltGeo *>::iterator it;
     for(it = elementsSupprimes.begin(); it!=elementsSupprimes.end(); it++){
         delete it->second;

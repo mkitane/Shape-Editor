@@ -27,14 +27,12 @@
 
 bool CmdMove::execute(){
     
-    cout<<"on execute move" << endl;
     
     vector<string>::iterator it;
     it=listeParametres.begin();
 
         string nom = *it;
-        cout<<"element a deplacer :" << nom << endl;
-        
+    
         map<string, EltGeo *>::iterator itLE;
         itLE = listeDesElements->find(nom);
     
@@ -42,7 +40,8 @@ bool CmdMove::execute(){
             it++;
             int x1;
             if(!Analyseur::checkIfNumber((*it).c_str(), &x1)){
-                cout<<"Cmd Move is not valid" << endl;
+                cout << "ERR" << endl;
+                cout << "#invalid parameters" << endl;
                 return false;
             }
             
@@ -50,7 +49,8 @@ bool CmdMove::execute(){
             int y1;
             
             if(!Analyseur::checkIfNumber((*it).c_str(), &y1)){
-                cout<<"Cmd Move is not valid" << endl;
+                cout << "ERR" << endl;
+                cout << "#invalid parameters" << endl;
                 return false;
             }
             
@@ -62,10 +62,12 @@ bool CmdMove::execute(){
             
         
         }else{
-            cout<<"Element :" << nom << "n'existe pas"<< endl;
+            cout << "ERR" << endl;
+            cout << "#invalid parameters" << endl;
             return false;
         }
 
+    cout << "OK" << endl;
     return true;
 }
 
@@ -75,7 +77,6 @@ bool CmdMove::undo(){
     it=listeParametres.begin();
 
     string nom = *it;
-    cout<<"element a deplacer :" << nom << endl;
     
     map<string, EltGeo *>::iterator itLE;
     itLE = listeDesElements->find(nom);
@@ -84,7 +85,8 @@ bool CmdMove::undo(){
         it++;
         int x1;
         if(!Analyseur::checkIfNumber((*it).c_str(), &x1)){
-            cout<<"Cmd Move is not valid" << endl;
+            cout << "ERR" << endl;
+            cout << "#invalid parameters" << endl;
             return false;
         }
         
@@ -92,7 +94,8 @@ bool CmdMove::undo(){
         int y1;
         
         if(!Analyseur::checkIfNumber((*it).c_str(), &y1)){
-            cout<<"Cmd Move is not valid" << endl;
+            cout << "ERR" << endl;
+            cout << "#invalid parameters" << endl;
             return false;
         }
         
@@ -105,11 +108,11 @@ bool CmdMove::undo(){
         
         
     }else{
-        cout<<"Element :" << nom << "n'existe pas"<< endl;
+        cout << "ERR" << endl;
+        cout << "#invalid parameters" << endl;
         return false;
     }
 
-    
     return true;
 }
 

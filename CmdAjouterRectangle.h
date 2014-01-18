@@ -61,7 +61,7 @@ protected:
     
     //----------------------------------------------------- Attributs protégés
     EltGeo *rectangleAjoute;
-    int tab[1003938000000];
+    //int tab[1003938000000];
 };
 
 //--------------------------- Autres définitions dépendantes de <CmdAjouterRectangle>

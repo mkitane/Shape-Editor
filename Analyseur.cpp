@@ -64,105 +64,101 @@ namespace Analyseur {
         
         //Dans les commentaires, on compte aussi le premier param, càd, le premier Param ex "C"
         if(firstWord.compare("C") == 0 ){
-            cout<<"Commande a effectuer : Cercle" << endl;
             //Il faut absolument 5 params
             if(nbParams(command) != 5){
-                cout<<"Invalid number of Params" << endl;
+                cout << "ERR" << endl;
+                cout << "#invalid parameters" << endl;
                 return errorCommand;
             }
             return ajouterCercle;
         }
         
         if(firstWord.compare("R") == 0 ){
-            cout<<"Commande a effectuer : Rectangle" << endl;
             //Il faut absolument 6 params
             if(nbParams(command) != 6){
-                cout<<"Invalid number of Params" << endl;
+                cout << "ERR" << endl;
+                cout << "#invalid parameters" << endl;
                 return errorCommand;
             }
             return ajouterRectangle;
         }
         
         if(firstWord.compare("L") == 0 ){
-            cout<<"Commande a effectuer : Ligne" << endl;
             //Il faut absolument 6 params
             if(nbParams(command) != 6){
-                cout<<"Invalid number of Params" << endl;
+                cout << "ERR" << endl;
+                cout << "#invalid parameters" << endl;
                 return errorCommand;
             }
             return ajouterLigne;
         }
         
         if(firstWord.compare("PL") == 0 ){
-            cout<<"Commande a effectuer : Polyligne" << endl;
             //Il faut absolument un nombre pair de parametre superieur ou egal a 6
             int nb = nbParams(command);
             if(  (nb%2 != 0)  || (nb < 6) ){
-                cout<<"Invalid number of Params" << endl;
+                cout << "ERR" << endl;
+                cout << "#invalid parameters" << endl;
                 return errorCommand;
             }
             return ajouterPolyligne;
         }
         
         if(firstWord.compare("OA") == 0 ){
-            cout<<"Commande a effectuer : Objet Agrege" << endl;
             //Il faut absolument un nombre de param supérieur OU EGAL a 2
             if(nbParams(command) <= 2){
-                cout<<"Invalid number of Params" << endl;
+                cout << "ERR" << endl;
+                cout << "#invalid parameters" << endl;
                 return errorCommand;
             }
             return ajouterObjetAgrege;
         }
         
         if(firstWord.compare("DELETE") == 0 ){
-            cout<<"Commande a effectuer : DELETE" << endl;
             //Pas de restriction sur le nombre de params apparement (en supposant qu'il ya tjrs le premier)
             return suppression;
         }
         
         if(firstWord.compare("MOVE") == 0 ){
-            cout<<"Commande a effectuer : MOVE" << endl;
             //Il faut absolument 4 params
             if(nbParams(command) != 4){
-                cout<<"Invalid number of Params" << endl;
+                cout << "ERR" << endl;
+                cout << "#invalid parameters" << endl;
                 return errorCommand;
             }
             return deplacement;
         }
         
         if(firstWord.compare("LIST") == 0 ){
-            cout<<"Commande a effectuer : LIST" << endl;
             //Il faut aucun autre param, ou alors on s'en fout et on l'ignore
             return enumeration;
         }
         
         if(firstWord.compare("UNDO") == 0 ){
-            cout<<"Commande a effectuer : UNDO" << endl;
             //Il faut aucun autre param, ou alors on s'en fout et on l'ignore
             return annuler;
         }
         
         if(firstWord.compare("REDO") == 0 ){
-            cout<<"Commande a effectuer : REDO" << endl;
             //Il faut aucun autre param, ou alors on s'en fout et on l'ignore
             return reprendre;
         }
         
         if(firstWord.compare("LOAD") == 0 ){
-            cout<<"Commande a effectuer : LOAD" << endl;
             //Il faut absolument 2 params
             if(nbParams(command) != 2){
-                cout<<"Invalid number of Params" << endl;
+                cout << "ERR" << endl;
+                cout << "#invalid parameters" << endl;
                 return errorCommand;
             }
             return charger;
         }
         
         if(firstWord.compare("SAVE") == 0 ){
-            cout<<"Commande a effectuer : SAVE" << endl;
             //Il faut absolument 2 params
             if(nbParams(command) != 2){
-                cout<<"Invalid number of Params" << endl;
+                cout << "ERR" << endl;
+                cout << "#invalid parameters" << endl;
                 return errorCommand;
             }
             return sauvegarder;
@@ -170,17 +166,19 @@ namespace Analyseur {
         
         
         if(firstWord.compare("CLEAR") == 0 ){
-            cout<<"Commande a effectuer : CLEAR" << endl;
             //Il faut aucun autre param, ou alors on s'en fout et on l'ignore
             return vider;
         }
         
         if(firstWord.compare("EXIT") == 0 ){
-            cout<<"Commande a effectuer : EXIT" << endl;
             //Il faut aucun autre param, ou alors on s'en fout et on l'ignore
             return fermer;
         }
         
+        //On verifie si c'est un commentaire
+        if(firstWord.at(0) == '#'){
+            return commentaire;
+        }
         return errorCommand;
     }
     void remplirParametres(vector<string> * parameters, const string command){
@@ -273,10 +271,15 @@ namespace Analyseur {
                 c = new CmdClear(&(f->listeDesElements),parameters);
             }
                 break;
+            case commentaire:
+            {
+                c= NULL;
+            }
             case errorCommand:
             {
                 c = NULL;
             }
+                break;
         }
         
         return c; 
@@ -295,7 +298,8 @@ namespace Analyseur {
                     it++;
                     int x1;
                     if(!Analyseur::checkIfNumber((*it).c_str(), &x1)){
-                        cout<<"Cmd AjouterCercle is not valid" << endl;
+                        cout << "ERR" << endl;
+                        cout << "#invalid parameters" << endl;
                         return NULL;
                     }
                     
@@ -303,7 +307,8 @@ namespace Analyseur {
                     int y1;
                     
                     if(!Analyseur::checkIfNumber((*it).c_str(), &y1)){
-                        cout<<"Cmd AjouterCercle is not valid" << endl;
+                        cout << "ERR" << endl;
+                        cout << "#invalid parameters" << endl;
                         return NULL;
                     }
                 
@@ -311,12 +316,10 @@ namespace Analyseur {
                     it++;
                     int r;
                     if(!Analyseur::checkIfNumber((*it).c_str(), &r)){
-                        cout<<"Cmd AjouterCercle is not valid" << endl;
+                        cout << "ERR" << endl;
+                        cout << "#invalid parameters" << endl;
                         return NULL;
                     }
-                
-                    
-                    cout<< "On cree un cercle de rayon " << r << " et de coordonnées (" << x1 << "," << y1 << ") " << endl;
                 
                     a = new Rond(nom,r,x1,y1);
                 
@@ -328,7 +331,8 @@ namespace Analyseur {
                 it++;
                 int x1;
                 if(!Analyseur::checkIfNumber((*it).c_str(), &x1)){
-                    cout<<"Cmd AjouterCercle is not valid" << endl;
+                    cout << "ERR" << endl;
+                    cout << "#invalid parameters" << endl;
                     return NULL;
                 }
                 
@@ -336,7 +340,8 @@ namespace Analyseur {
                 int y1;
                 
                 if(!Analyseur::checkIfNumber((*it).c_str(), &y1)){
-                    cout<<"Cmd AjouterCercle is not valid" << endl;
+                    cout << "ERR" << endl;
+                    cout << "#invalid parameters" << endl;
                     return NULL;
                 }
                 
@@ -344,7 +349,8 @@ namespace Analyseur {
                 it++;
                 int x2;
                 if(!Analyseur::checkIfNumber((*it).c_str(), &x2)){
-                    cout<<"Cmd AjouterCercle is not valid" << endl;
+                    cout << "ERR" << endl;
+                    cout << "#invalid parameters" << endl;
                     return NULL;
                 }
                 
@@ -352,13 +358,11 @@ namespace Analyseur {
                 int y2;
                 
                 if(!Analyseur::checkIfNumber((*it).c_str(), &y2)){
-                    cout<<"Cmd AjouterCercle is not valid" << endl;
+                    cout << "ERR" << endl;
+                    cout << "#invalid parameters" << endl;
                     return NULL;
                 }
                 
-                
-                
-                cout<< "On cree une ligne " << " et de coordonnées (" << x1 << "," << y1 << ") " << "( " << x2 << "," << y2<< ")" << endl;
                 
                 a = new Ligne(nom,x1,y1,x2,y2);
 
@@ -378,7 +382,7 @@ namespace Analyseur {
                         EltGeo *e = itLE->second;
                         objetsOA.insert(pair<string,EltGeo *>(e->Nom,e));
                     }else{
-                        cout<<"Mauvais ObjetAgrege" <<endl;
+                        cout << "ERR" << endl;
                         return NULL;
                     }
                     it++;
@@ -397,7 +401,8 @@ namespace Analyseur {
                 while(it<parameters.end()){
                     int x1;
                     if(!Analyseur::checkIfNumber((*it).c_str(), &x1)){
-                        cout<<"Cmd AjouterPolyLigne is not valid" << endl;
+                        cout << "ERR" << endl;
+                        cout << "#invalid parameters" << endl;
                         return NULL;
                     }
                     
@@ -414,7 +419,8 @@ namespace Analyseur {
                 it++;
                 int x1;
                 if(!Analyseur::checkIfNumber((*it).c_str(), &x1)){
-                    cout<<"Cmd AjouterCercle is not valid" << endl;
+                    cout << "ERR" << endl;
+                    cout << "#invalid parameters" << endl;
                     return NULL;
                 }
                 
@@ -422,7 +428,8 @@ namespace Analyseur {
                 int y1;
                 
                 if(!Analyseur::checkIfNumber((*it).c_str(), &y1)){
-                    cout<<"Cmd AjouterCercle is not valid" << endl;
+                    cout << "ERR" << endl;
+                    cout << "#invalid parameters" << endl;
                     return NULL;
                 }
                 
@@ -430,7 +437,8 @@ namespace Analyseur {
                 it++;
                 int x2;
                 if(!Analyseur::checkIfNumber((*it).c_str(), &x2)){
-                    cout<<"Cmd AjouterCercle is not valid" << endl;
+                    cout << "ERR" << endl;
+                    cout << "#invalid parameters" << endl;
                     return NULL;
                 }
                 
@@ -438,13 +446,10 @@ namespace Analyseur {
                 int y2;
                 
                 if(!Analyseur::checkIfNumber((*it).c_str(), &y2)){
-                    cout<<"Cmd AjouterCercle is not valid" << endl;
+                    cout << "ERR" << endl;
+                    cout << "#invalid parameters" << endl;
                     return NULL;
                 }
-                
-                
-                
-                cout<< "On cree un rectangle" << " et de coordonnées (" << x1 << "," << y1 << ") " << "( " << x2 << "," << y2<< ")" << endl;
                 
                 a = new Rectangle(nom,x1,y1,x2,y2);
 

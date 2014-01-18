@@ -46,7 +46,9 @@ bool CmdLoad::execute(){
                 
                 
                 t = Analyseur::analyseCommand(temp);
-                if(t!=Analyseur::ajouterObjetAgrege){
+                if(t==Analyseur::commentaire){
+                    
+                }else if(t!=Analyseur::ajouterObjetAgrege){
                     Analyseur::remplirParametres(&parameters, temp);
                     
                     
@@ -62,7 +64,8 @@ bool CmdLoad::execute(){
                         listeDesElements -> insert (pair<string,EltGeo*>(nom,a));
                         loadedElements.push_back(a);
                     } else {
-                        cout<< nom << "Already Loaded " << endl;
+                        cout << "ERR" << endl;
+                        cout<< nom << "#Already loaded" << endl;
                         return false;
                     }
                     
@@ -98,13 +101,14 @@ bool CmdLoad::execute(){
                     listeDesElements -> insert (pair<string,EltGeo*>(nom,a));
                     loadedElements.push_back(a);
                 }else{
-                    cout<< "Already Loaded" << nom << endl;
-                    return false; 
+                    cout << "ERR" << endl;
+                    return false;
                 }
             }
             
         }else{
-            cout<<"Error opening file" << endl;
+            cout<< "ERR" << endl;
+            cout<<"#Error opening file" << endl;
         }
     }else{
         
@@ -124,7 +128,7 @@ bool CmdLoad::undo(){
     for(itLoaded=loadedElements.begin() ; itLoaded != loadedElements.end(); itLoaded++){
         EltGeo *loaded = *itLoaded;
         listeDesElements->erase(loaded->Nom);
-        cout<< "unload" << loaded->Nom << endl;
+        //cout<< "unload" << loaded->Nom << endl;
     }
     
     return true;

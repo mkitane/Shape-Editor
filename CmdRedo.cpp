@@ -27,12 +27,14 @@
 bool CmdRedo::execute(){
     
     if(*itActuel+1 == historique->end()){
-        cout<<"rien a redo" << endl; 
+        //cout<<"rien a redo" << endl;
         return false;
     }
     Command *c = *(*itActuel+1);
     c->execute();
     (*itActuel)++;
+    
+    cout << "OK" << endl;
     return true;
 }
 

@@ -39,13 +39,15 @@ bool CmdAjouterLigne::execute(){
             if(ligneAjoutee == NULL){
                 return false;
             }
+            cout<< "OK" << endl;
+            cout << "# New object : " << nom << endl;
         }else{
-            cout << "Cercle Already in db" << endl;
+            cout << "ERR" << endl;
+            cout << "#" <<  nom << " already existing" << endl;
             return false;
         }
     }else{
-        
-        cout<<"Cercle Remis dans la liste" << endl;
+        //cout<<"Cercle Remis dans la liste" << endl;
     }
     
     listeDesElements -> insert (pair<string,EltGeo *>(nom,ligneAjoutee) );
@@ -60,7 +62,7 @@ bool CmdAjouterLigne::undo(){
     
     
     listeDesElements -> erase(nom);
-    cout<< "Suprresion Cercle"<<endl;
+    //cout<< "Suprresion Cercle"<<endl;
     return true;
 }
 

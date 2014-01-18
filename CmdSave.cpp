@@ -47,7 +47,8 @@ bool CmdSave::execute(){
         }
         o.close();
     }else{
-        cout<<"Error opening file" << endl;
+        cout<< "ERR" << endl;
+        cout<<"#Error opening file" << endl;
     }
 
     return true;

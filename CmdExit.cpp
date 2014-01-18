@@ -25,7 +25,7 @@
 //} //----- Fin de Méthode
 
 bool CmdExit::execute(){
-        exit(2);
+        exit(0);
        return true;
 }
 

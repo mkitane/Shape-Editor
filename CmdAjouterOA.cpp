@@ -38,12 +38,15 @@ bool CmdAjouterOA::execute(){
             if(OAAjoute == NULL){
                 return false;
             }
+            cout<< "OK" << endl;
+            cout << "# New object : " << nom << endl;
         }else{
-            cout << "already Loaded" << endl;
+            cout << "ERR" << endl;
+            cout << "#" <<  nom << " already existing" << endl;
             return false;
         }
     }else{
-        cout<<"OA Remis dans la liste" << endl;
+        //cout<<"OA Remis dans la liste" << endl;
     }
     
     listeDesElements->insert(pair<string,EltGeo *> (nom,OAAjoute));
@@ -59,7 +62,7 @@ bool CmdAjouterOA::undo(){
     
     
     listeDesElements -> erase(nom);
-    cout<< "Suprresion OA"<<endl;
+    //cout<< "Suprresion OA"<<endl;
     return true;
 }
 

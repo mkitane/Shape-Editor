@@ -40,6 +40,7 @@ namespace Analyseur {
         sauvegarder,
         vider,
         fermer,
+        commentaire,
         errorCommand
     }TypeCommand;
     

@@ -45,12 +45,9 @@ void CmdSuppression::addElementstoOAs(EltGeo *e){
 }
 bool CmdSuppression::execute(){
     
-    cout<<"on execute suppression" << endl;
-    
     vector<string>::iterator it;
     for(it=listeParametres.begin(); it< listeParametres.end();it++){
         string nom = *it;
-        cout<<"element a effacer :" << nom << endl;
         
         //On garde une reference sur lelement en cas de UNDO
         map<string, EltGeo *>::iterator itLE;
@@ -63,10 +60,13 @@ bool CmdSuppression::execute(){
             elementsSupprimes.push_back(itLE->second);
             listeDesElements->erase(nom);
         }else{
-            cout<<"Element :" << nom << "n'existe pas"<< endl;
+            cout << "ERR" << endl;
+            cout << "#invalid parameters" << endl;
             return false;
         }
     }
+    
+    cout << "OK" << endl; 
     return true;
 }
 
