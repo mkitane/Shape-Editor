@@ -46,7 +46,7 @@ bool CmdLoad::execute(){
                 
                 
                 t = Analyseur::analyseCommand(temp);
-                if(t==Analyseur::commentaire){
+                if(t==Analyseur::commentaire || t == Analyseur::errorCommand){
                     
                 }else if(t!=Analyseur::ajouterObjetAgrege){
                     Analyseur::remplirParametres(&parameters, temp);
@@ -61,8 +61,10 @@ bool CmdLoad::execute(){
                     if ( listeDesElements->find(nom) == listeDesElements->end() ) {
                         // not found
                         EltGeo *a =Analyseur::createObjectWithParameters(t, parameters,listeDesElements);
-                        listeDesElements -> insert (pair<string,EltGeo*>(nom,a));
-                        loadedElements.push_back(a);
+                        if(a != NULL){
+                            listeDesElements -> insert (pair<string,EltGeo*>(nom,a));
+                            loadedElements.push_back(a);
+                        }
                     } else {
                         cout << "ERR" << endl;
                         cout<< "#Already loaded :" << nom << endl;
@@ -93,8 +95,10 @@ bool CmdLoad::execute(){
                 
                 if ( listeDesElements->find(nom) == listeDesElements->end() ) {
                     EltGeo *a =Analyseur::createObjectWithParameters(t, parameters,listeDesElements);
+                    if(a != NULL){
                     listeDesElements -> insert (pair<string,EltGeo*>(nom,a));
                     loadedElements.push_back(a);
+                    }
                 }else{
                     cout << "ERR" << endl;
                     cout<< "#Already loaded :" << nom << endl;

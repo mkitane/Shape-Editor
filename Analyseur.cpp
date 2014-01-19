@@ -280,6 +280,12 @@ namespace Analyseur {
                 c = NULL;
             }
                 break;
+            default:
+            {
+                c = NULL;
+            }
+                break;
+
         }
         
         return c; 
@@ -456,6 +462,9 @@ namespace Analyseur {
             }
                 break;
             default:
+            {
+                a = NULL;
+            }
                 break;
         }
         return a;
