@@ -202,73 +202,73 @@ namespace Analyseur {
         switch (t) {
             case ajouterCercle:
             {
-                c = new CmdAjouterCercle(&(f->listeDesElements),parameters);
+                c = new CmdAjouterCercle(f->getPtrListeDesElements(),parameters);
             }
                 break;
                 
             case suppression:
             {
-                c = new CmdSuppression(&(f->listeDesElements), parameters);
+                c = new CmdSuppression(f->getPtrListeDesElements(), parameters);
             }
                 break;
             case annuler:
             {
-                c = new CmdUndo(&(f->listeDesElements), parameters, &(f->historique), &(f->itActuel));
+                c = new CmdUndo(f->getPtrListeDesElements(), parameters, f->getPtrHistorique(),f->getPtritActuel());
             }
                 break;
             case reprendre:
             {
-                c = new CmdRedo(&(f->listeDesElements), parameters, &(f->historique), &(f->itActuel));
+                c = new CmdRedo(f->getPtrListeDesElements(), parameters, f->getPtrHistorique(), f->getPtritActuel());
             }
                 break;
             case sauvegarder:
             {
-                c = new CmdSave(&(f->listeDesElements), parameters);
+                c = new CmdSave(f->getPtrListeDesElements(), parameters);
             }
                 break;
             case fermer:
             {
-                c = new CmdExit(&(f->listeDesElements), parameters); 
+                c = new CmdExit(f->getPtrListeDesElements(), parameters);
             }
                 break;
             case charger:
             {
-                c = new CmdLoad(&(f->listeDesElements),parameters);
+                c = new CmdLoad(f->getPtrListeDesElements(),parameters);
             }
                 break;
             case enumeration:
             {
-                c = new CmdList(&(f->listeDesElements),parameters);
+                c = new CmdList(f->getPtrListeDesElements(),parameters);
             }
                 break;
             case deplacement:
             {
-                c = new CmdMove(&(f->listeDesElements), parameters); 
+                c = new CmdMove(f->getPtrListeDesElements(), parameters);
             }
                 break; 
             case ajouterObjetAgrege:
             {
-                c = new CmdAjouterOA(&(f->listeDesElements),parameters);
+                c = new CmdAjouterOA(f->getPtrListeDesElements(),parameters);
             }
                 break;
             case ajouterRectangle:
             {
-                c = new CmdAjouterRectangle(&(f->listeDesElements),parameters);
+                c = new CmdAjouterRectangle(f->getPtrListeDesElements(),parameters);
             }
                 break;
             case ajouterLigne:
             {
-                c = new CmdAjouterLigne(&(f->listeDesElements),parameters);
+                c = new CmdAjouterLigne(f->getPtrListeDesElements(),parameters);
             }
                 break;
             case ajouterPolyligne:
             {
-                c = new CmdAjouterPolyLigne(&(f->listeDesElements),parameters);
+                c = new CmdAjouterPolyLigne(f->getPtrListeDesElements(),parameters);
             }
                 break;
             case vider:
             {
-                c = new CmdClear(&(f->listeDesElements),parameters);
+                c = new CmdClear(f->getPtrListeDesElements(),parameters);
             }
                 break;
             case commentaire:

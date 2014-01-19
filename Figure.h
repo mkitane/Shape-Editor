@@ -73,12 +73,14 @@ public:
     //----------------------------------------------------- Méthodes protégées
     //vector<EltGeo>
 
-    
+    vector<Command *> * getPtrHistorique();
+    vector<Command *>::iterator * getPtritActuel();
+    map<string, EltGeo *> * getPtrListeDesElements();
+ 
+    protected:
     vector<Command *> historique;
     vector<Command *>::iterator itActuel;
     map<string, EltGeo *> listeDesElements;
-    protected:
-
     //----------------------------------------------------- Attributs protégés
     
 };

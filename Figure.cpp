@@ -49,6 +49,19 @@ void Figure::stockerEtExecuter(Command *c){
     }
 }
 
+
+vector<Command *> * Figure::getPtrHistorique()
+{
+    return &historique;
+}
+vector<Command *>::iterator * Figure::getPtritActuel()
+{
+    return &itActuel;
+}
+map<string, EltGeo *> * Figure::getPtrListeDesElements()
+{
+    return &listeDesElements;
+}
 //------------------------------------------------- Surcharge d'opérateurs
 /*
  Figure & Figure::operator = ( const Figure & unFigure )
