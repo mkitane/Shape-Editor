@@ -39,6 +39,8 @@ void CmdLoad::eraseCreated(){
 
 bool CmdLoad::execute(){
     //Pour tous les elements, ecrire leur description
+    const clock_t begin_time = clock();
+    
     
     if(loadedElements.empty()){
         vector<string>::iterator it;
@@ -58,7 +60,7 @@ bool CmdLoad::execute(){
                 
                 
                 t = Analyseur::analyseCommand(temp);
-               if (t == Analyseur::errorCommand){
+                if (t == Analyseur::errorCommand){
                     eraseCreated();
                     return false;
                 }else if(t==Analyseur::ajouterLigne || t==Analyseur::ajouterCercle || t==Analyseur::ajouterPolyligne || t==Analyseur::ajouterRectangle){
@@ -142,7 +144,7 @@ bool CmdLoad::execute(){
         }
         
         
-        cout << "OK" << endl; 
+        cout << "OK" << endl;
     }else{
         
         vector<EltGeo *>::iterator itL;
@@ -153,6 +155,8 @@ bool CmdLoad::execute(){
         
     }
     
+    
+    cout << float( clock () - begin_time ) /  CLOCKS_PER_SEC << endl;
     
     return true;
 }
