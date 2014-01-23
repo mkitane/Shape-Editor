@@ -25,6 +25,9 @@
 //{
 //} //----- Fin de Méthode
 
+void CmdMove::decomposer(map<string,EltGeo*> *objetsADeplaceDecomposes){
+    
+}
 bool CmdMove::execute(){
     
     

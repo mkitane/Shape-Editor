@@ -56,6 +56,9 @@ Ligne::Ligne ( const Ligne & unLigne )
 Ligne::Ligne(string n, long x1,long y1,long x2,long y2) : EltGeo(n), point1(x1,y1), point2(x2,y2)
 // Algorithme :
 {
+#ifdef MAP
+    cout << "Appel au constructeur de <Ligne>" << endl;
+#endif
 } //----- Fin de Ligne
 
 

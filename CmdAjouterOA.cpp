@@ -55,14 +55,8 @@ bool CmdAjouterOA::execute(){
 }
 
 bool CmdAjouterOA::undo(){
-    vector<string>::iterator it;
-    
-    it= listeParametres.begin();
-    string nom = *it;
-    
-    
-    listeDesElements -> erase(nom);
-    //cout<< "Suprresion OA"<<endl;
+    listeDesElements -> erase(listeParametres.at(0));
+
     return true;
 }
 

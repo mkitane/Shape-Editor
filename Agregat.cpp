@@ -94,7 +94,9 @@ Agregat::Agregat(string n,map<string, EltGeo*> lEG):EltGeo(n),listEltGeo(lEG)
 // Algorithme :
 //
 {
-
+#ifdef MAP
+    cout << "Appel au constructeur de <Agregat>" << endl;
+#endif
 } //----- Fin de Agregat
 
 
@@ -102,7 +104,9 @@ Agregat::Agregat(string n,map<string, EltGeo*> lEG):EltGeo(n),listEltGeo(lEG)
 // Algorithme :
 //
 {
-
+#ifdef MAP
+    cout << "Appel au destructeur de <Agregat>" << endl;
+#endif
 } //----- Fin de ~Agregat
 
 

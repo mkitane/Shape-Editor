@@ -40,6 +40,7 @@ public:
     bool execute();
     bool undo();
     bool canDoAnUndo(){return true;}
+    void decomposer(map<string,EltGeo*> *objetsADeplaceDecomposes);
     
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur

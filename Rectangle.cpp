@@ -53,6 +53,9 @@ Rectangle::Rectangle (string n,long x1, long y1, long x2, long y2 ):EltGeo(n), p
 // Algorithme :
 //
 {
+#ifdef MAP
+    cout << "Appel au constructeur de <Rectangle>" << endl;
+#endif
 } //----- Fin de Rectangle
 
 

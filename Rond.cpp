@@ -57,6 +57,9 @@ Rond::Rond (string n,long r, long x0, long y0 ) : EltGeo(n), centre(Point(x0, y0
 // Algorithme :
 //
 {
+#ifdef MAP
+    cout << "Appel au constructeur de <Rond>" << endl;
+#endif
 } //----- Fin de Rond
 
  Rond::~Rond ( )

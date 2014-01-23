@@ -56,6 +56,9 @@ Point::Point (long x,long y ): X(x), Y(y)
 // Algorithme :
 //
 {
+#ifdef MAP
+    cout << "Appel au constructeur de <Point>" << endl;
+#endif
 } //----- Fin de Point
 
 

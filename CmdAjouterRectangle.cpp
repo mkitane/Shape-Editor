@@ -55,14 +55,8 @@ bool CmdAjouterRectangle::execute(){
 }
 
 bool CmdAjouterRectangle::undo(){
-    vector<string>::iterator it;
-    
-    it= listeParametres.begin();
-    string nom = *it;
-    
-    
-    listeDesElements -> erase(nom);
-    //cout<< "Suprresion Cercle"<<endl;
+    listeDesElements -> erase(listeParametres.at(0));
+
     return true;
 }
 
