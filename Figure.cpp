@@ -98,6 +98,9 @@ Figure::~Figure ( )
 // Algorithme :
 //
 {
+#ifdef MAP
+    cout << "Appel au destructeur de <Figure>" << endl;
+#endif
     vector<Command *>::iterator itHisto;
     for(itHisto = historique.begin() ; itHisto < historique.end(); itHisto++){
         delete *itHisto;
@@ -110,9 +113,7 @@ Figure::~Figure ( )
     }
      */
     
-#ifdef MAP
-    cout << "Appel au destructeur de <Figure>" << endl;
-#endif
+
 } //----- Fin de ~Figure
 
 
