@@ -58,12 +58,10 @@ bool CmdLoad::execute(){
                 
                 
                 t = Analyseur::analyseCommand(temp);
-                if(t==Analyseur::commentaire || t == Analyseur::fermer){
-                    
-                }else if (t == Analyseur::errorCommand){
+               if (t == Analyseur::errorCommand){
                     eraseCreated();
                     return false;
-                }else if(t!=Analyseur::ajouterObjetAgrege){
+                }else if(t==Analyseur::ajouterLigne || t==Analyseur::ajouterCercle || t==Analyseur::ajouterPolyligne || t==Analyseur::ajouterRectangle){
                     Analyseur::remplirParametres(&parameters, temp);
                     
                     
@@ -92,11 +90,14 @@ bool CmdLoad::execute(){
                         return false;
                     }
                     
-                }else{
+                }else if(t==Analyseur::ajouterObjetAgrege){
                     pool.push_back(temp);
                 }
 #pragma Load incomplet !
             }
+            
+            
+            
             
             //On Load a present les objets agreges
             vector<string>::iterator poolObjects;
