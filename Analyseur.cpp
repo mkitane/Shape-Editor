@@ -17,7 +17,6 @@
 #include "CmdUndo.h"
 #include "CmdRedo.h"
 #include "CmdSave.h"
-#include "CmdExit.h"
 #include "CmdLoad.h"
 #include "CmdList.h"
 #include "CmdMove.h"
