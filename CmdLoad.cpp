@@ -24,6 +24,18 @@
 //
 //{
 //} //----- Fin de Méthode
+void CmdLoad::eraseCreated(){
+    
+    vector<EltGeo *>::iterator itLoaded;
+    for(itLoaded=loadedElements.begin() ; itLoaded != loadedElements.end(); itLoaded++){
+        EltGeo *loaded = *itLoaded;
+        listeDesElements->erase(loaded->getNom());
+        delete loaded;
+        //cout<< "unload" << loaded->Nom << endl;
+    }
+    
+    loadedElements.clear();
+}
 
 bool CmdLoad::execute(){
     //Pour tous les elements, ecrire leur description
@@ -46,8 +58,11 @@ bool CmdLoad::execute(){
                 
                 
                 t = Analyseur::analyseCommand(temp);
-                if(t==Analyseur::commentaire || t == Analyseur::errorCommand){
+                if(t==Analyseur::commentaire || t == Analyseur::fermer){
                     
+                }else if (t == Analyseur::errorCommand){
+                    eraseCreated();
+                    return false;
                 }else if(t!=Analyseur::ajouterObjetAgrege){
                     Analyseur::remplirParametres(&parameters, temp);
                     
@@ -64,11 +79,17 @@ bool CmdLoad::execute(){
                         if(a != NULL){
                             listeDesElements -> insert (pair<string,EltGeo*>(nom,a));
                             loadedElements.push_back(a);
+                        }else{
+                            eraseCreated();
+                            cout << "ERR" << endl;
+                            cout<< "#Error Loading File" << endl;
+                            return false;
                         }
                     } else {
+                        eraseCreated();
                         cout << "ERR" << endl;
-                        cout<< "#Already loaded :" << nom << endl;
-                        //return false;
+                        cout<< "#Error Loading File" << endl;
+                        return false;
                     }
                     
                 }else{
@@ -96,19 +117,27 @@ bool CmdLoad::execute(){
                 if ( listeDesElements->find(nom) == listeDesElements->end() ) {
                     EltGeo *a =Analyseur::createObjectWithParameters(t, parameters,listeDesElements);
                     if(a != NULL){
-                    listeDesElements -> insert (pair<string,EltGeo*>(nom,a));
-                    loadedElements.push_back(a);
+                        listeDesElements -> insert (pair<string,EltGeo*>(nom,a));
+                        loadedElements.push_back(a);
+                    }else{
+                        
+                        eraseCreated();
+                        cout << "ERR" << endl;
+                        cout<< "#Error Loading File" << nom << endl;
+                        return false;
                     }
-                }else{
+                } else {
+                    eraseCreated();
                     cout << "ERR" << endl;
-                    cout<< "#Already loaded :" << nom << endl;
-                    //return false;
+                    cout<< "#Error Loading File" << nom << endl;
+                    return false;
                 }
             }
             
         }else{
             cout<< "ERR" << endl;
             cout<<"#Error opening file" << endl;
+            return false;
         }
     }else{
         
@@ -154,9 +183,11 @@ CmdLoad::~CmdLoad ( )
     
     //Si cmd doit etre suppriméee apres un UNDO
     //On supprime les pointeurs crees
-    vector<EltGeo *>::iterator itL;
-    for(itL=loadedElements.begin(); itL<loadedElements.end();itL++){
-        delete *itL;
+    if(loadedElements.size() > 0){
+        vector<EltGeo *>::iterator itL;
+        for(itL=loadedElements.begin(); itL<loadedElements.end();itL++){
+            delete *itL;
+        }
     }
     loadedElements.clear();
 #ifdef MAP

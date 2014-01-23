@@ -26,7 +26,7 @@ int main(int argc, const char * argv[])
     // insert code here...
     Figure f;
     
-    while(true){
+    while(f.isRunning()){
         //on recupere la commande de l'utilisateur
         string commandEntry;
         vector <string> parameters ;
@@ -37,7 +37,7 @@ int main(int argc, const char * argv[])
        
         t = analyseCommand(commandEntry);
         
-        if( t!= errorCommand && t!=commentaire){
+        if( t!= errorCommand && t!=commentaire && t!= fermer){
             
             remplirParametres(&parameters, commandEntry);
 
@@ -45,6 +45,8 @@ int main(int argc, const char * argv[])
             f.stockerEtExecuter(c);
 
             
+        }else if(t == fermer){
+            f.setRun(false);
         }else{
             cout<<"#Command error"<<endl;
         }

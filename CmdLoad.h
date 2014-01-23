@@ -42,6 +42,7 @@ public:
     bool execute();
     bool undo();
     bool canDoAnUndo(){return true;}
+    void eraseCreated();
     
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur

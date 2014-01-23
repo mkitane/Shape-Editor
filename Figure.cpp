@@ -83,7 +83,7 @@ Figure::Figure ( const Figure & unFigure )
 } //----- Fin de Figure (constructeur de copie)
 
 
-Figure::Figure ( )
+Figure::Figure ( ) : run(true)
 // Algorithme :
 //
 {
@@ -102,10 +102,13 @@ Figure::~Figure ( )
     for(itHisto = historique.begin() ; itHisto < historique.end(); itHisto++){
         delete *itHisto;
     }
+    
+    /*
     map<string, EltGeo *>::iterator itList;
     for(itList = listeDesElements.begin() ; itList != listeDesElements.end(); itList++){
         delete itList->second;
     }
+     */
     
 #ifdef MAP
     cout << "Appel au destructeur de <Figure>" << endl;

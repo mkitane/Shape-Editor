@@ -226,11 +226,6 @@ namespace Analyseur {
                 c = new CmdSave(f->getPtrListeDesElements(), parameters);
             }
                 break;
-            case fermer:
-            {
-                c = new CmdExit(f->getPtrListeDesElements(), parameters);
-            }
-                break;
             case charger:
             {
                 c = new CmdLoad(f->getPtrListeDesElements(),parameters);
@@ -269,6 +264,12 @@ namespace Analyseur {
             case vider:
             {
                 c = new CmdClear(f->getPtrListeDesElements(),parameters);
+            }
+                break;
+            case fermer:
+            {
+                f->setRun(false);
+                c = NULL; 
             }
                 break;
             case commentaire:

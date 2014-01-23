@@ -41,6 +41,8 @@ public:
     // Contrat :
     //
     void stockerEtExecuter(Command *c);
+    bool isRunning(){return run;};
+    void setRun(bool r){run = r;};
     //------------------------------------------------- Surcharge d'opérateurs
     Figure & operator = ( const Figure & unFigure );
     // Mode d'emploi :
@@ -78,6 +80,7 @@ public:
     map<string, EltGeo *> * getPtrListeDesElements();
  
     protected:
+    bool run;
     vector<Command *> historique;
     vector<Command *>::iterator itActuel;
     map<string, EltGeo *> listeDesElements;
