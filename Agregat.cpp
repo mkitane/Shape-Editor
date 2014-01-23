@@ -46,7 +46,7 @@ bool Agregat::contains(EltGeo *e){
     }
 }
 
-void Agregat::deplacer(int dx, int dy)
+void Agregat::deplacer(long dx, long dy)
 {
     map<string, EltGeo *>::iterator it;
     for(it = listEltGeo.begin(); it != listEltGeo.end() ;it++){

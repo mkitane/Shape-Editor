@@ -24,7 +24,7 @@
 //
 //{
 //} //----- Fin de Méthode
-void Rectangle::deplacer(int dx, int dy)
+void Rectangle::deplacer(long dx, long dy)
 {
     point1.deplacer(dx, dy);
     point2.deplacer(dx, dx);
@@ -49,7 +49,7 @@ void Rectangle::deplacer(int dx, int dy)
 } //----- Fin de Rectangle (constructeur de copie)
 */
 
-Rectangle::Rectangle (string n,int x1, int y1, int x2, int y2 ):EltGeo(n), point1(Point(x1,y1)), point2(Point(x2, y2))
+Rectangle::Rectangle (string n,long x1, long y1, long x2, long y2 ):EltGeo(n), point1(Point(x1,y1)), point2(Point(x2, y2))
 // Algorithme :
 //
 {

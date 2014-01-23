@@ -36,7 +36,7 @@ public:
     // Contrat :
     //
     
-    void deplacer(int dx, int dy);
+    void deplacer(long dx, long dy);
     string description();
 //------------------------------------------------- Surcharge d'opérateurs
     /*Point & operator = ( const Point & unPoint );
@@ -53,7 +53,7 @@ public:
     // Contrat :
     //
     */
-    Point (int x, int y);
+    Point (long x, long y);
 
 
     ~Point ();
@@ -68,8 +68,8 @@ protected:
 //----------------------------------------------------- Méthodes protégées
  
 //----------------------------------------------------- Attributs protégés
-    int X;
-    int Y;
+    long X;
+    long Y;
 };
 
 //--------------------------- Autres définitions dépendantes de <Point>

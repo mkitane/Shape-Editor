@@ -53,7 +53,7 @@ Ligne::Ligne ( const Ligne & unLigne )
 */
 
 
-Ligne::Ligne(string n, int x1,int y1,int x2,int y2) : EltGeo(n), point1(x1,y1), point2(x2,y2)
+Ligne::Ligne(string n, long x1,long y1,long x2,long y2) : EltGeo(n), point1(x1,y1), point2(x2,y2)
 // Algorithme :
 {
 } //----- Fin de Ligne
@@ -68,7 +68,7 @@ Ligne::~Ligne ( )
 #endif
 } //----- Fin de ~Ligne
 
-void Ligne::deplacer(int dx, int dy){
+void Ligne::deplacer(long dx, long dy){
     point1.deplacer(dx, dy);
     point2.deplacer(dx, dy);
 }

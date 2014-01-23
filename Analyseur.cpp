@@ -35,10 +35,10 @@
 namespace Analyseur {
     
     
-    bool checkIfNumber(string supposedNumber, int * number ){
+    bool checkIfNumber(string supposedNumber, long * number ){
         //Accepte un espace avant, mais pas apres
         char* end;
-        *number = (int)strtol(supposedNumber.c_str(),&end,10);
+        *number = strtol(supposedNumber.c_str(),&end,10);
         if (*end){
             return false;
         }
@@ -303,7 +303,7 @@ namespace Analyseur {
             case ajouterCercle:
             {
                     it++;
-                    int x1;
+                    long x1;
                     if(!Analyseur::checkIfNumber((*it).c_str(), &x1)){
                         cout << "ERR" << endl;
                         cout << "#invalid parameters" << endl;
@@ -311,7 +311,7 @@ namespace Analyseur {
                     }
                     
                     it++;
-                    int y1;
+                    long y1;
                     
                     if(!Analyseur::checkIfNumber((*it).c_str(), &y1)){
                         cout << "ERR" << endl;
@@ -321,7 +321,7 @@ namespace Analyseur {
                 
                     
                     it++;
-                    int r;
+                    long r;
                     if(!Analyseur::checkIfNumber((*it).c_str(), &r)){
                         cout << "ERR" << endl;
                         cout << "#invalid parameters" << endl;
@@ -336,7 +336,7 @@ namespace Analyseur {
             case ajouterLigne:
             {
                 it++;
-                int x1;
+                long x1;
                 if(!Analyseur::checkIfNumber((*it).c_str(), &x1)){
                     cout << "ERR" << endl;
                     cout << "#invalid parameters" << endl;
@@ -344,7 +344,7 @@ namespace Analyseur {
                 }
                 
                 it++;
-                int y1;
+                long y1;
                 
                 if(!Analyseur::checkIfNumber((*it).c_str(), &y1)){
                     cout << "ERR" << endl;
@@ -354,7 +354,7 @@ namespace Analyseur {
                 
                 
                 it++;
-                int x2;
+                long x2;
                 if(!Analyseur::checkIfNumber((*it).c_str(), &x2)){
                     cout << "ERR" << endl;
                     cout << "#invalid parameters" << endl;
@@ -362,7 +362,7 @@ namespace Analyseur {
                 }
                 
                 it++;
-                int y2;
+                long y2;
                 
                 if(!Analyseur::checkIfNumber((*it).c_str(), &y2)){
                     cout << "ERR" << endl;
@@ -402,11 +402,11 @@ namespace Analyseur {
                 break;
             case ajouterPolyligne:
             {
-                vector<int> xy;
+                vector<long> xy;
                 
                 it++;
                 while(it<parameters.end()){
-                    int x1;
+                    long x1;
                     if(!Analyseur::checkIfNumber((*it).c_str(), &x1)){
                         cout << "ERR" << endl;
                         cout << "#invalid parameters" << endl;
@@ -424,7 +424,7 @@ namespace Analyseur {
             case ajouterRectangle:
             {
                 it++;
-                int x1;
+                long x1;
                 if(!Analyseur::checkIfNumber((*it).c_str(), &x1)){
                     cout << "ERR" << endl;
                     cout << "#invalid parameters" << endl;
@@ -432,7 +432,7 @@ namespace Analyseur {
                 }
                 
                 it++;
-                int y1;
+                long y1;
                 
                 if(!Analyseur::checkIfNumber((*it).c_str(), &y1)){
                     cout << "ERR" << endl;
@@ -442,7 +442,7 @@ namespace Analyseur {
                 
                 
                 it++;
-                int x2;
+                long x2;
                 if(!Analyseur::checkIfNumber((*it).c_str(), &x2)){
                     cout << "ERR" << endl;
                     cout << "#invalid parameters" << endl;
@@ -450,7 +450,7 @@ namespace Analyseur {
                 }
                 
                 it++;
-                int y2;
+                long y2;
                 
                 if(!Analyseur::checkIfNumber((*it).c_str(), &y2)){
                     cout << "ERR" << endl;

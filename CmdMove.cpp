@@ -38,7 +38,7 @@ bool CmdMove::execute(){
     
         if(itLE != listeDesElements->end()){
             it++;
-            int x1;
+            long x1;
             if(!Analyseur::checkIfNumber((*it).c_str(), &x1)){
                 cout << "ERR" << endl;
                 cout << "#invalid parameters" << endl;
@@ -46,7 +46,7 @@ bool CmdMove::execute(){
             }
             
             it++;
-            int y1;
+            long y1;
             
             if(!Analyseur::checkIfNumber((*it).c_str(), &y1)){
                 cout << "ERR" << endl;
@@ -83,7 +83,7 @@ bool CmdMove::undo(){
     
     if(itLE != listeDesElements->end()){
         it++;
-        int x1;
+        long x1;
         if(!Analyseur::checkIfNumber((*it).c_str(), &x1)){
             cout << "ERR" << endl;
             cout << "#invalid parameters" << endl;
@@ -91,7 +91,7 @@ bool CmdMove::undo(){
         }
         
         it++;
-        int y1;
+        long y1;
         
         if(!Analyseur::checkIfNumber((*it).c_str(), &y1)){
             cout << "ERR" << endl;

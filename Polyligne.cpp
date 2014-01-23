@@ -29,16 +29,16 @@
 
 //-------------------------------------------- Constructeurs - destructeur
 
-Polyligne::Polyligne (string n, vector<int> lignes ) : EltGeo(n)
+Polyligne::Polyligne (string n, vector<long> lignes ) : EltGeo(n)
 // Algorithme :
 //
 {
     
-    vector<int>::iterator it;
+    vector<long>::iterator it;
     //On suppose que la ligne de point est toujours paire et modulo 4 = 0
     for(it=lignes.begin(); it< lignes.end() ; it++){
-        int x1 = *it;
-        int y1 = *(++it);
+        long x1 = *it;
+        long y1 = *(++it);
 
         Point p(x1,y1);
         listeLignes.push_back(p);
@@ -59,7 +59,7 @@ Polyligne::~Polyligne ( )
 #endif
 } //----- Fin de ~Polyligne
 
-void Polyligne::deplacer(int dx, int dy){
+void Polyligne::deplacer(long dx, long dy){
     vector<Point>::iterator it;
     for(it=listeLignes.begin(); it<listeLignes.end() ;it++){
         it->deplacer(dx, dy);

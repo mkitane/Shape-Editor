@@ -27,7 +27,7 @@
 //{
 //} //----- Fin de Méthode
 
-void Rond::deplacer(int dx,int dy)
+void Rond::deplacer(long dx,long dy)
 // Algorithme :
 //
 {
@@ -53,7 +53,7 @@ void Rond::deplacer(int dx,int dy)
 } //----- Fin de Rond (constructeur de copie)
 */
 
-Rond::Rond (string n,int r, int x0, int y0 ) : EltGeo(n), centre(Point(x0, y0)), rayon(r)
+Rond::Rond (string n,long r, long x0, long y0 ) : EltGeo(n), centre(Point(x0, y0)), rayon(r)
 // Algorithme :
 //
 {

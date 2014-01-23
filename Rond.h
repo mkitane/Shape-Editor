@@ -35,7 +35,7 @@ public:
     // Contrat :
     //
 
-    void deplacer(int dx, int dy);
+    void deplacer(long dx, long dy);
     // Mode d'emploi : translate le centre du rond selon le vecteur (x0,y0)
     //
     // Contrat :
@@ -58,7 +58,7 @@ public:
     // Contrat :
     //
 */
-    Rond ( string n,int r, int x0, int y0);
+    Rond ( string n,long r, long x0, long y0);
     // Mode d'emploi : cree le rond de centre (x0,y0) et de rayon R
     //
     // Contrat :
@@ -76,7 +76,7 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-int rayon;
+long rayon;
 Point centre;
 };
 

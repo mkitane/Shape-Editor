@@ -44,7 +44,7 @@ namespace Analyseur {
     }TypeCommand;
     
     int nbParams(string command);
-    bool checkIfNumber(string supposedNumber, int * number);
+    bool checkIfNumber(string supposedNumber, long * number);
     TypeCommand analyseCommand(string command);
     void remplirParametres(vector<string> * parameters, const string command);
     Command * createCommand(TypeCommand t, vector<string> parameters, Figure *f);

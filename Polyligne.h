@@ -35,7 +35,7 @@ public:
     // Contrat :
     //
 
-    void deplacer(int dx, int dy);
+    void deplacer(long dx, long dy);
     // Mode d'emploi :
     //
     // Contrat :
@@ -57,7 +57,7 @@ public:
     // Contrat :
     //
 */
-    Polyligne (string n, vector<int> lignes);
+    Polyligne (string n, vector<long> lignes);
     // Mode d'emploi :
     //
     // Contrat :

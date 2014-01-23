@@ -36,7 +36,7 @@ public:
     // Contrat :
     //
 
-    void deplacer(int dx, int dy);
+    void deplacer(long dx, long dy);
     string description();
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -54,7 +54,7 @@ public:
     // Contrat :
     //
 */
-    Ligne (string n,int x1,int y1, int x2, int y2);
+    Ligne (string n,long x1,long y1, long x2, long y2);
 
     // Mode d'emploi :
     //

@@ -51,10 +51,10 @@ public:
     // Contrat :
     */
     
-    void deplacer(int dx, int dy);
+    void deplacer(long dx, long dy);
     string description();
 
-    Rectangle ( string n,int x1, int y1, int x2, int y2 );
+    Rectangle ( string n,long x1, long y1, long x2, long y2 );
     // Mode d'emploi :
     //
     // Contrat :
