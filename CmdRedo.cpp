@@ -12,6 +12,7 @@
 //-------------------------------------------------------- Include système
 //------------------------------------------------------ Include personnel
 #include "CmdRedo.h"
+#include "CmdSuppression.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -35,7 +36,10 @@ bool CmdRedo::execute(){
     c->execute();
     (*itActuel)++;
     
-    cout << "OK" << endl;
+    
+    if (!dynamic_cast<CmdSuppression*>(**itActuel)) {
+        cout << "OK" << endl;
+    }
     return true;
 }
 
