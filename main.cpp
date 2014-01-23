@@ -47,7 +47,8 @@ int main(int argc, const char * argv[])
             
         }else if(t == fermer){
             f.setRun(false);
-        }else{
+        }else if(t==errorCommand){
+            cout<< "ERR" << endl;
             cout<<"#Command error"<<endl;
         }
        

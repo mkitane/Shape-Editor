@@ -139,6 +139,9 @@ bool CmdLoad::execute(){
             cout<<"#Error opening file" << endl;
             return false;
         }
+        
+        
+        cout << "OK" << endl; 
     }else{
         
         vector<EltGeo *>::iterator itL;
@@ -148,6 +151,8 @@ bool CmdLoad::execute(){
         }
         
     }
+    
+    
     return true;
 }
 

@@ -34,6 +34,7 @@ bool CmdClear::execute(){
     
     listeDesElements->clear();
     
+    cout<< "OK" << endl; 
     
     /*
     elementsSupprimes = listeDesElements;

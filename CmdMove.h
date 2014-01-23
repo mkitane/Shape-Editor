@@ -40,7 +40,9 @@ public:
     bool execute();
     bool undo();
     bool canDoAnUndo(){return true;}
-    void decomposer(map<string,EltGeo*> *objetsADeplaceDecomposes);
+    
+    void decomposer(EltGeo *e);
+    void moveAllSimpleObjects(long dx, long dy);
     
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur
@@ -60,7 +62,7 @@ public:
     
 protected:
     //----------------------------------------------------- Méthodes protégées
-    
+    map<string, EltGeo*>listeElementsBouges;
     //----------------------------------------------------- Attributs protégés
 };
 

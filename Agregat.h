@@ -38,7 +38,9 @@ public:
     void deleteElt(string n);
     void addElt(EltGeo *e);
     bool contains(EltGeo *e);
-
+    map<string,EltGeo *>* getListeltGeo(){
+        return &listEltGeo;
+    }
 //------------------------------------------------- Surcharge d'opérateurs
     // Mode d'emploi :
     //

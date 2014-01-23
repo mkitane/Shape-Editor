@@ -25,11 +25,33 @@
 //{
 //} //----- Fin de Méthode
 
-void CmdMove::decomposer(map<string,EltGeo*> *objetsADeplaceDecomposes){
+void CmdMove::decomposer(EltGeo *e){
+    if (dynamic_cast<Agregat*>(e)) {
+        Agregat *agg = dynamic_cast<Agregat*>(e);
+        for(map<string, EltGeo *>::iterator itAgg = agg->getListeltGeo()->begin() ; itAgg != agg->getListeltGeo()->end(); itAgg++){
+            if (dynamic_cast<Agregat*>(itAgg->second)) {
+                Agregat *second = dynamic_cast<Agregat*>(itAgg->second);
+                decomposer(second);
+            }else{
+                listeElementsBouges.insert(pair<string, EltGeo *>(itAgg->second->getNom(),itAgg->second));
+            }
+            
+        }
+
+    }else{
+        listeElementsBouges.insert(pair<string, EltGeo *>(e->getNom(),e));
+    }
     
+}
+
+void CmdMove::moveAllSimpleObjects(long dx, long dy){
+    for(map<string,EltGeo *>::iterator it = listeElementsBouges.begin(); it!=listeElementsBouges.end() ; it++){
+        (it->second)->deplacer(dx, dy);
+    }
 }
 bool CmdMove::execute(){
     
+    unsigned long size = listeElementsBouges.size();
     
     vector<string>::iterator it;
     it=listeParametres.begin();
@@ -58,11 +80,12 @@ bool CmdMove::execute(){
             }
             
             
+            if(size==0){ // Pas besoin de decomposer si c'est un REDO
+                decomposer(itLE->second);
+            }
+            moveAllSimpleObjects(x1, y1);
 
 #pragma -mark a faire quand on a les classes ELT Geo
-            (itLE->second)->deplacer(x1,y1);
-            
-            
         
         }else{
             cout << "ERR" << endl;
@@ -70,53 +93,58 @@ bool CmdMove::execute(){
             return false;
         }
 
-    cout << "OK" << endl;
+    
+    if(size == 0){ // on verifie si les elements n'ont pas deja ete ajoutes si oui, pas besoin de refaire
+        cout << "OK" << endl;
+    }
     return true;
 }
 
 bool CmdMove::undo(){
     
-    vector<string>::iterator it;
-    it=listeParametres.begin();
-
-    string nom = *it;
-    
-    map<string, EltGeo *>::iterator itLE;
-    itLE = listeDesElements->find(nom);
-    
-    if(itLE != listeDesElements->end()){
-        it++;
-        long x1;
-        if(!Analyseur::checkIfNumber((*it).c_str(), &x1)){
-            cout << "ERR" << endl;
-            cout << "#invalid parameters" << endl;
-            return false;
-        }
+        vector<string>::iterator it;
+        it=listeParametres.begin();
         
-        it++;
-        long y1;
+        string nom = *it;
         
-        if(!Analyseur::checkIfNumber((*it).c_str(), &y1)){
-            cout << "ERR" << endl;
-            cout << "#invalid parameters" << endl;
-            return false;
-        }
+        map<string, EltGeo *>::iterator itLE;
+        itLE = listeDesElements->find(nom);
         
-        
-        x1= -1 * x1 ;
-        y1 = -1 *y1 ;
+        if(itLE != listeDesElements->end()){
+            it++;
+            long x1;
+            if(!Analyseur::checkIfNumber((*it).c_str(), &x1)){
+                cout << "ERR" << endl;
+                cout << "#invalid parameters" << endl;
+                return false;
+            }
+            
+            it++;
+            long y1;
+            
+            if(!Analyseur::checkIfNumber((*it).c_str(), &y1)){
+                cout << "ERR" << endl;
+                cout << "#invalid parameters" << endl;
+                return false;
+            }
+            
+            
+            x1= -1 * x1 ;
+            y1 = -1 *y1 ;
+            
+            
+            decomposer(itLE->second);
+            moveAllSimpleObjects(x1, y1);
+            
 #pragma -mark a faire quand on a les classes ELT Geo
-        (itLE->second)->deplacer(x1,y1);
+            
+        }else{
+            cout << "ERR" << endl;
+            cout << "#invalid parameters" << endl;
+            return false;
+        }
         
-        
-        
-    }else{
-        cout << "ERR" << endl;
-        cout << "#invalid parameters" << endl;
-        return false;
-    }
-
-    return true;
+        return true;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

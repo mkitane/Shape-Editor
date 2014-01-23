@@ -27,6 +27,7 @@
 bool CmdUndo::execute(){
     if(*itActuel == (historique->begin()-1)){
         //cout<<"Rien a undo" <<endl;
+        cout<< "ERR" << endl; 
         return false;
     }
     Command *c = **itActuel;

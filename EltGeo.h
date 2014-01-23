@@ -8,7 +8,7 @@
 
 //---------- Interface de la classe <EltGeo> (fichier EltGeo.h) ------
 
-#define MAP 
+//#define MAP
 
 #ifndef ELTGEO_H_INCLUDED
 #define ELTGEO_H_INCLUDED
