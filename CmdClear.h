@@ -61,7 +61,7 @@ protected:
     //----------------------------------------------------- Méthodes protégées
     
     //----------------------------------------------------- Attributs protégés
-    map<string,EltGeo *> elementsSupprimes ; //On garde une reference aux elements supprimés juste in case;
+    vector<EltGeo *> elementsSupprimes ; //On garde une reference aux elements supprimés juste in case;
     //Pour le redo
 };
 

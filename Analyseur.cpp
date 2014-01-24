@@ -41,7 +41,9 @@ namespace Analyseur {
         if (*end){
             return false;
         }
-        
+        if(*number == LONG_MAX || *number == LONG_MIN){
+            return false; 
+        }
         return true;
     }
     int nbParams(string command){

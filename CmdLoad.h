@@ -62,6 +62,8 @@ public:
     
 protected:
     //----------------------------------------------------- Méthodes protégées
+    bool loadOAs();
+    bool loadElements(string temp);
     vector<EltGeo *> loadedElements;
     vector<string> pool; //on cree les aggregats en dernier pour eviter tt pb
     //----------------------------------------------------- Attributs protégés

@@ -29,11 +29,10 @@ bool CmdClear::execute(){
     
     map<string,EltGeo *>::iterator it;
     for(it = listeDesElements->begin(); it!=listeDesElements->end(); it++){
-        elementsSupprimes.insert(pair<string, EltGeo*>(it->first,it->second));
+        elementsSupprimes.push_back(it->second);
     }
     
     listeDesElements->clear();
-    
     cout<< "OK" << endl; 
     
     /*
@@ -46,13 +45,14 @@ bool CmdClear::execute(){
 }
 
 bool CmdClear::undo(){
-    map<string,EltGeo *>::iterator it;
+    vector<EltGeo *>::iterator it;
     for(it = elementsSupprimes.begin(); it!=elementsSupprimes.end(); it++){
-        listeDesElements->insert(pair<string, EltGeo*>(it->first,it->second));
+        listeDesElements->insert(pair<string, EltGeo*>((*it)->getNom(),(*it)));
     }
     
+    //vector<EltGeo *>().swap(elementsSupprimes);
     elementsSupprimes.clear();
-    
+    //elementsSupprimes.shrink_to_fit();
     return true;
 }
 
@@ -73,10 +73,13 @@ CmdClear::~CmdClear ( )
 //
 {
     //ON SUPPRIME SEULEMENT SI C'EST PAS UN UNDO
-    map<string,EltGeo *>::iterator it;
+    vector<EltGeo *>::iterator it;
     for(it = elementsSupprimes.begin(); it!=elementsSupprimes.end(); it++){
-        delete it->second;
+        delete *it;
     }
+    
+    elementsSupprimes.clear();
+    //elementsSupprimes.shrink_to_fit();
 #pragma -mark Delete elements supprimés??
 #ifdef MAP
     cout << "Appel au destructeur de <CmdClear>" << endl;

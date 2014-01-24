@@ -24,18 +24,6 @@
 //
 //{
 //} //----- Fin de Méthode
-void CmdLoad::eraseCreated(){
-    
-    vector<EltGeo *>::iterator itLoaded;
-    for(itLoaded=loadedElements.begin() ; itLoaded != loadedElements.end(); itLoaded++){
-        EltGeo *loaded = *itLoaded;
-        listeDesElements->erase(loaded->getNom());
-        delete loaded;
-        //cout<< "unload" << loaded->Nom << endl;
-    }
-    
-    loadedElements.clear();
-}
 
 bool CmdLoad::execute(){
     //Pour tous les elements, ecrire leur description
@@ -55,87 +43,17 @@ bool CmdLoad::execute(){
         
         if(file.is_open()){
             while(getline(file, temp)) {
-                Analyseur::TypeCommand t;
-                vector <string> parameters ;
-                
-                
-                t = Analyseur::analyseCommand(temp);
-                if (t == Analyseur::errorCommand){
-                    eraseCreated();
-                    return false;
-                }else if(t==Analyseur::ajouterLigne || t==Analyseur::ajouterCercle || t==Analyseur::ajouterPolyligne || t==Analyseur::ajouterRectangle){
-                    Analyseur::remplirParametres(&parameters, temp);
-                    
-                    
-                    vector<string>::iterator it2;
-                    
-                    it2= parameters.begin();
-                    string nom = *it2;
-                    
-                    
-                    if ( listeDesElements->find(nom) == listeDesElements->end() ) {
-                        // not found
-                        EltGeo *a =Analyseur::createObjectWithParameters(t, parameters,listeDesElements);
-                        if(a != NULL){
-                            listeDesElements -> insert (pair<string,EltGeo*>(nom,a));
-                            loadedElements.push_back(a);
-                        }else{
-                            eraseCreated();
-                            cout << "ERR" << endl;
-                            cout<< "#Error Loading File" << endl;
-                            return false;
-                        }
-                    } else {
-                        eraseCreated();
-                        cout << "ERR" << endl;
-                        cout<< "#Error Loading File" << endl;
-                        return false;
-                    }
-                    
-                }else if(t==Analyseur::ajouterObjetAgrege){
-                    pool.push_back(temp);
-                }
-#pragma Load incomplet !
-            }
-            
-            
-            
-            
-            //On Load a present les objets agreges
-            vector<string>::iterator poolObjects;
-            for(poolObjects=pool.begin(); poolObjects<pool.end();poolObjects++){
-                Analyseur::TypeCommand t;
-                vector <string> parameters ;
-                
-                
-                t = Analyseur::analyseCommand(*poolObjects);
-                Analyseur::remplirParametres(&parameters, *poolObjects);
-                
-                
-                vector<string>::iterator it2;
-                
-                it2= parameters.begin();
-                string nom = *it2;
-                
-                if ( listeDesElements->find(nom) == listeDesElements->end() ) {
-                    EltGeo *a =Analyseur::createObjectWithParameters(t, parameters,listeDesElements);
-                    if(a != NULL){
-                        listeDesElements -> insert (pair<string,EltGeo*>(nom,a));
-                        loadedElements.push_back(a);
-                    }else{
-                        
-                        eraseCreated();
-                        cout << "ERR" << endl;
-                        cout<< "#Error Loading File" << nom << endl;
-                        return false;
-                    }
-                } else {
-                    eraseCreated();
-                    cout << "ERR" << endl;
-                    cout<< "#Error Loading File" << nom << endl;
+              #pragma Load incomplet !
+                if(!loadElements(temp)){
                     return false;
                 }
             }
+            
+            
+            if(!loadOAs()){
+                return false;
+            }
+            
             
         }else{
             cout<< "ERR" << endl;
@@ -209,3 +127,100 @@ CmdLoad::~CmdLoad ( )
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
+void CmdLoad::eraseCreated(){
+    
+    vector<EltGeo *>::iterator itLoaded;
+    for(itLoaded=loadedElements.begin() ; itLoaded != loadedElements.end(); itLoaded++){
+        EltGeo *loaded = *itLoaded;
+        listeDesElements->erase(loaded->getNom());
+        delete loaded;
+        //cout<< "unload" << loaded->Nom << endl;
+    }
+    
+    loadedElements.clear();
+}
+
+bool CmdLoad::loadElements(string temp){
+    Analyseur::TypeCommand t;
+    vector <string> parameters ;
+    
+    
+    t = Analyseur::analyseCommand(temp);
+    if (t == Analyseur::errorCommand){
+        eraseCreated();
+        return false;
+    }else if(t==Analyseur::ajouterLigne || t==Analyseur::ajouterCercle || t==Analyseur::ajouterPolyligne || t==Analyseur::ajouterRectangle){
+        Analyseur::remplirParametres(&parameters, temp);
+        
+        
+        vector<string>::iterator it2;
+        
+        it2= parameters.begin();
+        string nom = *it2;
+        
+        
+        if ( listeDesElements->find(nom) == listeDesElements->end() ) {
+            // not found
+            EltGeo *a =Analyseur::createObjectWithParameters(t, parameters,listeDesElements);
+            if(a != NULL){
+                listeDesElements -> insert (pair<string,EltGeo*>(nom,a));
+                loadedElements.push_back(a);
+            }else{
+                eraseCreated();
+                cout << "ERR" << endl;
+                cout<< "#Error Loading File" << endl;
+                return false;
+            }
+        } else {
+            eraseCreated();
+            cout << "ERR" << endl;
+            cout<< "#Error Loading File" << endl;
+            return false;
+        }
+        
+    }else if(t==Analyseur::ajouterObjetAgrege){
+        pool.push_back(temp);
+    }
+
+    return true;
+}
+bool CmdLoad::loadOAs(){
+    
+    //On Load a present les objets agreges
+    vector<string>::iterator poolObjects;
+    for(poolObjects=pool.begin(); poolObjects<pool.end();poolObjects++){
+        Analyseur::TypeCommand t;
+        vector <string> parameters ;
+        
+        
+        t = Analyseur::analyseCommand(*poolObjects);
+        Analyseur::remplirParametres(&parameters, *poolObjects);
+        
+        
+        vector<string>::iterator it2;
+        
+        it2= parameters.begin();
+        string nom = *it2;
+        
+        if ( listeDesElements->find(nom) == listeDesElements->end() ) {
+            EltGeo *a =Analyseur::createObjectWithParameters(t, parameters,listeDesElements);
+            if(a != NULL){
+                listeDesElements -> insert (pair<string,EltGeo*>(nom,a));
+                loadedElements.push_back(a);
+            }else{
+                
+                eraseCreated();
+                cout << "ERR" << endl;
+                cout<< "#Error Loading File" << nom << endl;
+                return false;
+            }
+        } else {
+            eraseCreated();
+            cout << "ERR" << endl;
+            cout<< "#Error Loading File" << nom << endl;
+            return false;
+        }
+    }
+
+    return true;
+}

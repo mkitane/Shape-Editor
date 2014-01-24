@@ -13,6 +13,7 @@
 //------------------------------------------------------ Include personnel
 #include "CmdRedo.h"
 #include "CmdSuppression.h"
+#include "CmdClear.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -37,7 +38,7 @@ bool CmdRedo::execute(){
     (*itActuel)++;
     
     
-    if (!dynamic_cast<CmdSuppression*>(**itActuel)) {
+    if (!dynamic_cast<CmdSuppression*>(**itActuel) && !dynamic_cast<CmdClear*>(**itActuel)) {
         cout << "OK" << endl;
     }
     return true;
