@@ -33,16 +33,29 @@
 
 namespace Analyseur {
 
-    bool depasserBorne(long a, long b){
+    bool depasserBorne(long a, long b)
+    // Algorithme :
+    //    Effectue la somme de a et b
+    //    Si a et b sont positif et leur somme est negative
+    //      On a depassé l'espace des longs
+    //      renvoyer vrai
+    //    Si a et b sont negatifs et leur somme est positive
+    //      On a depassé l'espace des longs
+    //      renvoyer faux
+    {
         long c = a + b ;
         if( (a > 0 && b > 0 &&  c < 0)  || (a < 0 && b < 0 &&  c > 0)  ){
             return true;
         }
         return false;
         
-    }
+    }//----- Fin de Méthode
     
-    bool checkIfNumber(string supposedNumber, long * number ){
+    
+    bool checkIfNumber(string supposedNumber, long * number )
+    // Algorithme :
+    //
+    {
         //Accepte un espace avant, mais pas apres
         char* end;
         *number = strtol(supposedNumber.c_str(),&end,10);
@@ -53,8 +66,13 @@ namespace Analyseur {
             return false; 
         }
         return true;
-    }
-    int nbParams(string command){
+    }//----- Fin de Méthode
+    
+    
+    int nbParams(string command)
+    // Algorithme :
+    //     Compte le nombre d'espace
+    {
         int nb = 1; // Car on considere qu'il n'y a pas d'espace apres le dernier char
         
         for(int i=0; i < command.size(); i++){
@@ -63,8 +81,19 @@ namespace Analyseur {
             }
         }
         return nb;
-    }
-    TypeCommand analyseCommand(string command){
+    }//----- Fin de Méthode
+    
+    
+    TypeCommand analyseCommand(string command)
+    // Algorithme :
+    //  Si la premiere lettre du string correpond a un des types predefini
+    //      Renvoyer type correspondant
+    //  Sinon
+    //      Si c'est un commentaire renvoyer type commentaire
+    //  Sinon
+    //      renvoyer type erreur
+    //  FinSi
+    {
         string firstWord;
         stringstream in(command);
         getline(in, firstWord, ' '); //On decompose le mot suivant l'espace
@@ -190,8 +219,14 @@ namespace Analyseur {
         }
         cout << "ERR" << endl; 
         return errorCommand;
-    }
-    void remplirParametres(vector<string> * parameters, const string command){
+    }//----- Fin de Méthode
+    
+    
+    void remplirParametres(vector<string> * parameters, const string command)
+    // Algorithme :
+    //      Decompose le string en fonction des espaces
+    //
+    {
         std::istringstream iss(command);
         
         std::string line;
@@ -205,8 +240,18 @@ namespace Analyseur {
             //cout<< "le parametre a push back est " << line << endl;
             parameters->push_back(line);
         }
-    }
-    Command * createCommand(TypeCommand t, vector<string> parameters, Figure *f){
+    }//----- Fin de Méthode
+    
+    
+    Command * createCommand(TypeCommand t, vector<string> parameters, Figure *f)
+    // Algorithme :
+    //      Si Type = un des types possibles
+    //          Creer commande correspondante
+    //          Renvoyer commande
+    //      Sinon
+    //          Renvoyer pointeur null
+    //      FinSi
+    {
         
         Command *c;
         switch (t) {
@@ -300,8 +345,22 @@ namespace Analyseur {
         }
         
         return c; 
-    }
-    EltGeo * createObjectWithParameters(TypeCommand t, vector<string> parameters,map<string,EltGeo *> *listeDesElements){
+    }//----- Fin de Méthode
+    
+    
+    EltGeo * createObjectWithParameters(TypeCommand t, vector<string> parameters,map<string,EltGeo *> *listeDesElements)
+    // Algorithme :
+    //      Si Type = ajouterCercle ou autre EltGeo
+    //          Verifier que les parametres sont valides
+    //          Si oui
+    //              Renvoyer pointeur vers EltGeo Cree
+    //          Sinon
+    //              Renvoyer pointeur null
+    //          FinSi
+    //      Sinon
+    //          Renvoyer pointeur null
+    //      FinSi
+    {
         vector<string>::iterator it;
         
         it= parameters.begin();
@@ -495,12 +554,9 @@ namespace Analyseur {
                 break;
         }
         return a;
-    }
+    }//----- Fin de Méthode
     
 }
-
-
-//}
 
 
 //------------------------------------------------------------------ PRIVE

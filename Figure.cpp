@@ -18,12 +18,24 @@
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Figure::Méthode ( liste des paramètres )
+
+void Figure::stockerEtExecuter(Command *c)
 // Algorithme :
-//
-//{
-//} //----- Fin de Méthode
-void Figure::stockerEtExecuter(Command *c){
+
+//      Si la commande c peut etre stockee (canDoAnUndo)
+//          Si le curseur de l'historique n'est pas sur la fin
+//              On supprime les commandes suivantes de l'historique pour pouvoir mettre notre commande cen tete de liste
+//          Fin Si
+//          Si l'execution de la commande c s'est bien deroulee
+//              On stocke la commande dans l'historique
+//          Sinon
+//              On supprime son pointeur
+//          Fin si
+//      Sinon
+//          On l'execute
+//          On supprime son pointeur
+//      Fin si
+{
     if(c->canDoAnUndo()){
         
         if(itActuel != (historique.end() -1) ){
@@ -47,29 +59,32 @@ void Figure::stockerEtExecuter(Command *c){
         c->execute();
         delete c;
     }
-}
+}//----- Fin de Méthode
 
 
 vector<Command *> * Figure::getPtrHistorique()
+// Algorithme :
+//
+
 {
     return &historique;
-}
+}//----- Fin de Méthode
+
 vector<Command *>::iterator * Figure::getPtritActuel()
+// Algorithme :
+//
 {
     return &itActuel;
-}
+}//----- Fin de Méthode
+
 map<string, EltGeo *> * Figure::getPtrListeDesElements()
+// Algorithme :
+//
 {
     return &listeDesElements;
-}
+}//----- Fin de Méthode
+
 //------------------------------------------------- Surcharge d'opérateurs
-/*
- Figure & Figure::operator = ( const Figure & unFigure )
- // Algorithme :
- //
- {
- }
- *///----- Fin de operator =
 
 
 //-------------------------------------------- Constructeurs - destructeur

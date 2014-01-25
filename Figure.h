@@ -37,35 +37,35 @@ public:
     //----------------------------------------------------- Méthodes publiques
     void stockerEtExecuter(Command *c);
     // Mode d'emploi :
-    //
+    //  Stocke dans l'historique la commande et l'execute
     // Contrat :
     //
     
     bool isRunning(){return run;};
     // Mode d'emploi :
-    //
+    //  Renvoie la valeur de la variable run
     // Contrat :
     //
     
     void setRun(bool r){run = r;};
     // Mode d'emploi :
-    //
+    //  Change la valeur de la variable run
     // Contrat :
     //
     
     vector<Command *> * getPtrHistorique();
     // Mode d'emploi :
-    //
+    //  Renvoie un pointeur vers l'historique
     // Contrat :
     //
     vector<Command *>::iterator * getPtritActuel();
     // Mode d'emploi :
-    //
+    //  Renvoie un pointeur vers le curseur present sur l'historique
     // Contrat :
     //
     map<string, EltGeo *> * getPtrListeDesElements();
     // Mode d'emploi :
-    //
+    // Renvoie un pointeur vers la liste des elements
     // Contrat :
     //
     
