@@ -349,7 +349,7 @@ namespace Analyseur {
                 
                     if(depasserBorne(x1, r) || depasserBorne(x1, -r) || depasserBorne(y1, r) || depasserBorne(y1, -r)){
                         cout << "ERR" << endl;
-                        cout << "#Circle is out of field" << endl; 
+                        cout << "#Circle is out of field" << endl;
                         return NULL;
                     }
                 
