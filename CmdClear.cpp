@@ -18,14 +18,13 @@
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type CmdClear::Méthode ( liste des paramètres )
+
+bool CmdClear::execute()
 // Algorithme :
-//
-//{
-//} //----- Fin de Méthode
-bool CmdClear::execute(){
-    
-   
+//      On supprime tous les elements de notre liste des elements principale
+//      On les backup sur une liste provisoire propre a la commande Clear
+//      Pour un eventuel undo
+{
     
     map<string,EltGeo *>::iterator it;
     for(it = listeDesElements->begin(); it!=listeDesElements->end(); it++){
@@ -35,16 +34,14 @@ bool CmdClear::execute(){
     listeDesElements->clear();
     cout<< "OK" << endl; 
     
-    /*
-    elementsSupprimes = listeDesElements;
-    // ==> on garde une reference sur le tableau et
-    
-    listeDesElements = new map<string, EltGeo *>;
-    */ //Methode Provisoire
     return true;
-}
+}//----- Fin de Méthode
 
-bool CmdClear::undo(){
+bool CmdClear::undo()
+// Algorithme :
+//      On supprime tous les elements de notre liste provisoire
+//      On les remet dans notre liste des elements principale
+{
     vector<EltGeo *>::iterator it;
     for(it = elementsSupprimes.begin(); it!=elementsSupprimes.end(); it++){
         listeDesElements->insert(pair<string, EltGeo*>((*it)->getNom(),(*it)));
@@ -54,7 +51,7 @@ bool CmdClear::undo(){
     elementsSupprimes.clear();
     //elementsSupprimes.shrink_to_fit();
     return true;
-}
+}//----- Fin de Méthode
 
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -72,7 +69,6 @@ CmdClear::~CmdClear ( )
 // Algorithme :
 //
 {
-    //ON SUPPRIME SEULEMENT SI C'EST PAS UN UNDO
     vector<EltGeo *>::iterator it;
     for(it = elementsSupprimes.begin(); it!=elementsSupprimes.end(); it++){
         delete *it;
@@ -80,7 +76,6 @@ CmdClear::~CmdClear ( )
     
     elementsSupprimes.clear();
     //elementsSupprimes.shrink_to_fit();
-#pragma -mark Delete elements supprimés??
 #ifdef MAP
     cout << "Appel au destructeur de <CmdClear>" << endl;
 #endif

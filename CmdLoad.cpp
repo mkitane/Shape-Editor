@@ -25,10 +25,13 @@
 //{
 //} //----- Fin de Méthode
 
-bool CmdLoad::execute(){
-    //Pour tous les elements, ecrire leur description
-    const clock_t begin_time = clock();
-    
+bool CmdLoad::execute()
+// Algorithme :
+//   Pour toutes les lignes du fichier
+//      Executer la commande correspondante
+//      Ajoute lelement a la liste des elements et a une liste provisoire en cas de redo
+//   Laisser les Objets Agreges a la fin
+{
     
     if(loadedElements.empty()){
         vector<string>::iterator it;
@@ -43,7 +46,6 @@ bool CmdLoad::execute(){
         
         if(file.is_open()){
             while(getline(file, temp)) {
-              #pragma Load incomplet !
                 if(!loadElements(temp)){
                     return false;
                 }
@@ -73,23 +75,23 @@ bool CmdLoad::execute(){
         
     }
     
-    
-    cout << float( clock () - begin_time ) /  CLOCKS_PER_SEC << endl;
-    
     return true;
-}
+}//----- Fin de Méthode
 
-bool CmdLoad::undo(){
+bool CmdLoad::undo()
+// Algorithme :
+//  Supprime dans la liste principale
+//  tous les elements present de la liste provisoire
+{
     
     vector<EltGeo *>::iterator itLoaded;
     for(itLoaded=loadedElements.begin() ; itLoaded != loadedElements.end(); itLoaded++){
         EltGeo *loaded = *itLoaded;
         listeDesElements->erase(loaded->getNom());
-        //cout<< "unload" << loaded->Nom << endl;
     }
     
     return true;
-}
+}//----- Fin de Méthode
 
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -109,8 +111,7 @@ CmdLoad::~CmdLoad ( )
 //
 {
     
-    //Si cmd doit etre suppriméee apres un UNDO
-    //On supprime les pointeurs crees
+
     if(loadedElements.size() > 0){
         vector<EltGeo *>::iterator itL;
         for(itL=loadedElements.begin(); itL<loadedElements.end();itL++){
@@ -127,7 +128,11 @@ CmdLoad::~CmdLoad ( )
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-void CmdLoad::eraseCreated(){
+void CmdLoad::eraseCreated()
+// Algorithme :
+//
+// Supprime tous les elements deja crees en cas d'erreur
+{
     
     vector<EltGeo *>::iterator itLoaded;
     for(itLoaded=loadedElements.begin() ; itLoaded != loadedElements.end(); itLoaded++){
@@ -138,9 +143,24 @@ void CmdLoad::eraseCreated(){
     }
     
     loadedElements.clear();
-}
+}//----- Fin de Méthode
 
-bool CmdLoad::loadElements(string temp){
+
+bool CmdLoad::loadElements(string temp)
+// Algorithme :
+//  Analysela commande
+//  Si renvoi = ajouterLigne ou ajouterCercle ou ajouterPolyligne ou ajouterRectangle
+//      Parcourir les parametres
+//      Creer objet correspondant
+//      Si erreur
+//          Supprimer tous les elements deja crees
+//      Fin si
+//  Sinon si renvoi = ajouterObjetAgrege
+//      le rajouter a "pool" pour charger ulterieurement ObjetAgrege
+//  FinSi
+//
+
+{
     Analyseur::TypeCommand t;
     vector <string> parameters ;
     
@@ -183,8 +203,13 @@ bool CmdLoad::loadElements(string temp){
     }
 
     return true;
-}
-bool CmdLoad::loadOAs(){
+}//----- Fin de Méthode
+
+
+bool CmdLoad::loadOAs()
+// Algorithme :
+//  Meme principe que load elements simples
+{
     
     //On Load a present les objets agreges
     vector<string>::iterator poolObjects;
@@ -223,4 +248,4 @@ bool CmdLoad::loadOAs(){
     }
 
     return true;
-}
+}//----- Fin de Méthode

@@ -20,13 +20,14 @@
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type CmdAjouterPolyLigne::Méthode ( liste des paramètres )
+bool CmdAjouterPolyLigne::execute()
 // Algorithme :
-//
-//{
-//} //----- Fin de Méthode
-
-bool CmdAjouterPolyLigne::execute(){
+//      Si l'element n'a pas deja ete ajoute (i.e on possede pas encore de pointeur dessus)
+//          Creer element avec les parametres
+//          Stocke dans la map des elements
+//      Sinon
+//          Stocke dans la map des elements l'element
+{
     vector<string>::iterator it;
     
     it= listeParametres.begin();
@@ -52,13 +53,16 @@ bool CmdAjouterPolyLigne::execute(){
     
     listeDesElements -> insert (pair<string,EltGeo *>(nom,polyLigneAjoutee) );
     return true;
-}
+}//----- Fin de Méthode
 
-bool CmdAjouterPolyLigne::undo(){
+bool CmdAjouterPolyLigne::undo()
+// Algorithme :
+//  Supprime l'element de la map (sans le delete pour palier a un futur et probable redo)
+{
     listeDesElements -> erase(listeParametres.at(0));
 
     return true;
-}
+}//----- Fin de Méthode
 
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -78,7 +82,7 @@ CmdAjouterPolyLigne::~CmdAjouterPolyLigne ( )
 //
 {
     
-    //Si commande supprimee apres un undo
+    //Si commande supprimee apres un undo // ou a la fin
     delete polyLigneAjoutee;
 #ifdef MAP
     cout << "Appel au destructeur de <CmdAjouterPolyLigne>" << endl;

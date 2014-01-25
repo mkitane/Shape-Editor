@@ -10,15 +10,13 @@
 #define COMMAND_H_
 
 
+
+
+//--------------------------------------------------- Interfaces utilisées
 #include <iostream>
 #include <map>
 #include <vector>
-#include "EltGeo.h"
 #include "Agregat.h"
-using namespace std;
-
-//--------------------------------------------------- Interfaces utilisées
-
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -28,6 +26,7 @@ using namespace std;
 //
 //
 //------------------------------------------------------------------------
+using namespace std;
 
 class Command
 {
@@ -37,20 +36,21 @@ public:
     //----------------------------------------------------- Méthodes publiques
     virtual bool execute() = 0 ;
     // Mode d'emploi :
-    //
+    //  Execute la commande
+    //      et les instructions associees
     // Contrat :
     //
     
     
     virtual bool undo() = 0 ;
     // Mode d'emploi :
-    //
+    // Annule la commande deja executee
     // Contrat :
     //
     
     virtual bool canDoAnUndo()=0;
     // Mode d'emploi :
-    //
+    //  Verifie si c'est une commande que l'on peux stocker dans l'historique
     // Contrat :
     //
     

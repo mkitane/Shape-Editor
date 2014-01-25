@@ -18,14 +18,13 @@
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type CmdUndo::Méthode ( liste des paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
 
-bool CmdUndo::execute(){
-    if(*itActuel == (historique->begin()-1)){
+bool CmdUndo::execute()
+// Algorithme :
+//      On recupere la commande precedente a partir de itActuel
+//      On effectue un undo
+{
+    if(*itActuel == (historique->begin()-1)){ //Si on se trouve au debut de la pile, on peut pas undo
         //cout<<"Rien a undo" <<endl;
         cout<< "ERR" << endl; 
         return false;
@@ -36,11 +35,14 @@ bool CmdUndo::execute(){
     
     cout << "OK" << endl;
     return true;
-}
+}//----- Fin de Méthode
 
-bool CmdUndo::undo(){
+bool CmdUndo::undo()
+// Algorithme :
+//
+{
     return false;
-}
+}//----- Fin de Méthode
 
 
 //------------------------------------------------- Surcharge d'opérateurs

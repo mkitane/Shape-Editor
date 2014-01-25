@@ -19,45 +19,18 @@
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type CmdMove::Méthode ( liste des paramètres )
+bool CmdMove::execute()
 // Algorithme :
-//
-//{
-//} //----- Fin de Méthode
-
-void CmdMove::decomposer(EltGeo *e){
-    if (dynamic_cast<Agregat*>(e)) {
-        Agregat *agg = dynamic_cast<Agregat*>(e);
-        for(map<string, EltGeo *>::iterator itAgg = agg->getListeltGeo()->begin() ; itAgg != agg->getListeltGeo()->end(); itAgg++){
-            if (dynamic_cast<Agregat*>(itAgg->second)) {
-                Agregat *second = dynamic_cast<Agregat*>(itAgg->second);
-                decomposer(second);
-            }else{
-                listeElementsBouges.insert(pair<string, EltGeo *>(itAgg->second->getNom(),itAgg->second));
-            }
-            
-        }
-
-    }else{
-        listeElementsBouges.insert(pair<string, EltGeo *>(e->getNom(),e));
-    }
-    
-}
-bool CmdMove::canBeMoved(long dx, long dy){
-    for(map<string,EltGeo *>::iterator it = listeElementsBouges.begin(); it!=listeElementsBouges.end() ; it++){
-        if(!(it->second)->canBeMoved(dx, dy)){
-            return false;
-        }
-    }
-    
-    return true; 
-}
-void CmdMove::moveAllSimpleObjects(long dx, long dy){
-    for(map<string,EltGeo *>::iterator it = listeElementsBouges.begin(); it!=listeElementsBouges.end() ; it++){
-        (it->second)->deplacer(dx, dy);
-    }
-}
-bool CmdMove::execute(){
+//          Verifier si les parametres rentres sont corrects
+//          Decomposer notre objet si c'est un objet agrege
+//          Verifier si tous les elements peuvent etre deplaces
+//          Si vrai
+//              Deplacer tous les elements
+//          Sinon
+//              Renvoyer faux
+//          Fin si
+//          Renvoyer vrai
+{
     
     unsigned long size = listeElementsBouges.size();
     
@@ -88,9 +61,10 @@ bool CmdMove::execute(){
             }
             
             
-            if(size==0){ // Pas besoin de decomposer si c'est un REDO
+            if(size==0){ // Pas besoin de decomposer si c'est un REDO les elements sont deja presents
                 decomposer(itLE->second);
             }
+            
             if(canBeMoved(x1, y1)){
                 moveAllSimpleObjects(x1, y1);
             }else{
@@ -98,8 +72,6 @@ bool CmdMove::execute(){
                 cout << "#reached out of field " << endl; 
                 return false;
             }
-
-#pragma -mark a faire quand on a les classes ELT Geo
         
         }else{
             cout << "ERR" << endl;
@@ -108,13 +80,17 @@ bool CmdMove::execute(){
         }
 
     
-    if(size == 0){ // on verifie si les elements n'ont pas deja ete ajoutes si oui, pas besoin de refaire
+    if(size == 0){ //Si c'est un redo, on ne reecrit pas deux fois OK
         cout << "OK" << endl;
     }
     return true;
-}
+}//----- Fin de Méthode
 
-bool CmdMove::undo(){
+bool CmdMove::undo()
+// Meme principe que execute
+// en deplacant de -x et de -y
+//
+{
     
         vector<string>::iterator it;
         it=listeParametres.begin();
@@ -150,8 +126,6 @@ bool CmdMove::undo(){
             decomposer(itLE->second);
             moveAllSimpleObjects(x1, y1);
             
-#pragma -mark a faire quand on a les classes ELT Geo
-            
         }else{
             cout << "ERR" << endl;
             cout << "#invalid parameters" << endl;
@@ -159,7 +133,7 @@ bool CmdMove::undo(){
         }
         
         return true;
-}
+}//----- Fin de Méthode
 
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -186,3 +160,53 @@ CmdMove::~CmdMove ( )
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
+
+void CmdMove::decomposer(EltGeo *e)
+// Algorithme :
+//  Decompose un ObjetAgrege en elements simples
+//  et les rajoute a la listedeselement a bouger
+
+{
+    if (dynamic_cast<Agregat*>(e)) {
+        Agregat *agg = dynamic_cast<Agregat*>(e);
+        for(map<string, EltGeo *>::iterator itAgg = agg->getListeltGeo()->begin() ; itAgg != agg->getListeltGeo()->end(); itAgg++){
+            if (dynamic_cast<Agregat*>(itAgg->second)) {
+                Agregat *second = dynamic_cast<Agregat*>(itAgg->second);
+                decomposer(second);
+            }else{
+                listeElementsBouges.insert(pair<string, EltGeo *>(itAgg->second->getNom(),itAgg->second));
+            }
+            
+        }
+        
+    }else{
+        listeElementsBouges.insert(pair<string, EltGeo *>(e->getNom(),e));
+    }
+    
+}//----- Fin de Méthode
+
+
+bool CmdMove::canBeMoved(long dx, long dy)
+// Algorithme :
+//  Verifie si tous les elements peuvent etre bouges avant de les bouger
+{
+    for(map<string,EltGeo *>::iterator it = listeElementsBouges.begin(); it!=listeElementsBouges.end() ; it++){
+        if(!(it->second)->canBeMoved(dx, dy)){
+            return false;
+        }
+    }
+    
+    return true;
+}//----- Fin de Méthode
+
+
+void CmdMove::moveAllSimpleObjects(long dx, long dy)
+// Algorithme :
+//   Deplace tous les elements simples
+{
+    for(map<string,EltGeo *>::iterator it = listeElementsBouges.begin(); it!=listeElementsBouges.end() ; it++){
+        (it->second)->deplacer(dx, dy);
+    }
+}//----- Fin de Méthode
+
+

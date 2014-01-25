@@ -20,13 +20,16 @@
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type CmdAjouterCercle::Méthode ( liste des paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
 
-bool CmdAjouterCercle::execute(){
+
+bool CmdAjouterCercle::execute()
+// Algorithme :
+//      Si l'element n'a pas deja ete ajoute (i.e on possede pas encore de pointeur dessus)
+//          Creer element avec les parametres
+//          Stocke dans la map des elements
+//      Sinon
+//          Stocke dans la map des elements l'element
+{
     vector<string>::iterator it;
     
     it= listeParametres.begin();
@@ -52,14 +55,18 @@ bool CmdAjouterCercle::execute(){
     
     listeDesElements -> insert (pair<string,EltGeo *>(nom,cercleAjoute) );
     return true;
-}
+}//----- Fin de Méthode
 
-bool CmdAjouterCercle::undo(){
+
+bool CmdAjouterCercle::undo()
+// Algorithme :
+//  Supprime l'element de la map (sans le delete pour palier a un futur et probable redo)
+{
     
     listeDesElements -> erase(listeParametres.at(0));
 
     return true;
-}
+}//----- Fin de Méthode
 
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -79,7 +86,7 @@ CmdAjouterCercle::~CmdAjouterCercle ( )
 //
 {
     
-    //Si commande supprimee apres un undo
+    //Si commande supprimee apres un undo // ou a la fin
     delete cercleAjoute;
 #ifdef MAP
     cout << "Appel au destructeur de <CmdAjouterCercle>" << endl;

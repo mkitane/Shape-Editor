@@ -19,13 +19,11 @@
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type CmdList::Méthode ( liste des paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
 
-bool CmdList::execute(){
+bool CmdList::execute()
+// Algorithme :
+//  On affiche la description de chaque element de la liste des elements
+{
     //Pour tous les elements, ecrire leur description
     
     
@@ -39,11 +37,14 @@ bool CmdList::execute(){
 
 
     return true;
-}
+}//----- Fin de Méthode
 
-bool CmdList::undo(){
+bool CmdList::undo()
+// Algorithme :
+//
+{
     return false;
-}
+}//----- Fin de Méthode
 
 
 //------------------------------------------------- Surcharge d'opérateurs

@@ -19,13 +19,12 @@
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type CmdSave::Méthode ( liste des paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
 
-bool CmdSave::execute(){
+bool CmdSave::execute()
+// Algorithme :
+//  Pour tous nos elements de la liste des elements
+//  On charge dans notre fichier la description de chaque element
+{
    //Pour tous les elements, ecrire leur description
     vector<string>::iterator it;
     
@@ -41,7 +40,6 @@ bool CmdSave::execute(){
         map<string, EltGeo *>::iterator it;
         
         for(it = listeDesElements->begin() ; it!= listeDesElements->end() ; it++){
-            // A modifier plustard
             EltGeo *a = it->second;
             o << a->description() << endl;
         }
@@ -53,11 +51,14 @@ bool CmdSave::execute(){
     }
 
     return true;
-}
+}//----- Fin de Méthode
 
-bool CmdSave::undo(){
+bool CmdSave::undo()
+// Algorithme :
+//
+{
     return false;
-}
+}//----- Fin de Méthode
 
 //------------------------------------------------- Surcharge d'opérateurs
 

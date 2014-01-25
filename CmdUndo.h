@@ -34,19 +34,21 @@ public:
     //----------------------------------------------------- Méthodes publiques
     bool execute();
     // Mode d'emploi :
-    //
+    //  Execute la commande
+    //      et les instructions associees
     // Contrat :
     //
     
     bool undo();
     // Mode d'emploi :
-    //
+    // Annule la commande deja executee
     // Contrat :
     //
     
+    
     bool canDoAnUndo(){return false;}
     // Mode d'emploi :
-    //
+    //  Verifie si c'est une commande que l'on peux stocker dans l'historique
     // Contrat :
     //
     

@@ -20,19 +20,19 @@
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type CmdRedo::Méthode ( liste des paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
 
-bool CmdRedo::execute(){
+bool CmdRedo::execute()
+// Algorithme :
+//      On recupere la prochaine commande a partir de itActuel
+//      On l'execute
+{
     
-    if(*itActuel+1 == historique->end()){
+    if(*itActuel+1 == historique->end()){ //si on se trouve a la fin, on ne dois pas faire de redo
         //cout<<"rien a redo" << endl;
         cout<< "ERR" << endl;
         return false;
     }
+    
     Command *c = *(*itActuel+1);
     c->execute();
     (*itActuel)++;
@@ -42,11 +42,14 @@ bool CmdRedo::execute(){
         cout << "OK" << endl;
     }
     return true;
-}
+}//----- Fin de Méthode
 
-bool CmdRedo::undo(){
+bool CmdRedo::undo()
+// Algorithme :
+//
+{
     return false;
-}
+}//----- Fin de Méthode
 
 
 

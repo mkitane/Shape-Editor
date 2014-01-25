@@ -32,14 +32,25 @@ class CmdAjouterRectangle : public Command
     
 public:
     //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste des paramètres );
+
+    bool execute();
     // Mode d'emploi :
-    //
+    //  Execute la commande
+    //      et les instructions associees
     // Contrat :
     //
-    bool execute();
     bool undo();
+    // Mode d'emploi :
+    // Annule la commande deja executee
+    // Contrat :
+    //
+    
     bool canDoAnUndo(){return true;}
+    // Mode d'emploi :
+    //  Verifie si c'est une commande que l'on peux stocker dans l'historique
+    // Contrat :
+    //
+    
     
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur
