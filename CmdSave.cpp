@@ -46,6 +46,7 @@ bool CmdSave::execute(){
             o << a->description() << endl;
         }
         o.close();
+        cout<<"OK" << endl; 
     }else{
         cout<< "ERR" << endl;
         cout<<"#Error opening file" << endl;
