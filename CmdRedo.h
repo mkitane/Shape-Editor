@@ -33,10 +33,6 @@ class CmdRedo : public Command
 public:
     //----------------------------------------------------- Méthodes publiques
     // type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
     bool execute();
     bool undo();
     bool canDoAnUndo(){return false;}

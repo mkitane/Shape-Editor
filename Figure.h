@@ -35,21 +35,43 @@ class Figure
     
 public:
     //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
     void stockerEtExecuter(Command *c);
-    bool isRunning(){return run;};
-    void setRun(bool r){run = r;};
-    //------------------------------------------------- Surcharge d'opérateurs
-    Figure & operator = ( const Figure & unFigure );
     // Mode d'emploi :
     //
     // Contrat :
     //
     
+    bool isRunning(){return run;};
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+    
+    void setRun(bool r){run = r;};
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+    
+    vector<Command *> * getPtrHistorique();
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+    vector<Command *>::iterator * getPtritActuel();
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+    map<string, EltGeo *> * getPtrListeDesElements();
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+    
+    
+    
+    //------------------------------------------------- Surcharge d'opérateurs
     
     //-------------------------------------------- Constructeurs - destructeur
     Figure ( const Figure & unFigure );
@@ -72,19 +94,15 @@ public:
     
     //------------------------------------------------------------------ PRIVE
     
-    //----------------------------------------------------- Méthodes protégées
-    //vector<EltGeo>
 
-    vector<Command *> * getPtrHistorique();
-    vector<Command *>::iterator * getPtritActuel();
-    map<string, EltGeo *> * getPtrListeDesElements();
- 
-    protected:
+protected:
+    //----------------------------------------------------- Méthodes protégées
+    
+    //----------------------------------------------------- Attributs protégés
     bool run;
     vector<Command *> historique;
     vector<Command *>::iterator itActuel;
     map<string, EltGeo *> listeDesElements;
-    //----------------------------------------------------- Attributs protégés
     
 };
 

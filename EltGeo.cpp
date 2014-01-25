@@ -19,43 +19,38 @@
 
 //----------------------------------------------------- Méthodes publiques
 // type EltGeo::Méthode ( liste des paramètres )
+
+bool EltGeo::depasserBorne(long a, long b)
 // Algorithme :
-//
-//{
-//} //----- Fin de Méthode
-bool EltGeo::depasserBorne(long a, long b){
+//    Effectue la somme de a et b
+//    Si a et b sont positif et leur somme est negative
+//      On a depassŽ l'espace des longs
+//      renvoyer vrai
+//    Si a et b sont negatifs et leur somme est positive
+//      On a depassŽ l'espace des longs
+//      renvoyer faux
+{
     long c = a + b ;
     if( (a > 0 && b > 0 &&  c < 0)  || (a < 0 && b < 0 &&  c > 0)  ){
         return true;
     }
     return false;
     
-}
-const string EltGeo::getNom(){
-    return nom; 
-}
+}//----- Fin de MŽthode
 
-//------------------------------------------------- Surcharge d'opérateurs
-/*
-EltGeo & EltGeo::operator = ( const EltGeo & unEltGeo )
+
+const string EltGeo::getNom()
 // Algorithme :
 //
 {
-}
- *///----- Fin de operator =
+    return nom; 
+}//----- Fin de MŽthode
+
+
+//------------------------------------------------- Surcharge d'opérateurs
 
 
 //-------------------------------------------- Constructeurs - destructeur
-EltGeo::EltGeo ( const EltGeo & unEltGeo )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <EltGeo>" << endl;
-#endif
-} //----- Fin de EltGeo (constructeur de copie)
-
-
 EltGeo::EltGeo (string n) : nom(n)
 // Algorithme :
 //

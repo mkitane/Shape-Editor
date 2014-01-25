@@ -11,8 +11,6 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "EltGeo.h"
-#include "Point.h"
-#include <string>
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -29,35 +27,28 @@ class Rond : public EltGeo
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste des paramètres );
+    bool canBeMoved(long dx, long dy);
     // Mode d'emploi :
-    //
+    // Verifie si l'objet peux etre bougé sans dépasser l'espace des longs et renvoie
+    // vrai si c'est possible
     // Contrat :
     //
-    bool canBeMoved(long dx, long dy);
+    
     void deplacer(long dx, long dy);
-    // Mode d'emploi : translate le centre du rond selon le vecteur (x0,y0)
-    //
+    // Mode d'emploi :
+    // Deplace l'objet de dx en coordonnees horizontales et dy en coordonnes verticales
     // Contrat :
     //
 
     string description();
+    // Mode d'emploi :
+    //  Renvoie la description servant a recreer l'objet
+    // Contrat :
+    //
 
 //------------------------------------------------- Surcharge d'opérateurs
-  /*  Rond & operator = ( const Rond & unRond );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-*/
 
 //-------------------------------------------- Constructeurs - destructeur
-    /*Rond ( const Rond & unRond );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
-*/
     Rond ( string n,long r, long x0, long y0);
     // Mode d'emploi : cree le rond de centre (x0,y0) et de rayon R
     //

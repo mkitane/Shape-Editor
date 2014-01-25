@@ -35,18 +35,31 @@ class EltGeo
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste des paramètres );
+    bool depasserBorne(long a, long b);
     // Mode d'emploi :
-    //
+    // Verifie si un point a dŽpassŽ l'espace des longs
     // Contrat :
     //
-    bool depasserBorne(long a, long b);
     const string getNom();
-    virtual bool canBeMoved(long dx, long dy) =0; 
-    virtual void deplacer(long dx, long dy) =0;
-    virtual string description() = 0 ;
-    // Mode d'emploi : deplace l'element geometrique selon la translation de vecteur(x0,y0)
+    // Mode d'emploi :
+    //  Renvoie le nom de l'objet
+    // Contrat :
     //
+    virtual bool canBeMoved(long dx, long dy) =0;
+    // Mode d'emploi :
+    // Verifie si l'objet peux etre bougŽ sans dŽpasser l'espace des longs et renvoie
+    // vrai si c'est possible
+    // Contrat :
+    //
+    virtual void deplacer(long dx, long dy) =0;
+    // Mode d'emploi :
+    // Deplace l'objet de dx en coordonnees horizontales et dy en coordonnes verticales
+    // Contrat :
+    //
+    
+    virtual string description() = 0 ;
+    // Mode d'emploi :
+    //  Renvoie la description servant a recreer l'objet
     // Contrat :
     //
 //------------------------------------------------- Surcharge d'opérateurs
@@ -75,8 +88,8 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-    string nom;
 //----------------------------------------------------- Attributs protégés
+    string nom;
 };
 
 //--------------------------- Autres définitions dépendantes de <EltGeo>

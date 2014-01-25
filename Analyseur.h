@@ -22,8 +22,9 @@
 using namespace std;
 //------------------------------------------------------------- Constantes
 
-//------------------------------------------------------------------ Types
 namespace Analyseur {
+
+//------------------------------------------------------------------ Types
     typedef enum{
         ajouterCercle,
         ajouterRectangle,
@@ -43,13 +44,48 @@ namespace Analyseur {
         errorCommand
     }TypeCommand;
     
+    //----------------------------------------------------- Méthodes publiques
     bool depasserBorne(long a, long b);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+    
     int nbParams(string command);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+    
     bool checkIfNumber(string supposedNumber, long * number);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+    
     TypeCommand analyseCommand(string command);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+    
     void remplirParametres(vector<string> * parameters, const string command);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+    
     Command * createCommand(TypeCommand t, vector<string> parameters, Figure *f);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+    
     EltGeo * createObjectWithParameters(TypeCommand t, vector<string> parameters, map<string,EltGeo *> *listeElements);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 }
 
 

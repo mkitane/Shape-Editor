@@ -10,8 +10,6 @@
 #define Rectangle_H_
 
 //--------------------------------------------------- Interfaces utilisées
-#include "Point.h"
-#include <string>
 #include "EltGeo.h"
 //------------------------------------------------------------- Constantes
 
@@ -29,31 +27,29 @@ class Rectangle : public EltGeo
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste des paramètres );
+    bool canBeMoved(long dx, long dy);
     // Mode d'emploi :
+    // Verifie si l'objet peux etre bougé sans dépasser l'espace des longs et renvoie
+    // vrai si c'est possible
+    // Contrat :
     //
+    
+    void deplacer(long dx, long dy);
+    // Mode d'emploi :
+    // Deplace l'objet de dx en coordonnees horizontales et dy en coordonnes verticales
+    // Contrat :
+    //
+    
+    string description();
+    // Mode d'emploi :
+    //  Renvoie la description servant a recreer l'objet
     // Contrat :
     //
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-   /* Rectangle & operator = ( const Rectangle & unRectangle );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-
+    
 //-------------------------------------------- Constructeurs - destructeur
-    Rectangle ( const Rectangle & unRectangle );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    */
-    bool canBeMoved(long dx, long dy);
-    void deplacer(long dx, long dy);
-    string description();
-
     Rectangle ( string n,long x1, long y1, long x2, long y2 );
     // Mode d'emploi :
     //

@@ -32,14 +32,23 @@ class CmdSuppression : public Command
     
 public:
     //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste des paramètres );
+    bool execute();
     // Mode d'emploi :
     //
     // Contrat :
     //
-    bool execute();
-    bool undo(); 
+    
+    bool undo();
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+    
     bool canDoAnUndo(){return true;}
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur
@@ -60,13 +69,12 @@ public:
 protected:
     //----------------------------------------------------- Méthodes protégées
     
-    //----------------------------------------------------- Attributs protégés
-    vector<EltGeo *> elementsSupprimes ; //On garde une reference aux elements supprimés juste in case;
-    vector<Agregat *> fromWhereDeleted; 
-                                    //Pour le redo
-    
     void deleteElementFromOAs(EltGeo *e);
     void addElementstoOAs(EltGeo *e);
+    //----------------------------------------------------- Attributs protégés
+    vector<EltGeo *> elementsSupprimes ; //On garde une reference aux elements supprimés juste in case;
+    vector<Agregat *> fromWhereDeleted;  //Pour remettre l'objet dans les OA si on redo
+
 };
 
 //--------------------------- Autres définitions dépendantes de <CmdSuppression>

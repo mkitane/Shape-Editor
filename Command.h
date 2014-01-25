@@ -35,14 +35,25 @@ class Command
     
 public:
     //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste des paramètres );
+    virtual bool execute() = 0 ;
     // Mode d'emploi :
     //
     // Contrat :
     //
-    virtual bool execute() = 0 ;
+    
+    
     virtual bool undo() = 0 ;
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+    
     virtual bool canDoAnUndo()=0;
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+    
     
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur

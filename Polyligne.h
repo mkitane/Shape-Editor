@@ -29,34 +29,30 @@ class Polyligne : public EltGeo
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste des paramètres );
+    bool canBeMoved(long dx, long dy);
     // Mode d'emploi :
-    //
+    // Verifie si l'objet peux etre bougé sans dépasser l'espace des longs et renvoie
+    // vrai si c'est possible
     // Contrat :
     //
-    bool canBeMoved(long dx, long dy);
+    
     void deplacer(long dx, long dy);
     // Mode d'emploi :
-    //
+    // Deplace l'objet de dx en coordonnees horizontales et dy en coordonnes verticales
     // Contrat :
     //
     string description();
-
-//------------------------------------------------- Surcharge d'opérateurs
-    /*Polyligne & operator = ( const Polyligne & unPolyligne );
     // Mode d'emploi :
-    //
+    //  Renvoie la description servant a recreer l'objet
     // Contrat :
     //
+
+//------------------------------------------------- Surcharge d'opérateurs
+   
 
 
 //-------------------------------------------- Constructeurs - destructeur
-    Polyligne ( const Polyligne & unPolyligne );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
-*/
+
     Polyligne (string n, vector<long> lignes);
     // Mode d'emploi :
     //
@@ -73,8 +69,9 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-    vector<Point> listeLignes;
+    
 //----------------------------------------------------- Attributs protégés
+    vector<Point> listeLignes;
 
 };
 

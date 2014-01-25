@@ -10,8 +10,6 @@
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
-#include <iostream>
-using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Ligne.h"
@@ -21,37 +19,44 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Ligne::Méthode ( liste des paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
-
-/* type Ligne::Méthode ( liste des paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
-
-//------------------------------------------------- Surcharge d'opérateurs
-//Ligne & Ligne::operator = ( const Ligne & unLigne )
-// Algorithme :
-//
-//{
-//} //----- Fin de operator =
-
-
-//-------------------------------------------- Constructeurs - destructeur
-Ligne::Ligne ( const Ligne & unLigne )
+bool Ligne::canBeMoved(long dx, long dy)
 // Algorithme :
 //
 {
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Ligne>" << endl;
-#endif
-} //----- Fin de Ligne (constructeur de copie)
-*/
+    if(!point1.canBeMoved(dx, dy)){
+        return false;
+    }
+    if(!point2.canBeMoved(dx, dy)){
+        return false;
+    }
+    
+    return true;
+} //----- Fin de Méthode
 
+void Ligne::deplacer(long dx, long dy)
+// Algorithme :
+//
+{
+    point1.deplacer(dx, dy);
+    point2.deplacer(dx, dy);
+}//----- Fin de Méthode
+
+string Ligne::description()
+// Algorithme :
+//
+{
+    string desc = "L ";
+    desc = desc + nom + " " + point1.description() + " " + point2.description();
+    return desc;
+}//----- Fin de Méthode
+
+
+
+//------------------------------------------------- Surcharge d'opérateurs
+
+
+
+//-------------------------------------------- Constructeurs - destructeur
 
 Ligne::Ligne(string n, long x1,long y1,long x2,long y2) : EltGeo(n), point1(x1,y1), point2(x2,y2)
 // Algorithme :
@@ -70,26 +75,8 @@ Ligne::~Ligne ( )
     cout << "Appel au destructeur de <Ligne>" << endl;
 #endif
 } //----- Fin de ~Ligne
-bool Ligne::canBeMoved(long dx, long dy){
-    if(depasserBorne(point1.getX(), dx) || depasserBorne(point1.getY(), dy)){
-        return false;
-    }
-    if(depasserBorne(point2.getX(), dx) || depasserBorne(point2.getY(), dy)){
-        return false;
-    }
 
-    return true; 
-}
-void Ligne::deplacer(long dx, long dy){
-    point1.deplacer(dx, dy);
-    point2.deplacer(dx, dy);
-}
 
-string Ligne::description(){
-    string desc = "L ";
-    desc = desc + nom + " " + point1.description() + " " + point2.description();
-    return desc;
-}
 
 //------------------------------------------------------------------ PRIVE
 

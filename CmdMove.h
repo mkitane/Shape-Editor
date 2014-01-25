@@ -41,9 +41,7 @@ public:
     bool undo();
     bool canDoAnUndo(){return true;}
     
-    void decomposer(EltGeo *e);
-    void moveAllSimpleObjects(long dx, long dy);
-    bool canBeMoved(long dx, long dy);
+
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur
     CmdMove(map<string,EltGeo *> *lE, vector<string> lP);
@@ -62,8 +60,11 @@ public:
     
 protected:
     //----------------------------------------------------- Méthodes protégées
-    map<string, EltGeo*>listeElementsBouges;
+    void decomposer(EltGeo *e);
+    void moveAllSimpleObjects(long dx, long dy);
+    bool canBeMoved(long dx, long dy);
     //----------------------------------------------------- Attributs protégés
+    map<string, EltGeo*>listeElementsBouges;
 };
 
 //--------------------------- Autres définitions dépendantes de <CmdMove>

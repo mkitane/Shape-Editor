@@ -42,7 +42,6 @@ public:
     bool execute();
     bool undo();
     bool canDoAnUndo(){return true;}
-    void eraseCreated();
     
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur
@@ -64,9 +63,11 @@ protected:
     //----------------------------------------------------- Méthodes protégées
     bool loadOAs();
     bool loadElements(string temp);
-    vector<EltGeo *> loadedElements;
-    vector<string> pool; //on cree les aggregats en dernier pour eviter tt pb
+    void eraseCreated();
+
     //----------------------------------------------------- Attributs protégés
+    vector<EltGeo *> loadedElements;
+    vector<string> pool; //permet de creer les aggregats en dernier pour eviter tt pb
 };
 
 //--------------------------- Autres définitions dépendantes de <CmdLoad>

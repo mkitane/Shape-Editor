@@ -19,45 +19,41 @@
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Rectangle::Méthode ( liste des paramètres )
+bool Rectangle::canBeMoved(long dx , long dy)
 // Algorithme :
 //
-//{
-//} //----- Fin de Méthode
-bool Rectangle::canBeMoved(long dx , long dy){
-    if(depasserBorne(point1.getX(), dx) || depasserBorne(point1.getY(), dy)){
+{
+    if(!point1.canBeMoved(dx, dy)){
         return false;
     }
-    if(depasserBorne(point2.getX(), dx) || depasserBorne(point2.getY(), dy)){
+    if(!point2.canBeMoved(dx, dy)){
         return false;
     }
     return true; 
-}
+} //----- Fin de Méthode
+
 void Rectangle::deplacer(long dx, long dy)
+// Algorithme :
+//
 {
 
     point1.deplacer(dx, dy);
     point2.deplacer(dx, dx);
-}
+} //----- Fin de Méthode
+
+string Rectangle::description()
+// Algorithme :
+//
+{
+    string desc = "R ";
+    desc = desc + nom + " " + point1.description() + " " + point2.description();
+    return desc;
+} //----- Fin de Méthode
+
 
 //------------------------------------------------- Surcharge d'opérateurs
-/*µRectangle & Rectangle::operator = ( const Rectangle & unRectangle )
-// Algorithme :
-//
-{
-} //----- Fin de operator =
-*/
 
 //-------------------------------------------- Constructeurs - destructeur
-/*Rectangle::Rectangle ( const Rectangle & unRectangle )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Rectangle>" << endl;
-#endif
-} //----- Fin de Rectangle (constructeur de copie)
-*/
 
 Rectangle::Rectangle (string n,long x1, long y1, long x2, long y2 ):EltGeo(n), point1(Point(x1,y1)), point2(Point(x2, y2))
 // Algorithme :
@@ -77,12 +73,6 @@ Rectangle::~Rectangle ( )
     cout << "Appel au destructeur de <Rectangle>" << endl;
 #endif
 } //----- Fin de ~Rectangle
-
-string Rectangle::description(){
-    string desc = "R ";
-    desc = desc + nom + " " + point1.description() + " " + point2.description();
-    return desc;
-}
 
 //------------------------------------------------------------------ PRIVE
 

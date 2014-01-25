@@ -61,7 +61,6 @@ protected:
     
     //----------------------------------------------------- Attributs protégés
     EltGeo *cercleAjoute;
-    //int tab[1003938000000];
 };
 
 //--------------------------- Autres définitions dépendantes de <CmdAjouterCercle>

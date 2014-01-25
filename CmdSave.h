@@ -32,14 +32,23 @@ class CmdSave : public Command
     
 public:
     //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste des paramètres );
+    bool execute();
     // Mode d'emploi :
     //
     // Contrat :
     //
-    bool execute();
+    
     bool undo();
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+    
     bool canDoAnUndo(){return false;}
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
     
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur

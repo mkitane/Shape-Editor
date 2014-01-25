@@ -18,12 +18,44 @@
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Polyligne::Méthode ( liste des paramètres )
+bool Polyligne::canBeMoved(long dx, long dy)
+// Algorithme :
+//      Verifie si chaque point de la liste peut etre bouge
+{
+    vector<Point>::iterator it2;
+    for(it2=listeLignes.begin(); it2<listeLignes.end() ;it2++){
+        if(!it2->canBeMoved(dx, dy)){
+            return false;
+        }
+    }
+    
+    return true;
+} //----- Fin de Méthode
+
+
+void Polyligne::deplacer(long dx, long dy)
 // Algorithme :
 //
-//{
-//} //----- Fin de Méthode
+{
+    vector<Point>::iterator it;
+    for(it=listeLignes.begin(); it<listeLignes.end() ;it++){
+        it->deplacer(dx, dy);
+    }
+} //----- Fin de Méthode
 
+string Polyligne::description()
+// Algorithme :
+//
+{
+    string desc = "PL ";
+    
+    desc = desc + nom;
+    vector<Point>::iterator it;
+    for(it=listeLignes.begin(); it<listeLignes.end() ;it++){
+        desc = desc + " " + it->description() ;
+    }
+    return desc;
+} //----- Fin de Méthode
 
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -58,33 +90,7 @@ Polyligne::~Polyligne ( )
     cout << "Appel au destructeur de <Polyligne>" << endl;
 #endif
 } //----- Fin de ~Polyligne
-bool Polyligne::canBeMoved(long dx, long dy){
-    vector<Point>::iterator it2;
-    for(it2=listeLignes.begin(); it2<listeLignes.end() ;it2++){
-        if(depasserBorne(it2->getX(), dx) || depasserBorne(it2->getY(), dy)){
-            return false;
-        }
-    }
 
-    return true;
-}
-
-void Polyligne::deplacer(long dx, long dy){
-    vector<Point>::iterator it;
-    for(it=listeLignes.begin(); it<listeLignes.end() ;it++){
-        it->deplacer(dx, dy);
-    }    
-}
-string Polyligne::description(){
-    string desc = "PL ";
-    
-    desc = desc + nom;
-    vector<Point>::iterator it;
-    for(it=listeLignes.begin(); it<listeLignes.end() ;it++){
-        desc = desc + " " + it->description() ;
-    }
-    return desc;
-}
 
 //------------------------------------------------------------------ PRIVE
 
