@@ -56,7 +56,7 @@ public:
     // Contrat :
     //
 
-    virtual ~Rectangle ( );
+    ~Rectangle ( );
     // Mode d'emploi :
     //
     // Contrat :

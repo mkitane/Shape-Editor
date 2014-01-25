@@ -31,7 +31,11 @@ class Point
 public:
 //----------------------------------------------------- Méthodes publiques
     bool depasserBorne(long a, long b);
-    
+    // Mode d'emploi :
+    // Verifie si un point a dépassé l'espace des longs
+    // Contrat :
+    //
+
     bool canBeMoved(long dx, long dy);
     // Mode d'emploi :
     // Verifie si l'objet peux etre bougé sans dépasser l'espace des longs et renvoie

@@ -82,7 +82,7 @@ public:
     Agregat(string n, map<string, EltGeo*> lEG);
 
 
-    virtual ~Agregat();
+    ~Agregat();
     // Mode d'emploi :
     //
     // Contrat :

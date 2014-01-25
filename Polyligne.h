@@ -59,7 +59,7 @@ public:
     // Contrat :
     //
 
-    virtual ~Polyligne ( );
+    ~Polyligne ( );
     // Mode d'emploi :
     //
     // Contrat :

@@ -55,7 +55,7 @@ public:
     // Contrat :
     //
 
-    virtual ~Rond ( );
+    ~Rond ( );
     // Mode d'emploi :
     //
     // Contrat :
