@@ -50,7 +50,7 @@ public:
     //
     // Contrat :
     */
-    
+    bool canBeMoved(long dx, long dy);
     void deplacer(long dx, long dy);
     string description();
 

@@ -23,6 +23,14 @@
 //
 //{
 //} //----- Fin de Méthode
+bool EltGeo::depasserBorne(long a, long b){
+    long c = a + b ;
+    if( (a > 0 && b > 0 &&  c < 0)  || (a < 0 && b < 0 &&  c > 0)  ){
+        return true;
+    }
+    return false;
+    
+}
 const string EltGeo::getNom(){
     return nom; 
 }

@@ -43,7 +43,7 @@ public:
     
     void decomposer(EltGeo *e);
     void moveAllSimpleObjects(long dx, long dy);
-    
+    bool canBeMoved(long dx, long dy);
     //------------------------------------------------- Surcharge d'opérateurs
     //-------------------------------------------- Constructeurs - destructeur
     CmdMove(map<string,EltGeo *> *lE, vector<string> lP);

@@ -70,7 +70,16 @@ Ligne::~Ligne ( )
     cout << "Appel au destructeur de <Ligne>" << endl;
 #endif
 } //----- Fin de ~Ligne
+bool Ligne::canBeMoved(long dx, long dy){
+    if(depasserBorne(point1.getX(), dx) || depasserBorne(point1.getY(), dy)){
+        return false;
+    }
+    if(depasserBorne(point2.getX(), dx) || depasserBorne(point2.getY(), dy)){
+        return false;
+    }
 
+    return true; 
+}
 void Ligne::deplacer(long dx, long dy){
     point1.deplacer(dx, dy);
     point2.deplacer(dx, dy);

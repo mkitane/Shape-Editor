@@ -24,8 +24,18 @@
 //
 //{
 //} //----- Fin de Méthode
+bool Rectangle::canBeMoved(long dx , long dy){
+    if(depasserBorne(point1.getX(), dx) || depasserBorne(point1.getY(), dy)){
+        return false;
+    }
+    if(depasserBorne(point2.getX(), dx) || depasserBorne(point2.getY(), dy)){
+        return false;
+    }
+    return true; 
+}
 void Rectangle::deplacer(long dx, long dy)
 {
+
     point1.deplacer(dx, dy);
     point2.deplacer(dx, dx);
 }

@@ -27,11 +27,21 @@
 //{
 //} //----- Fin de Méthode
 
+bool Rond::canBeMoved(long dx , long dy){
+    if(depasserBorne(centre.getX(), dx) || depasserBorne(centre.getY(), dy)){
+        return false;
+    }
+    //si on arrive a ce point,  cela veux dire que le point X apres le deplacement ne depasse pas la limite
+    if(depasserBorne(centre.getX()+dx, rayon) || depasserBorne(centre.getX()+dx, -rayon) || depasserBorne(centre.getY()+dy, rayon) || depasserBorne(centre.getY()+dy, -rayon)){
+        return false;
+    }
+    return true;
+}
 void Rond::deplacer(long dx,long dy)
 // Algorithme :
 //
 {
-        centre.deplacer(dx,dy);
+    centre.deplacer(dx,dy);
 } //----- Fin de Méthode
 
 //------------------------------------------------- Surcharge d'opérateurs

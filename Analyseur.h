@@ -43,6 +43,7 @@ namespace Analyseur {
         errorCommand
     }TypeCommand;
     
+    bool depasserBorne(long a, long b);
     int nbParams(string command);
     bool checkIfNumber(string supposedNumber, long * number);
     TypeCommand analyseCommand(string command);

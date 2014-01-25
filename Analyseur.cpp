@@ -32,7 +32,15 @@
 #include "Agregat.h"
 
 namespace Analyseur {
-    
+
+    bool depasserBorne(long a, long b){
+        long c = a + b ;
+        if( (a > 0 && b > 0 &&  c < 0)  || (a < 0 && b < 0 &&  c > 0)  ){
+            return true;
+        }
+        return false;
+        
+    }
     
     bool checkIfNumber(string supposedNumber, long * number ){
         //Accepte un espace avant, mais pas apres
@@ -180,6 +188,7 @@ namespace Analyseur {
         if(firstWord.size() != 0 && firstWord.at(0) == '#'){
             return commentaire;
         }
+        cout << "ERR" << endl; 
         return errorCommand;
     }
     void remplirParametres(vector<string> * parameters, const string command){
@@ -305,7 +314,7 @@ namespace Analyseur {
             {
                     it++;
                     long x1;
-                    if(!Analyseur::checkIfNumber((*it).c_str(), &x1)){
+                    if(!Analyseur::checkIfNumber((*it), &x1)){
                         cout << "ERR" << endl;
                         cout << "#invalid parameters" << endl;
                         return NULL;
@@ -314,7 +323,7 @@ namespace Analyseur {
                     it++;
                     long y1;
                     
-                    if(!Analyseur::checkIfNumber((*it).c_str(), &y1)){
+                    if(!Analyseur::checkIfNumber((*it), &y1)){
                         cout << "ERR" << endl;
                         cout << "#invalid parameters" << endl;
                         return NULL;
@@ -323,12 +332,28 @@ namespace Analyseur {
                     
                     it++;
                     long r;
-                    if(!Analyseur::checkIfNumber((*it).c_str(), &r)){
+                    if(!Analyseur::checkIfNumber((*it), &r)){
                         cout << "ERR" << endl;
                         cout << "#invalid parameters" << endl;
                         return NULL;
                     }
                 
+                
+                    //On verifie si x+r et y+r ne dépassent pas les limites aussi
+                    /* long extremiteDroite = x1 + r;
+                    long extremiteGauche = x1 - r ;
+                    long extremiteHaut = y1 + r ;
+                    long extremiteBas = y1 - r ;
+                    */
+                
+                
+                    if(depasserBorne(x1, r) || depasserBorne(x1, -r) || depasserBorne(y1, r) || depasserBorne(y1, -r)){
+                        cout << "ERR" << endl;
+                        cout << "#Circle is out of field" << endl; 
+                        return NULL;
+                    }
+                
+                                
                     a = new Rond(nom,r,x1,y1);
                 
                 
@@ -338,7 +363,7 @@ namespace Analyseur {
             {
                 it++;
                 long x1;
-                if(!Analyseur::checkIfNumber((*it).c_str(), &x1)){
+                if(!Analyseur::checkIfNumber((*it), &x1)){
                     cout << "ERR" << endl;
                     cout << "#invalid parameters" << endl;
                     return NULL;
@@ -347,7 +372,7 @@ namespace Analyseur {
                 it++;
                 long y1;
                 
-                if(!Analyseur::checkIfNumber((*it).c_str(), &y1)){
+                if(!Analyseur::checkIfNumber((*it), &y1)){
                     cout << "ERR" << endl;
                     cout << "#invalid parameters" << endl;
                     return NULL;
@@ -356,7 +381,7 @@ namespace Analyseur {
                 
                 it++;
                 long x2;
-                if(!Analyseur::checkIfNumber((*it).c_str(), &x2)){
+                if(!Analyseur::checkIfNumber((*it), &x2)){
                     cout << "ERR" << endl;
                     cout << "#invalid parameters" << endl;
                     return NULL;
@@ -365,7 +390,7 @@ namespace Analyseur {
                 it++;
                 long y2;
                 
-                if(!Analyseur::checkIfNumber((*it).c_str(), &y2)){
+                if(!Analyseur::checkIfNumber((*it), &y2)){
                     cout << "ERR" << endl;
                     cout << "#invalid parameters" << endl;
                     return NULL;
@@ -408,7 +433,7 @@ namespace Analyseur {
                 it++;
                 while(it<parameters.end()){
                     long x1;
-                    if(!Analyseur::checkIfNumber((*it).c_str(), &x1)){
+                    if(!Analyseur::checkIfNumber((*it), &x1)){
                         cout << "ERR" << endl;
                         cout << "#invalid parameters" << endl;
                         return NULL;
@@ -426,7 +451,7 @@ namespace Analyseur {
             {
                 it++;
                 long x1;
-                if(!Analyseur::checkIfNumber((*it).c_str(), &x1)){
+                if(!Analyseur::checkIfNumber((*it), &x1)){
                     cout << "ERR" << endl;
                     cout << "#invalid parameters" << endl;
                     return NULL;
@@ -435,7 +460,7 @@ namespace Analyseur {
                 it++;
                 long y1;
                 
-                if(!Analyseur::checkIfNumber((*it).c_str(), &y1)){
+                if(!Analyseur::checkIfNumber((*it), &y1)){
                     cout << "ERR" << endl;
                     cout << "#invalid parameters" << endl;
                     return NULL;
@@ -444,7 +469,7 @@ namespace Analyseur {
                 
                 it++;
                 long x2;
-                if(!Analyseur::checkIfNumber((*it).c_str(), &x2)){
+                if(!Analyseur::checkIfNumber((*it), &x2)){
                     cout << "ERR" << endl;
                     cout << "#invalid parameters" << endl;
                     return NULL;
@@ -453,7 +478,7 @@ namespace Analyseur {
                 it++;
                 long y2;
                 
-                if(!Analyseur::checkIfNumber((*it).c_str(), &y2)){
+                if(!Analyseur::checkIfNumber((*it), &y2)){
                     cout << "ERR" << endl;
                     cout << "#invalid parameters" << endl;
                     return NULL;

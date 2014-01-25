@@ -40,8 +40,9 @@ public:
     //
     // Contrat :
     //
-
+    bool depasserBorne(long a, long b);
     const string getNom();
+    virtual bool canBeMoved(long dx, long dy) =0; 
     virtual void deplacer(long dx, long dy) =0;
     virtual string description() = 0 ;
     // Mode d'emploi : deplace l'element geometrique selon la translation de vecteur(x0,y0)

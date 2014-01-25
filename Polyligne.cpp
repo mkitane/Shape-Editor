@@ -58,12 +58,22 @@ Polyligne::~Polyligne ( )
     cout << "Appel au destructeur de <Polyligne>" << endl;
 #endif
 } //----- Fin de ~Polyligne
+bool Polyligne::canBeMoved(long dx, long dy){
+    vector<Point>::iterator it2;
+    for(it2=listeLignes.begin(); it2<listeLignes.end() ;it2++){
+        if(depasserBorne(it2->getX(), dx) || depasserBorne(it2->getY(), dy)){
+            return false;
+        }
+    }
+
+    return true;
+}
 
 void Polyligne::deplacer(long dx, long dy){
     vector<Point>::iterator it;
     for(it=listeLignes.begin(); it<listeLignes.end() ;it++){
         it->deplacer(dx, dy);
-    }
+    }    
 }
 string Polyligne::description(){
     string desc = "PL ";

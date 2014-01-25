@@ -24,6 +24,7 @@
 //{
 //} //----- Fin de Méthode
 
+
 void Agregat::deleteElt(string n){
     map<string, EltGeo *>::iterator itLE;
     itLE = listEltGeo.find(n);
@@ -45,7 +46,18 @@ bool Agregat::contains(EltGeo *e){
         return false;
     }
 }
-
+bool Agregat::canBeMoved(long dx, long dy){
+    
+    map<string, EltGeo *>::iterator it2;
+    for(it2 = listEltGeo.begin(); it2 != listEltGeo.end() ;it2++){
+        EltGeo *actuel = it2->second;
+        if(!(actuel->canBeMoved(dx, dy))){
+            return false;
+        }
+    }
+    
+    return true;
+}
 void Agregat::deplacer(long dx, long dy)
 {
     map<string, EltGeo *>::iterator it;
@@ -53,8 +65,6 @@ void Agregat::deplacer(long dx, long dy)
         EltGeo *actuel = it->second;
         actuel->deplacer(dx, dy);
     }
-    
- 
 }
 
 string Agregat::description(){

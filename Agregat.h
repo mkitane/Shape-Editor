@@ -33,6 +33,7 @@ class Agregat : public EltGeo
 
 public:
 //----------------------------------------------------- Méthodes publiques
+    bool canBeMoved(long dx, long dy);
     void deplacer(long dx, long dy);
     string description();
     void deleteElt(string n);

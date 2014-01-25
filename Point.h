@@ -35,9 +35,12 @@ public:
     //
     // Contrat :
     //
-    
+    bool depasserBorne(long a, long b);
+    bool canBeMoved(long dx, long dy);
     void deplacer(long dx, long dy);
     string description();
+    long getX(){return X;}
+    long getY(){return Y;}
 //------------------------------------------------- Surcharge d'opérateurs
     /*Point & operator = ( const Point & unPoint );
     // Mode d'emploi :

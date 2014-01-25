@@ -43,7 +43,15 @@ void CmdMove::decomposer(EltGeo *e){
     }
     
 }
-
+bool CmdMove::canBeMoved(long dx, long dy){
+    for(map<string,EltGeo *>::iterator it = listeElementsBouges.begin(); it!=listeElementsBouges.end() ; it++){
+        if(!(it->second)->canBeMoved(dx, dy)){
+            return false;
+        }
+    }
+    
+    return true; 
+}
 void CmdMove::moveAllSimpleObjects(long dx, long dy){
     for(map<string,EltGeo *>::iterator it = listeElementsBouges.begin(); it!=listeElementsBouges.end() ; it++){
         (it->second)->deplacer(dx, dy);
@@ -83,7 +91,13 @@ bool CmdMove::execute(){
             if(size==0){ // Pas besoin de decomposer si c'est un REDO
                 decomposer(itLE->second);
             }
-            moveAllSimpleObjects(x1, y1);
+            if(canBeMoved(x1, y1)){
+                moveAllSimpleObjects(x1, y1);
+            }else{
+                cout << "ERR" << endl;
+                cout << "#reached out of field " << endl; 
+                return false;
+            }
 
 #pragma -mark a faire quand on a les classes ELT Geo
         

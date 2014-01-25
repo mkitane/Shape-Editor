@@ -34,7 +34,7 @@ public:
     //
     // Contrat :
     //
-
+    bool canBeMoved(long dx, long dy);
     void deplacer(long dx, long dy);
     // Mode d'emploi : translate le centre du rond selon le vecteur (x0,y0)
     //

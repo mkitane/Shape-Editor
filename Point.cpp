@@ -45,9 +45,25 @@ Point & Point::operator = ( const Point & unPoint )
 #endif
 } //----- Fin de Point (constructeur de copie)
 */
+
+bool Point::depasserBorne(long a, long b){
+    long c = a + b ;
+    if( (a > 0 && b > 0 &&  c < 0)  || (a < 0 && b < 0 &&  c > 0)  ){
+        return true;
+    }
+    return false;
+    
+}
+bool Point::canBeMoved(long dx, long dy){
+    if(depasserBorne(X, dx) || depasserBorne(Y, dy)){
+        return false;
+    }
+    return true;
+}
 void Point::deplacer(long dx, long dy){
+ 
     X+=dx;
-    Y+=dy; 
+    Y+=dy;
 }
 string Point::description(){
     return to_string(X) + " " + to_string(Y);
