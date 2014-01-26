@@ -17,7 +17,6 @@
 #include <map>
 #include "Command.h"
 #include "EltGeo.h"
-#include "Agregat.h"
 using namespace std;
 //------------------------------------------------------------- Constantes
 

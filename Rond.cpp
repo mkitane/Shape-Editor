@@ -54,7 +54,7 @@ string Rond::description(){
 
 //-------------------------------------------- Constructeurs - destructeur
 
-Rond::Rond (string n,long r, long x0, long y0 ) : EltGeo(n), centre(Point(x0, y0)), rayon(r)
+Rond::Rond (string n,long r, long x0, long y0 ) : EltGeo(n), rayon(r), centre(Point(x0, y0))
 // Algorithme :
 //
 {
