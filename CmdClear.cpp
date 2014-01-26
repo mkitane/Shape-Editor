@@ -69,12 +69,15 @@ CmdClear::~CmdClear ( )
 // Algorithme :
 //
 {
+    /*
     vector<EltGeo *>::iterator it;
     for(it = elementsSupprimes.begin(); it!=elementsSupprimes.end(); it++){
         delete *it;
     }
     
     elementsSupprimes.clear();
+     */
+    
     //elementsSupprimes.shrink_to_fit();
 #ifdef MAP
     cout << "Appel au destructeur de <CmdClear>" << endl;

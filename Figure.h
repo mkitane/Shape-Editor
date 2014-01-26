@@ -101,7 +101,7 @@ protected:
     //----------------------------------------------------- Attributs protégés
     bool run;
     vector<Command *> historique;
-    vector<Command *>::iterator itActuel; // Correspond au curseur dans notre specifications ! 
+    vector<Command *>::iterator itActuel; // Correspond au curseur dans notre specifications !
     map<string, EltGeo *> listeDesElements;
     
 };
