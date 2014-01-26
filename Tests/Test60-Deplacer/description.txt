@@ -1,0 +1,1 @@
+deplacer un rond, verifier le mouvement des coordonnes du centre du cercle

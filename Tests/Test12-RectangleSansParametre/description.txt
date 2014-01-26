@@ -1,0 +1,1 @@
+commande de creation de rectangle, mais il manque un parametre

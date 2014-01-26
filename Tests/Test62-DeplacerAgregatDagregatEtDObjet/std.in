@@ -1,0 +1,8 @@
+L ligne1 1 1 2 2
+OA agregat1 ligne1
+LIST
+OA agregat2 agregat1 ligne1
+LIST
+MOVE agregat2 10 10
+LIST
+EXIT

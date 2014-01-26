@@ -1,0 +1,1 @@
+creation d'un rectangle dont les 2 extremites sont superposees

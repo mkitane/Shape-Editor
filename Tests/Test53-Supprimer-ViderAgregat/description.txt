@@ -1,0 +1,1 @@
+creer des elements, les mettre dans un agregat PUIS supprimer les elements: verifier que l'agregat est vide et existe

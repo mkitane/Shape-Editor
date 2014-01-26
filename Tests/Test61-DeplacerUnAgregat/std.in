@@ -1,0 +1,7 @@
+C cercle 1 1 2
+C cercle1 2 2 3
+OA agregat cercle cercle1
+LIST
+MOVE agregat 10 10
+LIST
+EXIT

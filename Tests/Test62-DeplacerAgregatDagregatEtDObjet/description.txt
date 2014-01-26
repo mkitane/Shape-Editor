@@ -1,0 +1,2 @@
+deplacer agregat1 contenant [ligne1 et agregat2], avec agregat2 contenant[ligne1].
+veifier que la ligne1 n'a ete translatee qu'une seule fois.

@@ -1,0 +1,1 @@
+verifier que la commande ne renvoie rien si aucun element n'a ete cree

@@ -1,0 +1,1 @@
+creation d'un agregat de 2 objets, puis integration de cet agregat dans un autre agregat

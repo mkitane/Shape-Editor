@@ -1,0 +1,2 @@
+creation de 2 rectangles geometriquement identiques mais de noms differents
+

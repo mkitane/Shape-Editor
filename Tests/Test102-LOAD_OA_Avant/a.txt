@@ -1,0 +1,5 @@
+OA agg1 c1 c2
+OA agg2 c2 r1
+C c1 1 1 1
+C c2 2 2 2
+R r1 1 1 2 2

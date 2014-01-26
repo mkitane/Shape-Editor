@@ -1,0 +1,1 @@
+ supprimer un agregat et verifier que ses composants existent toujours

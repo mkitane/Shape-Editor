@@ -1,0 +1,1 @@
+commande de creation de rectangle, mais un parametre n'est pas un chiffre.

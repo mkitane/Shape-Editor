@@ -1,0 +1,9 @@
+C c1 1 1 1
+C c2 2 2 2
+R r1 1 1 2 2
+LIST
+UNDO
+LIST
+REDO
+LIST
+EXIT

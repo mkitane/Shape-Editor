@@ -1,0 +1,1 @@
+deplacer tout un agregat, verifier la translation de tous les elements

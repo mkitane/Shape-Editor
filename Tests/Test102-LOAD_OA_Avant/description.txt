@@ -1,0 +1,1 @@
+Verifie que si on load des Objets agrèges avant des objets qui les contiennent il n’y a pas de soucis
