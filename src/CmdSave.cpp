@@ -25,6 +25,7 @@ bool CmdSave::execute()
 //  Pour tous nos elements de la liste des elements
 //  On charge dans notre fichier la description de chaque element
 {
+
    //Pour tous les elements, ecrire leur description
     vector<string>::iterator it;
     
