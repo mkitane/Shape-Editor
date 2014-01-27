@@ -7,7 +7,7 @@ Test05-MemeCerclesNomsDifferents;2;1;2;2;1
 Test10-CreerRectangle;2;1;2;2;1
 Test100-Clear;2;1;2;2;1
 Test101-Save;2;1;2;2;1
-Test102-LOAD_OA_Avant;2;0;2;2;0
+Test102-LOAD_OA_Avant;2;1;2;2;1
 Test103-NombreNegatifEtAVirgule;2;1;2;2;1
 Test11-PlusieursRectanglesDeMemeNom;2;1;2;2;1
 Test12-RectangleSansParametre;2;1;2;2;1
