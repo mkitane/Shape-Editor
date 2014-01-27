@@ -38,7 +38,7 @@ void Rectangle::deplacer(long dx, long dy)
 {
 
     point1.deplacer(dx, dy);
-    point2.deplacer(dx, dx);
+    point2.deplacer(dx, dy);
 } //----- Fin de Méthode
 
 string Rectangle::description()
