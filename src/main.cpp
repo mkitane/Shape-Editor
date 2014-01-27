@@ -41,8 +41,12 @@ int main(int argc, const char * argv[])
             
             remplirParametres(&parameters, commandEntry);
 
-            Command *c = createCommand(t, parameters, &f);
-            f.stockerEtExecuter(c);
+
+            if(nbParams(t,(int)parameters.size())){
+                Command *c = createCommand(t, parameters, &f);
+                f.stockerEtExecuter(c);
+            }
+
 
             
         }else if(t == fermer){

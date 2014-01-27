@@ -172,6 +172,10 @@ bool CmdLoad::loadElements(string temp)
     }else if(t==Analyseur::ajouterLigne || t==Analyseur::ajouterCercle || t==Analyseur::ajouterPolyligne || t==Analyseur::ajouterRectangle){
         Analyseur::remplirParametres(&parameters, temp);
         
+        if(!nbParams(t,(int)parameters.size())){
+            eraseCreated();
+            return false;
+        }
         
         vector<string>::iterator it2;
         
@@ -221,6 +225,10 @@ bool CmdLoad::loadOAs()
         t = Analyseur::analyseCommand(*poolObjects);
         Analyseur::remplirParametres(&parameters, *poolObjects);
         
+        if(!nbParams(t,(int)parameters.size())){
+            eraseCreated();
+            return false;
+        }
         
         vector<string>::iterator it2;
         

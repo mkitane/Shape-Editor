@@ -51,9 +51,9 @@ namespace Analyseur {
     // Contrat :
     //
     
-    int nbParams(string command);
+    bool nbParams(TypeCommand t, int nbParams);
     // Mode d'emploi :
-    //  Renvoie le nombre de parametre a partir de la commande
+    //  Renvoie vrai si le nombre de parametres est bien le bon pour cette commande
     // Contrat :
     //
     

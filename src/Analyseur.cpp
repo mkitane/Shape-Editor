@@ -69,18 +69,159 @@ namespace Analyseur {
     }//----- Fin de Méthode
     
     
-    int nbParams(string command)
+    bool nbParams(TypeCommand t, int nbParams)
     // Algorithme :
-    //     Compte le nombre d'espace
+    //  Verifie si le nombre despace est le bon en fonction du type
     {
-        int nb = 1; // Car on considere qu'il n'y a pas d'espace apres le dernier char
         
-        for(int i=0; i < command.size(); i++){
-            if(command.at(i) == ' '){
-                nb++;
+        nbParams ++; //On recupere le nombre de parametres, on teste sur le nombre total delements de la commande, donc +1
+        
+        switch (t) {
+            case ajouterCercle:
+            {
+                //Il faut absolument 5 params
+                if(nbParams != 5){
+                    cout << "ERR" << endl;
+                    cout << "#invalid parameters" << endl;
+                    return false;
+                }
+                return true;
             }
+                break;
+            case ajouterRectangle:
+            {
+                //Il faut absolument 6 params
+                if(nbParams != 6){
+                    cout << "ERR" << endl;
+                    cout << "#invalid parameters" << endl;
+                    return false;
+                }
+                return true;
+            }
+                break;
+            case ajouterLigne:
+            {
+                //Il faut absolument 6 params
+                if(nbParams!= 6){
+                    cout << "ERR" << endl;
+                    cout << "#invalid parameters" << endl;
+                    return false;
+                }
+                return true;
+            }
+                break;
+            case ajouterPolyligne:
+            {
+                 //Il faut absolument un nombre pair de parametre superieur ou egal a 6
+                if(  (nbParams%2 != 0)  || (nbParams < 6) ){
+                    cout << "ERR" << endl;
+                    cout << "#invalid parameters" << endl;
+                    return false;
+                }
+                return true;
+            }
+                break;
+            case ajouterObjetAgrege:
+            {
+                 //Il faut absolument un nombre de param supérieur OU EGAL a 2
+                if(nbParams <= 2){
+                    cout << "ERR" << endl;
+                    cout << "#invalid parameters" << endl;
+                    return false;
+                }
+                return true;
+            }
+                break;
+            case suppression:
+            {
+                return true;
+            }
+                break;
+            case deplacement:
+            {
+                //Il faut absolument 4 params
+                if(nbParams != 4){
+                    cout << "ERR" << endl;
+                    cout << "#invalid parameters" << endl;
+                    return false;
+                }
+                return true;
+            }
+                break;
+            case enumeration:
+            {
+                //Il faut aucun autre param, ou alors on s'en fout et on l'ignore
+                return true;
+
+            }
+                break;
+            case annuler:
+            {
+                 //Il faut aucun autre param, ou alors on s'en fout et on l'ignore
+                return true;
+
+            }
+                break;
+            case reprendre:
+            {
+                   //Il faut aucun autre param, ou alors on s'en fout et on l'ignore
+                return true;
+
+            }
+                break;
+            case charger:
+            {
+                //Il faut absolument 2 params
+                if(nbParams != 2){
+                    cout << "ERR" << endl;
+                    cout << "#invalid parameters" << endl;
+                    return false;
+                }
+                return true;
+
+            }
+                break;
+            case sauvegarder:
+            {
+                //Il faut absolument 2 params
+                if(nbParams != 2){
+                    cout << "ERR" << endl;
+                    cout << "#invalid parameters" << endl;
+                    return false;
+                }
+                return true;
+
+            }
+                break;
+            case vider:
+            {
+                //Il faut aucun autre param, ou alors on s'en fout et on l'ignore
+                return true;
+
+            }
+                break;
+            case fermer:
+            {
+                //Il faut aucun autre param, ou alors on s'en fout et on l'ignore
+                return true;
+
+            }
+                break;
+            case commentaire:
+            {
+                return false;
+
+            }
+                break;
+            case errorCommand:
+            {
+                return false;
+
+            }
+                break;
         }
-        return nb;
+        
+        return true;
     }//----- Fin de Méthode
     
     
@@ -102,103 +243,50 @@ namespace Analyseur {
         
         //Dans les commentaires, on compte aussi le premier param, càd, le premier Param ex "C"
         if(firstWord.compare("C") == 0 ){
-            //Il faut absolument 5 params
-            if(nbParams(command) != 5){
-                cout << "ERR" << endl;
-                cout << "#invalid parameters" << endl;
-                return errorCommand;
-            }
             return ajouterCercle;
         }
         
         if(firstWord.compare("R") == 0 ){
-            //Il faut absolument 6 params
-            if(nbParams(command) != 6){
-                cout << "ERR" << endl;
-                cout << "#invalid parameters" << endl;
-                return errorCommand;
-            }
             return ajouterRectangle;
         }
         
         if(firstWord.compare("L") == 0 ){
-            //Il faut absolument 6 params
-            if(nbParams(command) != 6){
-                cout << "ERR" << endl;
-                cout << "#invalid parameters" << endl;
-                return errorCommand;
-            }
             return ajouterLigne;
         }
         
         if(firstWord.compare("PL") == 0 ){
-            //Il faut absolument un nombre pair de parametre superieur ou egal a 6
-            int nb = nbParams(command);
-            if(  (nb%2 != 0)  || (nb < 6) ){
-                cout << "ERR" << endl;
-                cout << "#invalid parameters" << endl;
-                return errorCommand;
-            }
             return ajouterPolyligne;
         }
         
         if(firstWord.compare("OA") == 0 ){
-            //Il faut absolument un nombre de param supérieur OU EGAL a 2
-            if(nbParams(command) <= 2){
-                cout << "ERR" << endl;
-                cout << "#invalid parameters" << endl;
-                return errorCommand;
-            }
             return ajouterObjetAgrege;
         }
         
         if(firstWord.compare("DELETE") == 0 ){
-            //Pas de restriction sur le nombre de params apparement (en supposant qu'il ya tjrs le premier)
             return suppression;
         }
         
         if(firstWord.compare("MOVE") == 0 ){
-            //Il faut absolument 4 params
-            if(nbParams(command) != 4){
-                cout << "ERR" << endl;
-                cout << "#invalid parameters" << endl;
-                return errorCommand;
-            }
             return deplacement;
         }
         
         if(firstWord.compare("LIST") == 0 ){
-            //Il faut aucun autre param, ou alors on s'en fout et on l'ignore
             return enumeration;
         }
         
         if(firstWord.compare("UNDO") == 0 ){
-            //Il faut aucun autre param, ou alors on s'en fout et on l'ignore
             return annuler;
         }
         
         if(firstWord.compare("REDO") == 0 ){
-            //Il faut aucun autre param, ou alors on s'en fout et on l'ignore
             return reprendre;
         }
         
         if(firstWord.compare("LOAD") == 0 ){
-            //Il faut absolument 2 params
-            if(nbParams(command) != 2){
-                cout << "ERR" << endl;
-                cout << "#invalid parameters" << endl;
-                return errorCommand;
-            }
             return charger;
         }
         
         if(firstWord.compare("SAVE") == 0 ){
-            //Il faut absolument 2 params
-            if(nbParams(command) != 2){
-                cout << "ERR" << endl;
-                cout << "#invalid parameters" << endl;
-                return errorCommand;
-            }
             return sauvegarder;
         }
         
@@ -240,6 +328,7 @@ namespace Analyseur {
             //cout<< "le parametre a push back est " << line << endl;
             parameters->push_back(line);
         }
+        
     }//----- Fin de Méthode
     
     
