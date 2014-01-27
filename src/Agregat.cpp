@@ -98,7 +98,7 @@ string Agregat::description()
     map<string, EltGeo *>::iterator it;
     for(it = listEltGeo.begin(); it != listEltGeo.end() ;it++){
         EltGeo *actuel = it->second;
-        desc = desc + actuel->getNom() + " ";
+        desc = desc + actuel->getNom();
     }
     return desc;
 } //----- Fin de MŽthode
