@@ -1,7 +1,9 @@
 .project
 .cproject
-Debug/
 Release/
 /Default
 .settings/
 .csettings/
+*.o
+*.d
+B3424
